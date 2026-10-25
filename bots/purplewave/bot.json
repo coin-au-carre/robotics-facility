@@ -37,8 +37,8 @@
     "formats": [
       {
         "id": "one-v-one",
-        "support": "verified",
-        "notes": "All three upstream races are enabled. Protoss completed a local x64 match and x86 smoke tests; Terran and Zerg have not yet had dedicated SC:R bridge game tests. https://github.com/ShieldBattery/robotics-facility/blob/purplewave-sb-3/docs/releases/purplewave-sb-3.md"
+        "support": "unverified",
+        "notes": "Updated source requires game validation. Prior sb.4 Protoss results apply to the older source."
       },
       {
         "id": "teams",
@@ -67,8 +67,8 @@
   },
   "permissions": {
     "localDistribution": {
-      "status": "approved",
-      "evidence": "Prior local distribution review plus native dependency notice correction: https://github.com/ShieldBattery/robotics-facility/blob/purplewave-sb-4/docs/releases/purplewave-sb-4.md"
+      "status": "unreviewed",
+      "evidence": "Updated source at 88c1056aac722fd648ca81e5746da25ed8123c3e requires renewed review; see docs/releases/purplewave-sb-5.md. Published sb.4 evidence applies to the prior source."
     },
     "publicCompetition": {
       "status": "unreviewed",
@@ -76,7 +76,7 @@
     }
   },
   "compatibility": {
-    "status": "prototype-tested",
+    "status": "unverified",
     "bwapiVersion": "4.4.0",
     "protocol": 10003,
     "botArchitecture": "x86_64",
@@ -84,7 +84,7 @@
       "x86",
       "x86_64"
     ],
-    "evidence": "https://github.com/ShieldBattery/robotics-facility/blob/purplewave-sb-2/docs/releases/purplewave-sb-2.md",
+    "evidence": "docs/releases/purplewave-sb-5.md",
     "limitations": [
       "Experimental partial BWAPI semantics.",
       "Terran and Zerg are enabled from upstream support; dedicated SC:R bridge game verification is pending. Other game formats remain unverified."
@@ -97,7 +97,7 @@
     "instructions": "bots/purplewave/BUILD.md"
   },
   "sourceReview": {
-    "status": "approved",
-    "evidence": "Prior source review and unchanged executable bytes; native dependency notice correction: https://github.com/ShieldBattery/robotics-facility/blob/purplewave-sb-4/docs/releases/purplewave-sb-4.md"
+    "status": "pending",
+    "evidence": "Updated source at 88c1056aac722fd648ca81e5746da25ed8123c3e requires renewed review; see docs/releases/purplewave-sb-5.md. Published sb.4 evidence applies to the prior source."
   }
 }
