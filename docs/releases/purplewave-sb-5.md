@@ -36,3 +36,24 @@ The source and patch hashes, recipe revision, toolchain and output hashes belong
 to the generated build-info.json. A review archive must retain corresponding
 source, notices and build materials. Prior sb.4 gameplay evidence applies to the
 older source; this update requires its own validation before catalog admission.
+
+## Validation on 2026-10-25
+
+Full source build passed with Temurin JDK 21.0.11 x64 and Scala 2.12.20.
+Recipe commit: `ea7c71818b1c41f0ded7bff21249c2cd99911822`.
+The generated `bin/PurpleWave.jar` is 6,766,043 bytes, SHA-256
+`0b8a7e8be09b91098c9d79b5d24d3836475ce61860770d83f8a20d8c5cef0c57`. All six output JARs match their recorded sizes and hashes.
+
+Metadata generation check, TypeScript typecheck, lint/format, catalog validation,
+and all 66 tooling tests passed. The existing runtime-state codec regression
+passed against the prepared source. The isolation patch applies unchanged from
+the failed head candidate; no combat code was modified.
+
+Review packaging is blocked by an existing duplicate archive entry:
+`source/patches/jbwapi/0002-single-match-lifecycle.patch`. The packager adds it
+once from the source lock and again from the recipe inventory. Both inputs were
+already present at the robotics-facility base commit `0f9be67`; this update does
+not change them. No review ZIP was produced and no packaging check was bypassed.
+
+Gameplay testing, renewed source/distribution review and publication remain
+pending. Published sb.4 and the catalog are unchanged.
