@@ -68,7 +68,7 @@
   "permissions": {
     "localDistribution": {
       "status": "unreviewed",
-      "evidence": "Updated source at 88c1056aac722fd648ca81e5746da25ed8123c3e requires renewed review; see docs/releases/purplewave-sb-5.md. Published sb.4 evidence applies to the prior source."
+      "evidence": "Updated source at 08672150433a2c60f5db23e10d2bc15dbc6e302e requires renewed review; see docs/releases/purplewave-sb-5.md. Published sb.4 evidence applies to the prior source."
     },
     "publicCompetition": {
       "status": "unreviewed",
@@ -98,6 +98,6 @@
   },
   "sourceReview": {
     "status": "pending",
-    "evidence": "Updated source at 88c1056aac722fd648ca81e5746da25ed8123c3e requires renewed review; see docs/releases/purplewave-sb-5.md. Published sb.4 evidence applies to the prior source."
+    "evidence": "Updated source at 08672150433a2c60f5db23e10d2bc15dbc6e302e requires renewed review; see docs/releases/purplewave-sb-5.md. Published sb.4 evidence applies to the prior source."
   }
 }
