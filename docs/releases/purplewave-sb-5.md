@@ -1,6 +1,6 @@
 # PurpleWave sb.5 source update candidate
 
-Status: review-only candidate. Source/distribution review and game validation are pending.
+Status: review-only candidate. Source/distribution review and broader game validation remain pending.
 The published sb.4 catalog entry remains unchanged.
 
 ## Source selection
@@ -37,23 +37,45 @@ to the generated build-info.json. A review archive must retain corresponding
 source, notices and build materials. Prior sb.4 gameplay evidence applies to the
 older source; this update requires its own validation before catalog admission.
 
+## Packaging fix
+
+A source patch that is also a recipe input is archived by the recipe inventory
+instead of being added twice. Source-lock hash checks and committed recipe
+verification still run; the archive builder still rejects duplicate entries.
+The gameplay sources and runtime dependencies are unchanged by this fix.
+
 ## Validation on 2026-10-25
 
 Full source build passed with Temurin JDK 21.0.11 x64 and Scala 2.12.20.
-Recipe commit: `ea7c71818b1c41f0ded7bff21249c2cd99911822`.
-The generated `bin/PurpleWave.jar` is 6,766,043 bytes, SHA-256
-`0b8a7e8be09b91098c9d79b5d24d3836475ce61860770d83f8a20d8c5cef0c57`. All six output JARs match their recorded sizes and hashes.
-
+Recipe commit: `0af3074bdbf02df108e7c22d7a9a4ac3094a4f5d`.
 Metadata generation check, TypeScript typecheck, lint/format, catalog validation,
-and all 66 tooling tests passed. The existing runtime-state codec regression
-passed against the prepared source. The isolation patch applies unchanged from
-the failed head candidate; no combat code was modified.
+and all 66 tooling tests passed. The existing runtime-state codec regression passed.
 
-Review packaging is blocked by an existing duplicate archive entry:
-`source/patches/jbwapi/0002-single-match-lifecycle.patch`. The packager adds it
-once from the source lock and again from the recipe inventory. Both inputs were
-already present at the robotics-facility base commit `0f9be67`; this update does
-not change them. No review ZIP was produced and no packaging check was bypassed.
+The local review archive is `dist/purplewave-sb-5-review/purplewave-sb-5.zip`,
+20,062,409 bytes, SHA-256
+`7bbc47be6b095059e5bbbb60ddbcb7af192a4bca241882e63551a47a51c1e3ce`.
+Its 1,183 entries have no duplicate paths; the JBWAPI lifecycle
+patch appears exactly once and matches its checked source bytes. All six output
+JARs match their recorded sizes and hashes. The bot JAR SHA-256 is
+`0b8a7e8be09b91098c9d79b5d24d3836475ce61860770d83f8a20d8c5cef0c57`.
 
-Gameplay testing, renewed source/distribution review and publication remain
-pending. Published sb.4 and the catalog are unchanged.
+## ShieldBattery gameplay
+
+The extracted review archive ran through existing SB local-build and practice
+IPC with Java 21 x64, isolated fresh profiles and Fighting Spirit 1.4.
+SB commit: `ff167db43053cead7a991a68c224c8d6bf61066d`; DLL SHA-256:
+`026480170ea8a0cc7a5a0ef2ded82ad3ad81148aef8029cfd390ba13874a5a36`. This is a developer-build test, not signed-catalog installation.
+
+| Race and opening | Observations | End scope |
+| --- | --- | --- |
+| Protoss, default strategy selection | 17 Probes, second Nexus, two Gateways and Cybernetics Core present; 3,910 accepted commands, none rejected at frame 4,320 | Automatically stopped after frame 4,362 |
+| Zerg, fixed ZvE4Pool | Spawning Pool, 10 Zerglings and a distant Drone scout; 7,166 accepted commands and 14 rejected at frame 3,600 | Result returned; BWAPI emitted winner=true at frame 3,799, before the stop limit |
+
+Neither bot stdout log contained an exception. Both profiles wrote logs/cache
+and history files, and the owned test app/game processes exited. Existing bot
+bundles, published catalog and SB DLL were unchanged.
+
+These runs do not establish playing strength, Terran behavior, x86 compatibility,
+or saved-state reuse across matches. Source/distribution review and broader game
+validation remain pending. The package remains review-only and nothing was pushed
+or published.
