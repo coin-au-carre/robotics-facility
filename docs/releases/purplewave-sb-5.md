@@ -28,3 +28,27 @@ The current build recipes require committed inputs. Record the resulting recipe
 revision, source/patch hashes, artifact hashes and actual validation scope here
 before proposing admission. A familiar bot name and prior sb.4 test results do not
 establish compatibility or approval for this candidate.
+
+## Validation on 2026-10-25
+
+Recipe commit: `4ee606f` on the contribution branch. The documented metadata
+check, TypeScript typecheck, lint/format, catalog validation and all 66 tooling
+tests passed on Windows Node 24.22.1 with pnpm 11.18.0.
+
+The full build using Temurin JDK 21.0.11 x64 and the pinned Scala 2.12.20 compiler
+failed with three undefined `Aim` references:
+
+- `src/Micro/Actions/Combat/Decisionmaking/Combat.scala`: lines 88 and 118.
+- `src/Micro/Actions/Combat/Fight.scala`: line 39.
+
+Both files and `Decisionmaking/Techniques.scala` match pristine upstream source
+byte-for-byte. The upstream diff removes the `Techniques.Aim` definition while
+references remain; the additional `Fight.scala` call has no corresponding tracked
+action definition. The upstream Maven main-source configuration does not exclude
+these files. No combat workaround was added.
+
+The existing runtime-state codec regression passed independently against the
+rebased source.
+
+No sb.5 JAR, review archive, gameplay result or publication was produced. The
+candidate remains unverified and review-pending. Published sb.4 remains unchanged.
