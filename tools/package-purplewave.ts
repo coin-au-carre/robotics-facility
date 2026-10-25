@@ -117,7 +117,8 @@ export async function packagePurpleWave({
     for (const patch of source.patches ?? []) {
       const bytes = await readFile(path.join(root, patch.path))
       if (sha256(bytes) !== patch.sha256) throw new Error('Source patch hash changed')
-      entries.push([`source/${patch.path}`, bytes])
+      // The recipe inventory also verifies and archives patches included in its inputs.
+      if (!recipePaths.includes(patch.path)) entries.push([`source/${patch.path}`, bytes])
     }
   }
   entries.push(
