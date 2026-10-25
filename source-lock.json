@@ -146,6 +146,12 @@
           "sha256": "24034b0e026335b503b3f49496ee123af6ebe2d6e20cef4c45978d749e4764c1"
         }
       ]
+    },
+    {
+      "id": "bananabrain",
+      "repository": "https://github.com/coin-au-carre/robotics-facility.git",
+      "revision": "f66d7336ca61a0a0a1a984fad55c162d942694e4",
+      "patches": []
     }
   ]
 }

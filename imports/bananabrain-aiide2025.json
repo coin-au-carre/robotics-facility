@@ -1,0 +1,11 @@
+{
+  "upstreamUrl": "https://davechurchill.ca/starcraft/aiide/results/2025/bots/BananaBrain.zip",
+  "sha256": "3d68f16ca785665c56ef78148271c5a1e19d1df82cdd1cf4620f3090ca207549",
+  "sizeBytes": 1578003,
+  "stripPrefix": "BananaBrainAIIDE2025/",
+  "repository": "https://github.com/coin-au-carre/robotics-facility.git",
+  "revision": "f66d7336ca61a0a0a1a984fad55c162d942694e4",
+  "tree": "7fda30c18b1dc20a2e4d0a6b39d3e2efc9ab8060",
+  "files": 92,
+  "notes": "Unmodified src/, AI text data and Readme.txt from verified author submission. Original compiled DLL and .DS_Store are excluded. Local source branch must be made available before external reproducibility review."
+}
