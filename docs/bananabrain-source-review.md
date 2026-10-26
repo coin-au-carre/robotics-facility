@@ -1,6 +1,6 @@
 # BananaBrain source/storage review
 
-Review date: 2026-10-26. Status: **pending; storage patch tested locally**.
+Review date: 2026-10-26. Status: **pending; committed review package and offline rebuild tested**.
 Initial scope: the original AIIDE 2025 source in review package `bananabrain-sb-2`,
 existing native host/BWAPI client, packaged source rebuild and isolated storage
 tests. This does not approve catalog admission or public competition.
@@ -135,12 +135,11 @@ files stayed unchanged, confirming reuse of newer output. Result/mining files
 persisted and all owned processes exited. These were deliberately stopped tests,
 not completed matches or reset-UI verification.
 
-Current changes are uncommitted. Direct CMake development builds are recorded in
+Initial uncommitted CMake development builds are recorded in
 `.build/bananabrain-storage-build/development-build.json`; they are not release
-build-info records and do not bypass committed-recipe gates. The previous ZIP
-contains the original bot. A fresh committed build, new review package and its
-offline rebuild are still required, along with crash/disk-full and concurrent-profile
-tests before approval. No commit or push was made.
+build-info records and do not bypass committed-recipe gates. The original sb.2 ZIP
+contains the unpatched bot. The subsequent committed sb.3 package is recorded
+below; crash/disk-full and concurrent-profile tests remain before approval.
 
 ## Completed patched match
 
@@ -166,3 +165,14 @@ Evidence and current input hashes are retained in ignored
 First launch failed before game creation because the saved map URL returned 403.
 Retry reused a prior cached map, verified against its format-prefixed SHA-256 and
 rechecked by SB's existing map loader. No integrity check was disabled.
+
+
+## Committed review package
+
+Recipe `4c5178c0d81a1514582f51c26c3dc600a36b83c7` passed the guarded build and
+produced review-only `bananabrain-sb-3`. Its packaged source rebuilt offline;
+archive integrity, original training data and storage regressions passed. The
+extracted package completed a passive-control match and a saved-state restart.
+See [sb.3 release review](releases/bananabrain-sb-3.md) for exact hashes, command
+counts, test scope and remaining checks. Source/distribution approval stays
+pending; this records local verification, not catalog publication.

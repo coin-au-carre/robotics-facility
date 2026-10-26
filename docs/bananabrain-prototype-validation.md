@@ -79,8 +79,8 @@ confirms reuse. All owned test app/game processes exited. These are opening and
 reload tests, not completed competitive matches or signed-catalog installation.
 
 The archive is review-only: source review is pending and local distribution is
-unreviewed. Packaging changes remain uncommitted, so this verifies local package
-assembly and gameplay, not a committed packaging recipe. The subsequent offline
+unreviewed. At that stage packaging changes were uncommitted, so those tests
+verified local assembly/gameplay, not a committed packaging recipe. The subsequent offline
 source rebuild is recorded in the review linked below.
 The earlier local `bananabrain-sb-1` archive was superseded to correct its
 build-source repository link; it was not published.
@@ -88,7 +88,7 @@ build-source repository link; it was not published.
 ## Remaining before admission
 
 The [source/storage review](bananabrain-source-review.md#storage-patch-verification)
-now records the minimal downstream patch and its uncommitted development build.
+records the minimal downstream patch and its earlier development build.
 Malformed-input, overflow, stale-read, failed-save and junction/hardlink tests
 passed, including all original training data. Patched SB opening/restart tests
 accepted 357/63 commands with zero rejections and verified result-file reuse
@@ -98,12 +98,14 @@ A subsequent patched full match against passive Terran completed at frame 3,823:
 bot reported victory, 455 commands accepted, zero rejected. Result/mining files
 persisted and owned processes exited. See the source review for exact scope/hashes.
 
-Review remains pending. Original package's offline rebuild passed; patched recipe
-still needs a committed build, fresh review ZIP and offline rebuild. Complete
+Review remains pending. The committed recipe and [sb.3 review package](releases/bananabrain-sb-3.md)
+passed guarded build, offline source rebuild, extracted-package full match and
+saved-state restart. Complete
 crash/disk-full, concurrent-profile, broader gameplay, learning reset and
 distribution review. Test additional race/game-architecture combinations; source
 supports Terran and Zerg but neither was tested here.
 
 Existing BotSagi binaries, profiles and the published catalog are unchanged.
-Prototype and source-import branches were pushed before this packaging work;
-the packaging/storage changes have not been committed or pushed.
+Prototype and source-import branches were pushed before packaging work.
+Packaging/storage and final verification are committed locally; no additional
+push or PR creation is included.
