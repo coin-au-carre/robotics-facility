@@ -171,6 +171,13 @@ export async function packagePurpleWave({
     licenses,
     modifications: [
       {
+        modifier: 'ShieldBattery',
+        date: '2026-10-26',
+        summary:
+          'Require a nonempty melee-threat list before lethal gathering escape logic, preventing empty.max for workers with zero health.',
+        scope: 'bot',
+      },
+      {
         modifier: 'Florian D.',
         date: '2026-10-25',
         summary:

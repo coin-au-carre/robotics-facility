@@ -37,8 +37,8 @@
     "formats": [
       {
         "id": "one-v-one",
-        "support": "verified",
-        "notes": "sb.5 completed natural Protoss-versus-Zerg 1v1 matches on x64 and x86. Terran has x64 opening evidence. Train-cancel bridge fix and scoped remaining rejections: docs/releases/purplewave-sb-5-bridge-review.md."
+        "support": "unverified",
+        "notes": "sb.6 adds an empty-melee-threat guard. Gameplay verification pending for these changed inputs; sb.5 natural-match evidence remains scoped to sb.5."
       },
       {
         "id": "teams",
@@ -68,7 +68,7 @@
   "permissions": {
     "localDistribution": {
       "status": "unreviewed",
-      "evidence": "Updated MIT source, bundled dependency notices and modification disclosures audited in docs/releases/purplewave-sb-5.md. Distribution admission approval remains pending for the new source; published sb.4 is unchanged."
+      "evidence": "sb.6 changes the PurpleWave source patch and requires renewed source/distribution admission. sb.5 review and published sb.4 remain scoped to their original inputs."
     },
     "publicCompetition": {
       "status": "unreviewed",
@@ -76,7 +76,7 @@
     }
   },
   "compatibility": {
-    "status": "prototype-tested",
+    "status": "unverified",
     "bwapiVersion": "4.4.0",
     "protocol": 10003,
     "botArchitecture": "x86_64",
@@ -84,11 +84,11 @@
       "x86",
       "x86_64"
     ],
-    "evidence": "docs/releases/purplewave-sb-5.md",
+    "evidence": "docs/releases/purplewave-sb-6.md",
     "limitations": [
       "Experimental partial BWAPI semantics; train cancellation requires the separate SB bridge fix documented in docs/releases/purplewave-sb-5-bridge-review.md. Remaining instrumented rejections hit native actor/target, ownership or visibility guards.",
-      "Protoss/Zerg full-match evidence covers x64 and x86. Terran has an x64 opening test; Terran full matches/x86, Random and other formats remain unverified.",
-      "Caught PurpleWave Gather.scala empty.max exceptions occurred in two diagnostic matches; gameplay and saved results continued. See follow-up report."
+      "Prior sb.5 Protoss/Zerg full-match evidence covers x64 and x86, with a Terran x64 opening test. sb.6 gameplay remains unverified; Terran full matches/x86, Random and other formats remain unverified.",
+      "sb.6 guards the empty-threat Gather predicate; regression/build evidence and gameplay limits are recorded in docs/releases/purplewave-sb-6.md."
     ]
   },
   "build": {
@@ -99,6 +99,6 @@
   },
   "sourceReview": {
     "status": "pending",
-    "evidence": "Automated source/license, rebuild, JVM and native file/registry/process review recorded in docs/releases/purplewave-sb-5.md and purplewave-sb-5-bridge-review.md. Native tracing has documented attribution/coverage limits; admission approval remains pending."
+    "evidence": "sb.6 empty-threat guard review: docs/releases/purplewave-sb-6.md. Prior source/runtime evidence covers sb.5 only; admission remains pending."
   }
 }
