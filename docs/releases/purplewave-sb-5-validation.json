@@ -1,0 +1,388 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-26",
+  "sourceRevision": "08672150433a2c60f5db23e10d2bc15dbc6e302e",
+  "sbRevision": "ff167db43053cead7a991a68c224c8d6bf61066d",
+  "scope": "Review-only archive through SB local-build/practice; Windows, Java 21 x64, Fighting Spirit 1.4. No signed-catalog installation or strength calibration.",
+  "archive": {
+    "sha256": "7bbc47be6b095059e5bbbb60ddbcb7af192a4bca241882e63551a47a51c1e3ce",
+    "sizeBytes": 20062409
+  },
+  "dlls": {
+    "x86": "2593991d264c9f4ab0aea48305109457d9d23ad0ad3e13e1a944e5ec387027bc",
+    "x64": "026480170ea8a0cc7a5a0ef2ded82ad3ad81148aef8029cfd390ba13874a5a36"
+  },
+  "runs": {
+    "protossOpening": {
+      "architecture": "x64",
+      "started": "2026-10-26T11:58:45.469Z",
+      "finished": "2026-10-26T12:00:58.067Z",
+      "boundedStop": false,
+      "sessionEndedWithResult": true,
+      "sessionId": "3c7c9d0f-9f7f-4be4-9a93-dad0f64b2eb2",
+      "botGames": [
+        {
+          "gameId": "ae9773ef-2a0c-4f90-ae8e-107eca4dbe4c",
+          "matchEnd": {
+            "winner": true,
+            "frame": 2526
+          },
+          "commands": {
+            "accepted": 1276,
+            "rejected": 0
+          },
+          "unsupportedCommandWarnings": 0,
+          "stdoutExceptionLines": 0
+        }
+      ],
+      "endScope": "Player left through native menus before cleanup; origin of input unresolved. Not a naturally completed match."
+    },
+    "terranOpening": {
+      "architecture": "x64",
+      "started": "2026-10-26T12:01:26.559Z",
+      "finished": "2026-10-26T12:03:48.086Z",
+      "boundedStop": false,
+      "sessionEndedWithResult": true,
+      "sessionId": "e2cd41a6-a61e-4e20-8d2d-9c5f99d0ad57",
+      "botGames": [
+        {
+          "gameId": "30f903b8-68df-431c-ac77-201c3589a320",
+          "matchEnd": {
+            "winner": true,
+            "frame": 2784
+          },
+          "commands": {
+            "accepted": 1194,
+            "rejected": 0
+          },
+          "unsupportedCommandWarnings": 0,
+          "stdoutExceptionLines": 0
+        }
+      ],
+      "endScope": "Player left through native menus before cleanup; origin of input unresolved. Not a naturally completed match."
+    },
+    "interruptedDuel": {
+      "architecture": "x64",
+      "started": "2026-10-26T12:06:02.693Z",
+      "finished": "2026-10-26T12:13:11.157Z",
+      "boundedStop": false,
+      "sessionEndedWithResult": true,
+      "sessionId": "0376afff-a614-489b-b98f-3aee11a868fa",
+      "botGames": [
+        {
+          "gameId": "69fc5d56-e8f5-48c0-921d-9a917ddb83fd",
+          "matchEnd": {
+            "winner": false,
+            "frame": 9347
+          },
+          "commands": {
+            "accepted": 26387,
+            "rejected": 22
+          },
+          "unsupportedCommandWarnings": 0,
+          "stdoutExceptionLines": 0
+        },
+        {
+          "gameId": "93121954-80b6-44bc-a6f0-1d9449ebfd68",
+          "matchEnd": {
+            "winner": false,
+            "frame": 9347
+          },
+          "commands": {
+            "accepted": 43221,
+            "rejected": 18
+          },
+          "unsupportedCommandWarnings": 0,
+          "stdoutExceptionLines": 0
+        }
+      ],
+      "endScope": "Observer quit by user; both bots stopped. Not a naturally completed match."
+    },
+    "fullMatch": {
+      "architecture": "x64",
+      "started": "2026-10-26T12:14:26.955Z",
+      "finished": "2026-10-26T12:26:04.817Z",
+      "boundedStop": false,
+      "sessionEndedWithResult": true,
+      "sessionId": "b75773c8-a2e3-4aef-a878-d98a64960730",
+      "botGames": [
+        {
+          "gameId": "d05cbd63-6238-43a0-87a1-dbe07123884b",
+          "matchEnd": {
+            "winner": true,
+            "frame": 15228
+          },
+          "commands": {
+            "accepted": 68411,
+            "rejected": 125
+          },
+          "unsupportedCommandWarnings": 0,
+          "stdoutExceptionLines": 0
+        },
+        {
+          "gameId": "5ee30c8e-703a-471f-a0ee-902b91282f8c",
+          "matchEnd": {
+            "winner": false,
+            "frame": 15224
+          },
+          "commands": {
+            "accepted": 72560,
+            "rejected": 50
+          },
+          "unsupportedCommandWarnings": 0,
+          "stdoutExceptionLines": 0
+        }
+      ],
+      "endScope": "Natural bot-versus-bot result: Zerg MatchEnd preceded Protoss win, both preceded observer cleanup. No frame stop or observer menu quit."
+    },
+    "x86Upgrade": {
+      "architecture": "x86",
+      "started": "2026-10-26T12:03:55.316Z",
+      "finished": "2026-10-26T12:05:28.710Z",
+      "boundedStop": true,
+      "sessionEndedWithResult": false,
+      "sessionId": "1b59af5f-9e3a-4a1f-9aa7-4f2cf46cc94a",
+      "botGames": [
+        {
+          "gameId": "cab824dc-6343-4761-ae31-ececb2070d23",
+          "matchEnd": {
+            "winner": false,
+            "frame": 1496
+          },
+          "commands": {
+            "accepted": 931,
+            "rejected": 0
+          },
+          "unsupportedCommandWarnings": 0,
+          "stdoutExceptionLines": 0
+        }
+      ]
+    },
+    "x86Reload": {
+      "architecture": "x86",
+      "started": "2026-10-26T12:10:34.943Z",
+      "finished": "2026-10-26T12:11:53.993Z",
+      "boundedStop": true,
+      "sessionEndedWithResult": false,
+      "sessionId": "4fa0df3f-16e6-4ec5-8ee9-2bf3aef0756c",
+      "botGames": [
+        {
+          "gameId": "a34d23a5-7b06-4f0a-bc52-a7f23e52a947",
+          "matchEnd": {
+            "winner": false,
+            "frame": 785
+          },
+          "commands": {
+            "accepted": 173,
+            "rejected": 0
+          },
+          "unsupportedCommandWarnings": 0,
+          "stdoutExceptionLines": 0
+        }
+      ]
+    },
+    "hostileNameAndTruncatedHistory": {
+      "architecture": "x64",
+      "started": "2026-10-26T12:20:24.066Z",
+      "finished": "2026-10-26T12:21:35.950Z",
+      "boundedStop": true,
+      "sessionEndedWithResult": false,
+      "sessionId": "a063dd20-663c-4dc7-b04b-384d2072753a",
+      "botGames": [
+        {
+          "gameId": "ce70e05f-b9be-4557-bbbd-53db0ebbbdc6",
+          "matchEnd": {
+            "winner": false,
+            "frame": 767
+          },
+          "commands": {
+            "accepted": 180,
+            "rejected": 0
+          },
+          "unsupportedCommandWarnings": 0,
+          "stdoutExceptionLines": 0
+        }
+      ],
+      "endScope": "Stopped after frame limit; controlled opponent ../CON,escape encoded as %2E%2E%2FCON%2Cescape. Copied authentic history truncated to 5 bytes was skipped with expected deserialize error."
+    },
+    "controlledTermination": {
+      "architecture": "x64",
+      "started": "2026-10-26T12:23:46.598Z",
+      "finished": "2026-10-26T12:26:36.123Z",
+      "boundedStop": false,
+      "sessionEndedWithResult": false,
+      "sessionId": "6e131167-d19a-4c34-bff1-4ad39d2d7d49",
+      "botGames": [
+        {
+          "gameId": "9110b357-f983-4c1a-aa78-e6880e1ac2eb",
+          "matchEnd": null,
+          "commands": null,
+          "unsupportedCommandWarnings": 0,
+          "stdoutExceptionLines": 0
+        }
+      ],
+      "endScope": "Test-owned player game process forcibly terminated after background-client crash IPC proved to be a no-op for this manager. SB reported Local game client 0 disconnected and cleaned up. No native access-violation crash claimed."
+    },
+    "recovery": {
+      "architecture": "x64",
+      "started": "2026-10-26T12:26:47.017Z",
+      "finished": "2026-10-26T12:27:51.138Z",
+      "boundedStop": true,
+      "sessionEndedWithResult": false,
+      "sessionId": "06948935-24e7-4b01-9f45-2d7032e2d486",
+      "botGames": [
+        {
+          "gameId": "da378feb-91d6-40a4-9607-6e1540d99181",
+          "matchEnd": {
+            "winner": false,
+            "frame": 787
+          },
+          "commands": {
+            "accepted": 175,
+            "rejected": 0
+          },
+          "unsupportedCommandWarnings": 0,
+          "stdoutExceptionLines": 0
+        }
+      ]
+    }
+  },
+  "rebuild": {
+    "recipeRevision": "33fede6ebdb2f647d1f11878377f21c1cebd1f14",
+    "recipeSha256": "3b227470968d76b91d3acb60e8bd9e2e07690c5eae62a40f81673c0f768117dd",
+    "sourceTrees": {
+      "purplewave": "15258faa3fa3f1cc9a73030ba8de8153a513593e",
+      "jbwapi": "6e5ddbca17ab121d01255c13424d580a744f15cf",
+      "jbweb": "5fe6c187c17680d3b47c82b26a706810739d04f8",
+      "javajps": "c2045006e3810dd9ef28486882bf8f795c874432",
+      "mjson": "6beb265c7e50e13e8a66fc4ab64749d94662654b"
+    },
+    "files": [
+      {
+        "path": "bin/PurpleWave.jar",
+        "sha256": "0b8a7e8be09b91098c9d79b5d24d3836475ce61860770d83f8a20d8c5cef0c57",
+        "sizeBytes": 6766043
+      },
+      {
+        "path": "bin/lib/scala-library-2.12.20.jar",
+        "sha256": "4d8a8f984cce31a329a24f10b0bf336f042cb62aeb435290a1b20243154cfccb",
+        "sizeBytes": 5436770
+      },
+      {
+        "path": "bin/lib/scala-reflect-2.12.20.jar",
+        "sha256": "5f1914cdc7a70580ea6038d929ebb25736ecf2234f677e2d47f8a4b2bc81e1fb",
+        "sizeBytes": 3670575
+      },
+      {
+        "path": "bin/lib/jna-5.18.1.jar",
+        "sha256": "260c4b1e22b1db9e110ee441c4f13ce115f841fa48c41d78750986214b395557",
+        "sizeBytes": 2002994
+      },
+      {
+        "path": "bin/lib/jna-platform-5.18.1.jar",
+        "sha256": "ad14c1b1ec4f43d396231219dfa635ebf828f738eac9f890ea1bc07795892d9a",
+        "sizeBytes": 1380744
+      },
+      {
+        "path": "bin/lib/commons-lang3-3.8.1.jar",
+        "sha256": "dac807f65b07698ff39b1b07bfef3d87ae3fd46d91bbf8a2bc02b2a831616f68",
+        "sizeBytes": 501879
+      }
+    ],
+    "allSixJarsIdentical": true,
+    "archivedSourceFileComparison": {
+      "purplewave": {
+        "files": 998,
+        "mismatches": []
+      },
+      "jbwapi": {
+        "files": 101,
+        "mismatches": []
+      },
+      "jbweb": {
+        "files": 16,
+        "mismatches": []
+      },
+      "javajps": {
+        "files": 10,
+        "mismatches": []
+      },
+      "mjson": {
+        "files": 4,
+        "mismatches": []
+      }
+    }
+  },
+  "history": {
+    "sb4SourceSha256": "05a24b09da3ff4a3a9a012189d1f3047658a1a0cb47575aeb57686eba14b7605",
+    "sb4Timestamp": 1792953750558,
+    "afterUpgradeTimestamps": [
+      1793016328198,
+      1792953750558
+    ],
+    "afterReloadTimestamps": [
+      1793016713062,
+      1793016328198,
+      1792953750558
+    ],
+    "readInputUnchanged": true,
+    "readWriteDuplicatesSavedOnce": true,
+    "placementCacheVersionChange": "3 to 5; regenerate caches, preserve v5 opponent history"
+  },
+  "runtimeTracing": {
+    "terran-x64-full": {
+      "eventCounts": {
+        "jdk.FileWrite": 910,
+        "jdk.FileRead": 3676,
+        "jdk.SocketRead": 0,
+        "jdk.SocketWrite": 0,
+        "jdk.ProcessStart": 0
+      },
+      "recordingSha256": "788513fc19acd28a13659d16694d6eb7e440a9f0c0537e38d7103483d498bfe1",
+      "scope": "Java Flight Recorder file/socket/process events. Does not trace direct native syscalls, registry operations or every filesystem metadata operation."
+    },
+    "protoss-x64-negative": {
+      "eventCounts": {
+        "jdk.FileRead": 7415,
+        "jdk.FileWrite": 1108,
+        "jdk.SocketRead": 0,
+        "jdk.SocketWrite": 0,
+        "jdk.ProcessStart": 0
+      },
+      "recordingSha256": "dd35e0475c8dc7ce7ee3c037c1c6ccc93dba7b0cc0c8bf2bd7cbb7804223582e",
+      "scope": "Java Flight Recorder file/socket/process events. Does not trace direct native syscalls, registry operations or every filesystem metadata operation."
+    }
+  },
+  "checks": {
+    "toolingTests": 66,
+    "metadata": true,
+    "typecheck": true,
+    "lintAndFormat": true,
+    "catalogValidation": true,
+    "upstreamFixedBuildChecks": 6,
+    "runtimeStateCodec": true,
+    "malformedConfigurationChecks": 8
+  },
+  "limitations": [
+    "Nonzero command rejections lack per-reason diagnostics; no unsupported/malformed-command warning appeared. Causes remain unclassified.",
+    "Terran full match and Terran/Zerg x86 were not tested.",
+    "Old native-menu exits have no preceding SB leave request; input origin remains unresolved.",
+    "Reset test restores BYO baseline manually; installer/UI reset, signed-catalog installation and production promotion are separate.",
+    "Public competition and human difficulty are unreviewed."
+  ],
+  "manualReset": {
+    "scope": "Manual BYO profile read/write restore to packaged empty baseline; installer/UI reset not tested",
+    "previousHistoryPreservedInSnapshot": true,
+    "started": "2026-10-26T12:28:37.296Z",
+    "finished": "2026-10-26T12:29:40.459Z",
+    "boundedSmokePassed": true,
+    "previousTimestamps": [
+      1793016713062,
+      1793016328198,
+      1792953750558
+    ],
+    "newTimestamps": [
+      1793017779968
+    ]
+  }
+}

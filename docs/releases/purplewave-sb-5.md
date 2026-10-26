@@ -79,3 +79,135 @@ These runs do not establish playing strength, Terran behavior, x86 compatibility
 or saved-state reuse across matches. Source/distribution review and broader game
 validation remain pending. The package remains review-only and nothing was pushed
 or published.
+
+## Follow-up review on 2026-10-26
+
+The following evidence supersedes the untested scopes above. The reviewed ZIP
+and its executable bytes remain unchanged. Machine-readable, sanitized results
+are in [purplewave-sb-5-validation.json](purplewave-sb-5-validation.json).
+
+### Rebuild and source review
+
+An independent build used recipe commit
+`33fede6ebdb2f647d1f11878377f21c1cebd1f14`, clean pinned source clones,
+the same Temurin JDK 21.0.11 x64, and the pinned dependency cache.
+Its recipe-input digest matches the original build:
+`3b227470968d76b91d3acb60e8bd9e2e07690c5eae62a40f81673c0f768117dd`.
+All five prepared source tree IDs and all six output JAR sizes and SHA-256
+hashes match the reviewed archive. The executable JAR remains
+`0b8a7e8be09b91098c9d79b5d24d3836475ce61860770d83f8a20d8c5cef0c57`.
+All 1,129 archived upstream-source files also matched the original prepared
+build inputs byte for byte.
+
+The automated review examined the upstream delta from sb.4, the rebased
+isolation patch, compiled source I/O paths, configuration, dependencies,
+recipe, package contents and notices. The delta spans 329 files, including
+tests and development scripts. The new external-data input is the fixed
+`bwapi-data/AI/fixedbuilds-by-opponent.json` file: opponent names select a JSON
+entry, rather than constructing a path. The fallback is the existing fixed
+`fixedbuilds.txt` path. Upstream's six exact-match/case-insensitive/fallback
+checks passed against the packaged runtime. Additional malformed-JSON and
+typed-default checks are recorded with the validation results. The existing
+filename/history codec regression passed.
+
+The history loader, serializer, filename codec and persistence destinations
+are unchanged by the upstream update. Placement-cache format changes from
+3 to 5; incompatible caches are rejected and regenerated. This is separate
+from opponent-history format v5, which remains compatible. Cache size and
+structure bounds, temp-file replacement and profile-relative paths remain
+in place. The visualizer auto-launch path remains removed; the fixed package
+configuration disables visualizer, debug, human and livestream modes.
+The recipe compiles Java/Scala directly and does not execute upstream Maven
+plugins, Python helpers or launch scripts. Dependency source pins and runtime
+JARs are unchanged from the prior review. The optional mjson URL/schema APIs
+are not called by the reviewed configuration path.
+
+PurpleWave's MIT license and all dependency license texts remain unchanged.
+All 16 declared package notice paths exist. Fifteen notice files match sb.4
+byte for byte; the libffi notice differs only by CRLF-to-LF conversion, with
+identical notice text. Its sb.5 SHA-256 is
+`2c9c2acb9743e6b007b91350475308aee44691d96aa20eacef8e199988c8c388`.
+The manifest discloses the source update and rebased patch; source, patch,
+recipe and dependency materials are included. Java is supplied separately.
+
+### Gameplay and persistence
+
+Tests used the existing SB local-build/practice flow, isolated profiles,
+the extracted review ZIP and Fighting Spirit 1.4. SB revision and x64 DLL
+match the earlier tests. The x86 DLL SHA-256 is
+`2593991d264c9f4ab0aea48305109457d9d23ad0ad3e13e1a944e5ec387027bc`.
+These are developer-build tests, not signed-catalog installation.
+
+| Test | Observed result | Scope |
+| --- | --- | --- |
+| Protoss versus Zerg, x64, separate work profiles | Protoss won at frame 15,228; Zerg lost at 15,224. Both callbacks preceded observer cleanup. Both JVMs closed without stdout exceptions. | Naturally completed 1v1; Zerg used `ZvE4Pool`, Protoss selected its normal strategy. |
+| Terran, x64 | `TvE3Fac` produced SCVs, Barracks, Supply Depot, Marines and a Bunker; 1,194 accepted commands, zero rejected. History saved. | Opening and quit lifecycle only; player menu exit ended the run at frame 2,784. |
+| Protoss, x86 | Commands and economy advanced; 931 commands accepted, zero rejected; callback at frame 1,496. | Deliberate bounded smoke test, followed by history reload. |
+| sb.4 history upgrade and next-match reuse, x86 | A copy of an authentic sb.4 history row survived the first sb.5 match and the next sb.5 match. Each match added one actual record. | Original sb.4 profile preserved; identical read/write input rows were saved once. |
+| Path-like opponent name and corrupted history copy | `../CON,escape` became `%2E%2E%2FCON%2Cescape` in profile filenames. A copied authentic history row truncated to five bytes was logged and skipped; gameplay continued past frame 720. | Deliberate negative test; expected deserialize error, not an unexplained bot exception. |
+| Abrupt session termination and recovery | Forced termination of the owned player client produced `Local game client 0 disconnected`; session cleaned up. The same bot profile restarted and played past frame 720. | Process-loss recovery; not a native access-violation crash test. |
+
+The full-match bridge totals were 68,411 accepted / 125 rejected commands
+for Protoss and 72,560 accepted / 50 rejected for Zerg. Neither log contained
+an unsupported/malformed-command warning. The earlier Zerg run's final total
+was 8,082 accepted / 16 rejected; the 14 figure above was a frame-3,600 sample.
+Current bridge diagnostics do not distinguish every stale actor/target or
+other rejection path. The causes remain unclassified; no claim of zero
+command loss or complete BWAPI compatibility is made.
+
+The authentic sb.4 history input SHA-256 was
+`05a24b09da3ff4a3a9a012189d1f3047658a1a0cb47575aeb57686eba14b7605`.
+Its timestamp `1792953750558` appears once after each test, alongside the
+actual sb.5 records `1793016328198` and `1793016713062`. The read input
+remained unchanged. No history rows or results were fabricated. Earlier
+state and reset snapshots remain private and are not part of recipe inputs.
+
+A subsequent manual reset moved the disposable BYO profile's read/write
+directories into a retained snapshot and restored the package's empty
+baseline. The same x86 profile restarted past frame 720 and saved only its
+new actual record (`1793017779968`). The prior three history rows remained
+in the snapshot. This verifies baseline restoration and bot startup, not
+the installed-package `botLibraryResetLearning` action or its UI.
+
+Two preliminary player runs ended through `GameMenu`, `AbrtMenu`, then
+`Quit2Mnu`, without an earlier SB leave request in the game log. The origin
+of that input is unresolved. Another observer run was explicitly quit by
+the user at frame 9,347. None counts as a naturally completed match.
+The successful full match used a silent observer session and no frame stop.
+
+### Runtime tracing and limits
+
+A running Terran JVM sample had no TCP/UDP endpoints. Its observed child
+was Windows `conhost.exe`. JFR recorded 3,676 file-read and 910 file-write
+events, with no socket or process-start events during that recording.
+The negative test recorded from JVM startup through shutdown: 7,415 file-read
+and 1,108 file-write events, with no socket or process-start events. Observed
+paths covered runtime/package JARs, Java logging configuration, assigned BWAPI
+pipe, fixed bot configuration, copied history, profile outputs and JNA native
+extraction under the isolated test TEMP directory. Encoded outputs stayed
+inside the profile. JFR instrumentation was added only to that test's JVM
+arguments; the review archive was not modified.
+
+JFR is not a complete Windows syscall or registry trace, and source review
+does not provide an OS sandbox. Native dependencies retain the prior reviewed
+pins. This review does not establish arbitrary configuration safety, playing
+strength, a Terran full match, Terran/Zerg x86 coverage, Random, teams or FFA.
+The background-client crash IPC did not route to its local manager, so the
+recovery test used explicit termination of the owned player process instead.
+Installer/UI reset and signed-catalog installation remain separate checks.
+
+Metadata generation, TypeScript typecheck, lint/format, catalog validation
+and all 66 tooling tests passed on the PR branch. No pinned working bot,
+licensed game asset, published archive or catalog was replaced. Testing still
+depends on the gathered-resource fix in SB PR #1831.
+
+### Admission status
+
+The automated source/license audit found no newly introduced reachable
+networking, child-process launch or out-of-profile data path in the reviewed
+fixed configuration. The candidate now records prototype-tested compatibility
+and the exact scopes above. Source review and local-distribution admission
+remain pending: the evidence does not include full native syscall/registry
+tracing, and command rejections still lack a complete explanation. These
+results do not substitute for admission approval or public-competition review.
+The published sb.4 catalog and the sb.5 review archive remain unchanged.

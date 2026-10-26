@@ -37,8 +37,8 @@
     "formats": [
       {
         "id": "one-v-one",
-        "support": "unverified",
-        "notes": "Updated source requires game validation. Prior sb.4 Protoss results apply to the older source."
+        "support": "verified",
+        "notes": "sb.5 completed a natural Protoss-versus-Zerg x64 1v1; Terran has x64 opening evidence and Protoss has x86 smoke/reload evidence. Scope and unclassified command rejections: docs/releases/purplewave-sb-5.md."
       },
       {
         "id": "teams",
@@ -68,7 +68,7 @@
   "permissions": {
     "localDistribution": {
       "status": "unreviewed",
-      "evidence": "Updated source at 08672150433a2c60f5db23e10d2bc15dbc6e302e requires renewed review; see docs/releases/purplewave-sb-5.md. Published sb.4 evidence applies to the prior source."
+      "evidence": "Updated MIT source, bundled dependency notices and modification disclosures audited in docs/releases/purplewave-sb-5.md. Distribution admission approval remains pending for the new source; published sb.4 is unchanged."
     },
     "publicCompetition": {
       "status": "unreviewed",
@@ -76,7 +76,7 @@
     }
   },
   "compatibility": {
-    "status": "unverified",
+    "status": "prototype-tested",
     "bwapiVersion": "4.4.0",
     "protocol": 10003,
     "botArchitecture": "x86_64",
@@ -86,18 +86,18 @@
     ],
     "evidence": "docs/releases/purplewave-sb-5.md",
     "limitations": [
-      "Experimental partial BWAPI semantics.",
-      "Terran and Zerg are enabled from upstream support; dedicated SC:R bridge game verification is pending. Other game formats remain unverified."
+      "Experimental partial BWAPI semantics; nonzero command rejections remain unclassified.",
+      "Protoss/Zerg full-match evidence is x64. Terran has an x64 opening test; Protoss has x86 smoke and history-reload tests. Terran full matches, Terran/Zerg x86, Random and other formats remain unverified."
     ]
   },
   "build": {
     "status": "recipe-in-robotics-facility",
     "repository": "https://github.com/ShieldBattery/robotics-facility.git",
-    "revision": "bac6f6b1c26a9b99e06c22b08f311561ee35321b",
+    "revision": "33fede6ebdb2f647d1f11878377f21c1cebd1f14",
     "instructions": "bots/purplewave/BUILD.md"
   },
   "sourceReview": {
     "status": "pending",
-    "evidence": "Updated source at 08672150433a2c60f5db23e10d2bc15dbc6e302e requires renewed review; see docs/releases/purplewave-sb-5.md. Published sb.4 evidence applies to the prior source."
+    "evidence": "Automated source-delta, archive, rebuild and JVM I/O review recorded in docs/releases/purplewave-sb-5.md and purplewave-sb-5-validation.json. Full native syscall/registry tracing and admission approval remain pending; prior sb.4 approval is not substituted."
   }
 }
