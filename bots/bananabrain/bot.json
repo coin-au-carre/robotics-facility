@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "bot": {
+    "id": "bananabrain",
+    "name": "BananaBrain",
+    "description": "AIIDE 2025 bot with varied openings and persistent opponent results. Protoss local prototype; human difficulty uncalibrated.",
+    "authors": [
+      {
+        "name": "Johan de Jong"
+      }
+    ],
+    "homepage": "https://davechurchill.ca/starcraft/aiide/results/2025/",
+    "sourceUrl": "https://github.com/coin-au-carre/robotics-facility/tree/source/bananabrain-aiide2025",
+    "playStyleTags": [
+      "varied-openings"
+    ],
+    "humanSkill": "uncalibrated",
+    "externalRatings": []
+  },
+  "sourceIds": [
+    "bwapi",
+    "bananabrain"
+  ],
+  "profile": {
+    "selectableRaces": [
+      "protoss"
+    ],
+    "randomRace": "unverified",
+    "formats": [
+      {
+        "id": "one-v-one",
+        "support": "experimental",
+        "notes": "Protoss local practice tested on Fighting Spirit 1.4."
+      },
+      {
+        "id": "teams",
+        "support": "unverified",
+        "notes": "Not tested."
+      },
+      {
+        "id": "free-for-all",
+        "support": "unverified",
+        "notes": "Not tested."
+      }
+    ],
+    "mapConstraints": [
+      "Legacy SC:R unit limits required by the experimental bridge."
+    ],
+    "learning": {
+      "mode": "persistent",
+      "notes": "Original pretraining preserved; validated opponent results and mining data persist, preferring saved output over stale read inputs. Reset requires an idle profile and clearing read/write while preserving AI assets."
+    }
+  },
+  "license": {
+    "name": "BananaBrain License",
+    "sourceId": "bananabrain",
+    "path": "src/Source/License.txt",
+    "notes": "Includes a written-author-permission condition for public StarCraft tournaments. Separate original BWEM notice and LGPLv3 BWAPI notice included."
+  },
+  "permissions": {
+    "localDistribution": {
+      "status": "unreviewed",
+      "evidence": "Pending source/storage and distribution review."
+    },
+    "publicCompetition": {
+      "status": "unreviewed",
+      "evidence": "Written author permission required for public StarCraft tournament entry; not recorded."
+    }
+  },
+  "compatibility": {
+    "status": "prototype-tested",
+    "bwapiVersion": "4.4.0",
+    "protocol": 10003,
+    "botArchitecture": "x86",
+    "gameArchitectures": [
+      "x86_64"
+    ],
+    "evidence": "docs/bananabrain-prototype-validation.md",
+    "limitations": [
+      "Tested with SB ff167db43053cead7a991a68c224c8d6bf61066d (gathered-resource fix).",
+      "Protoss 1v1 on Fighting Spirit 1.4 only; Terran/Zerg bot races and x86 StarCraft untested.",
+      "Source/storage review and package admission remain pending.",
+      "Human difficulty uncalibrated."
+    ]
+  },
+  "build": {
+    "status": "recipe-in-robotics-facility",
+    "repository": "https://github.com/coin-au-carre/robotics-facility.git",
+    "revision": "393f86bbe5f9d8eebf873577f894d3548bcf1b67",
+    "instructions": "bots/bananabrain/BUILD.md"
+  },
+  "sourceReview": {
+    "status": "pending",
+    "evidence": "docs/bananabrain-source-review.md: original storage issues patched and regression/SB opening/restart tests passed. Storage changes remain uncommitted; fresh package, offline rebuild, full-match/failure and distribution review remain pending."
+  }
+}

@@ -26,6 +26,7 @@ export interface NativePackageRecipe {
   executable: string
   version: string
   recipePaths: readonly string[]
+  recipeRepository?: string
   sources: Readonly<
     Record<
       string,
@@ -152,8 +153,13 @@ export async function packageNativeBot(
     if (!bytes) throw new Error(`Notice source is missing: ${source}`)
     entries.push([target, bytes])
   }
-  for (const [target, source] of recipe.files)
-    entries.push([target, await readFile(path.join(repository, source))])
+  for (const [target, source] of recipe.files) {
+    const bytes = source.startsWith('source/')
+      ? entries.find(([name]) => name === source)?.[1]
+      : await readFile(path.join(repository, source))
+    if (!bytes) throw new Error(`Runtime file source is missing: ${source}`)
+    entries.push([target, bytes])
+  }
   entries.push([
     'source/BUILD.md',
     await readFile(path.join(repository, `bots/${recipe.botId}/BUILD.md`)),
@@ -193,7 +199,8 @@ export async function packageNativeBot(
     build: {
       recipeSource: {
         id: 'robotics-facility',
-        repository: 'https://github.com/ShieldBattery/robotics-facility.git',
+        repository:
+          recipe.recipeRepository ?? 'https://github.com/ShieldBattery/robotics-facility.git',
         revision: info.recipeRevision,
         patches: [],
       },

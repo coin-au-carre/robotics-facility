@@ -6,6 +6,7 @@ import type { NativeBuildOptions, NativeBuildRecipe } from './native-build.ts'
 export const bananabrainRecipePaths = Object.freeze([
   ...nativeRecipePaths,
   'native/bananabrain.cmake',
+  'native/storage.hpp',
   'tools/build-bananabrain.ts',
   'imports/bananabrain-aiide2025.json',
   'docs/bananabrain-prototype.md',

@@ -1,7 +1,8 @@
 # BananaBrain native host prototype
 
-Local prototype only. No catalog entry or distribution approval. Uses unmodified
-AIIDE 2025 source and the existing native host/BWAPI client; no custom companion.
+Local prototype only. No catalog entry or distribution approval. Uses AIIDE 2025
+source and the existing native host/BWAPI client; no custom companion. The original
+prototype was unmodified; current recipe adds a source-locked storage patch.
 
 The verified archive and local source-import branch are recorded in
 imports/bananabrain-aiide2025.json. Source/ and BWEM compilation units mirror the
@@ -20,7 +21,8 @@ bwapi-data/AI; create empty read and write directories. Preserve the original
 Configuration.txt (tournament=true); drawing defaults to disabled. Start Protoss
 first. Test only controlled names in an isolated profile.
 
-This prototype has no storage hardening patches. Original read-before-write
-precedence, parser bounds and opponent filename handling need review before
-catalog admission. Fresh test profiles keep read empty so current write data can
-be loaded on a later match. Existing BotSagi binaries and profiles are untouched.
+Current storage patch bounds parsing, encodes opponent filenames, fixes shipped
+configuration and saves atomically. Saved write output takes precedence over read
+inputs; reset must clear both while the profile is idle and preserve AI assets.
+See docs/bananabrain-source-review.md for scope and pending admission checks.
+Existing BotSagi binaries and profiles are untouched.

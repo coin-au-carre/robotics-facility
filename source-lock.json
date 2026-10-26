@@ -151,7 +151,12 @@
       "id": "bananabrain",
       "repository": "https://github.com/coin-au-carre/robotics-facility.git",
       "revision": "f66d7336ca61a0a0a1a984fad55c162d942694e4",
-      "patches": []
+      "patches": [
+        {
+          "path": "patches/bananabrain/0001-isolate-storage.patch",
+          "sha256": "b58a69c6531dd84879422cfb239e4e2b501f51a97c0b6680f43f4f6df9cbd3cf"
+        }
+      ]
     }
   ]
 }

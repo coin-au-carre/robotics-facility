@@ -44,6 +44,7 @@ target_compile_features(BananaBrain PRIVATE cxx_std_17)
 target_compile_definitions(BananaBrain PRIVATE SB_SINGLE_MATCH WIN32 NDEBUG NOMINMAX _CRT_SECURE_NO_WARNINGS)
 target_compile_options(BananaBrain PRIVATE /W3 /MP)
 target_include_directories(BananaBrain PRIVATE
+  "${CMAKE_CURRENT_LIST_DIR}"
   "${BWAPI_SOURCE_DIR}/bwapi/include"
   "${BANANABRAIN_SOURCE_DIR}/src/Source"
   "${BANANABRAIN_SOURCE_DIR}/src/BWEM")

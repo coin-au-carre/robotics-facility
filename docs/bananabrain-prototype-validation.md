@@ -48,13 +48,62 @@ row records frame 9,115 and a win, agreeing with the game log. Persistence was
 verified; reuse of these particular files in a later match remains untested.
 This is one completed local human match, not a strength evaluation.
 
+## Review package test
+
+On 2026-10-26, packaged the recorded prototype build using the shared native
+packager. No bot source or binary changes. The final archive is
+`dist/bananabrain-sb-2-review/bananabrain-sb-2.zip`:
+
+- SHA-256: `d2e45d778276e547814add5be873affe34839c2e6a3eeae2bdc60d9be868c87d`.
+- 3,287,909 bytes; 294 entries, including source, build information and notices.
+- All 12 runtime AI text files match the pinned author source byte for byte.
+- Executable SHA-256 matches the prototype build above.
+- Build-source metadata points to the fork containing the recorded recipe commit.
+- Metadata, typecheck, lint/format, repository validation and all 67 tooling tests
+  passed. Archive verification passed; pending review blocks normal packaging and
+  catalog admission.
+
+Extracted the final ZIP into a fresh directory and registered its executable
+through SB's local-build flow. Both tests used a separate persistent profile,
+Protoss against an idle Terran slot on Fighting Spirit 1.4, and the same x64 SB
+build recorded above. Working files came from the archive, not the build tree.
+
+| Run | Observations | End scope |
+| --- | --- | --- |
+| Package opening | 15 Probes, Nexus, two Pylons, Gateway, Assimilator and Cybernetics Core; 433 accepted commands, zero rejected | Deliberately stopped at frame 3,626; result and mining data saved |
+| Same-package restart | 7 Probes; 55 accepted commands, zero rejected | Deliberately stopped at frame 805; result file grew from one row to two |
+
+The saved result hash matched before restart and read remained empty. Combined
+with the original result store's reload-and-rewrite behavior, the second row
+confirms reuse. All owned test app/game processes exited. These are opening and
+reload tests, not completed competitive matches or signed-catalog installation.
+
+The archive is review-only: source review is pending and local distribution is
+unreviewed. Packaging changes remain uncommitted, so this verifies local package
+assembly and gameplay, not a committed packaging recipe. The subsequent offline
+source rebuild is recorded in the review linked below.
+The earlier local `bananabrain-sb-1` archive was superseded to correct its
+build-source repository link; it was not published.
+
 ## Remaining before admission
 
-Review opponent filenames, parser/file bounds, atomic writes, fixed configuration
-and read/write precedence with pre-populated read data. Add review packaging,
-notices and source-delivery checks before distribution. Test more full matches,
-learning reset and additional race/game-architecture combinations. The source
+The [source/storage review](bananabrain-source-review.md#storage-patch-verification)
+now records the minimal downstream patch and its uncommitted development build.
+Malformed-input, overflow, stale-read, failed-save and junction/hardlink tests
+passed, including all original training data. Patched SB opening/restart tests
+accepted 357/63 commands with zero rejections and verified result-file reuse
+despite corrupt stale read inputs. Both were deliberately stopped.
+
+A subsequent patched full match against passive Terran completed at frame 3,823:
+bot reported victory, 455 commands accepted, zero rejected. Result/mining files
+persisted and owned processes exited. See the source review for exact scope/hashes.
+
+Review remains pending. Original package's offline rebuild passed; patched recipe
+still needs a committed build, fresh review ZIP and offline rebuild. Complete
+crash/disk-full, concurrent-profile, broader gameplay, learning reset and
+distribution review. Test additional race/game-architecture combinations; source
 supports Terran and Zerg but neither was tested here.
 
 Existing BotSagi binaries, profiles and the published catalog are unchanged.
-No source-import or prototype branch was pushed.
+Prototype and source-import branches were pushed before this packaging work;
+the packaging/storage changes have not been committed or pushed.
