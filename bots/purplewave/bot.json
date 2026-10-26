@@ -38,7 +38,7 @@
       {
         "id": "one-v-one",
         "support": "unverified",
-        "notes": "sb.6 completed a natural Protoss-versus-Zerg 1v1 match on x86 with no caught bot exceptions. Broader sb.6 coverage remains unverified; sb.5 evidence stays scoped to sb.5."
+        "notes": "sb.6 completed natural Protoss-versus-Zerg 1v1 matches on x64 and x86 without caught bot exceptions. Later x64 history reload/deduplication is verified. Terran and broader format coverage remain unverified."
       },
       {
         "id": "teams",
@@ -87,7 +87,7 @@
     "evidence": "docs/releases/purplewave-sb-6.md",
     "limitations": [
       "Experimental partial BWAPI semantics; train cancellation requires the separate SB bridge fix documented in docs/releases/purplewave-sb-5-bridge-review.md. Remaining instrumented rejections hit native actor/target, ownership or visibility guards.",
-      "sb.6 has one natural Protoss-versus-Zerg x86 match. sb.6 x64, Terran, Random and other formats remain unverified; prior sb.5 evidence remains scoped to its original archive.",
+      "sb.6 has natural Protoss-versus-Zerg matches on x64 and x86 plus a bounded x64 saved-history reload test. Terran, Random, other formats and signed-catalog installation remain unverified; prior sb.5 evidence remains scoped to its original archive.",
       "sb.6 guards the empty-threat Gather predicate; regression/build evidence and gameplay limits are recorded in docs/releases/purplewave-sb-6.md."
     ]
   },

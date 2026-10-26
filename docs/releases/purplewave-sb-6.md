@@ -13,7 +13,7 @@ See [patch rationale](../../patches/purplewave/0002-guard-empty-gather-threats.m
 Historical logs lack health/threat telemetry; this explains a reproducible path,
 not a reconstruction of those exact snapshots.
 
-Validation so far: original compiled sb.5 predicate fails the zero-health/empty
+Validation: original compiled sb.5 predicate fails the zero-health/empty
 threat assertion. The guarded Gather compiled against the same classes passes
 eight regressions (health 0, -1, 1, 40; strict and lazy empty sequences). Locked
 dependency install with scripts disabled, metadata generation check, typecheck,
@@ -52,8 +52,53 @@ including gathered-resource and train-cancel fixes. Loaded x86 DLL SHA-256:
 `b4800e8f4dbce8e0080be920c79d5e74fca74880d2130238178e35f2a3f78360`.
 The bot uses x64 Java 21 even though the tested game was x86.
 
-sb.6 x64, Terran, Random, other formats, later saved-state reload, signed-catalog
-installation and full native runtime tracing remain unverified. Existing sb.5
+## x64 match and later saved-state reload
+
+The same immutable sb.6 archive completed a fresh natural x64 match on Fighting
+Spirit 1.4, again using `PvEProxy2Gate` against `ZvE4Pool`. Protoss lost at frame
+8,962 (11,785 accepted commands, seven rejected); Zerg won at 8,966 (41,772
+accepted, 32 rejected). Both saved-history winner/duration fields match native
+callbacks. Neither bot wrote a caught exception log. Rejections hit native
+actor/target availability, ownership and visibility guards; none were
+unsupported/malformed commands.
+
+The x64 DLL SHA-256 was
+`2dcb04a73fead4c0804e9ca5d6d3bd9f78974f53432f66105e1429b4e0b7dedc`,
+from the same diagnostic SB commit recorded above. The full-match process exited
+before the next run. First-match history files were preserved in private snapshots.
+
+For the later reload, each genuine first-match history file was copied unchanged
+into that bot's `read` directory while retaining its identical `write` copy.
+The same owned profiles and exact bot JAR restarted. No rows were invented or
+edited. Per-bot JFR recordings started with each JVM, through test-only arguments
+on the local-build entries; the review archive and its runtime metadata were not
+modified.
+
+JFR records one positive history-file read from `read`, followed by one from
+`write`, in each JVM: 175 bytes per copy for Protoss and 123 for Zerg. Read-input
+SHA-256 values stayed unchanged, and no JFR file-write event targeted those read
+inputs. After the later run, each output contained exactly two records: its
+original genuine row exactly once and one new actual result. This verifies later
+reload and deduplication of the identical read/write rows. Source inspection of
+`HistoryLoader` confirms first-seen timestamp precedence with `read` before
+`write`; conflicting-row precedence was not separately fault-injected.
+
+Reload gameplay was deliberately bounded at frame 1,500, then stopped through
+`localGameStop`. Native callbacks occurred at frames 1,552 (Protoss) and 1,553
+(Zerg), both reporting loss after manual stop; the new history winner/duration
+fields agree. No command rejections or caught bot exceptions occurred. This is
+bounded reload and graceful-stop evidence. The preceding x64 match supplies the
+natural-completion evidence. All owned test processes exited.
+
+Captured JFR reader stacks contain `FileInputStream`/`StreamDecoder` frames but
+omit the `HistoryLoader` frame. Exact profile paths, read order, unchanged input
+hashes, source inspection and retained output rows provide complementary reload
+evidence; full call-stack attribution is not claimed. Raw JFR/decoded paths stay
+private. Exact measurements and hashes are under `followUp` in the
+[machine-readable validation](purplewave-sb-6-validation.json).
+
+sb.6 Terran, Random, other formats, signed-catalog installation and full native
+runtime tracing remain unverified. Existing sb.5
 source/runtime and gameplay evidence remains scoped to sb.5. Source/distribution
 admission remains pending. The review archive retains its conservatively unverified
 profile metadata from packaging; later candidate evidence does not rewrite it.

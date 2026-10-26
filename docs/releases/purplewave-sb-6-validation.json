@@ -158,5 +158,175 @@
       }
     ]
   },
-  "admission": "pending"
+  "admission": "pending",
+  "followUp": {
+    "naturalX64": {
+      "id": "sb6-x64-reload",
+      "gameArchitecture": "x86_64",
+      "sbRevision": "fc315a61f9bd175eaf34a9284bfd96e4224a5c98",
+      "dllSha256": "2dcb04a73fead4c0804e9ca5d6d3bd9f78974f53432f66105e1429b4e0b7dedc",
+      "naturalMatch": true,
+      "finishType": "natural match end",
+      "frameLimit": 12000,
+      "started": "2026-10-26T21:54:15.842Z",
+      "finished": "2026-10-26T22:01:06.611Z",
+      "testedJarSha256": "e2bfd2519e07e6597bd2159b6044df6c2fca11ebc2b86a532f28e182bd452013",
+      "map": "Fighting Spirit 1.4",
+      "strategies": {
+        "protoss": "PvEProxy2Gate",
+        "zerg": "ZvE4Pool"
+      },
+      "instrumentedRuntime": false,
+      "sides": [
+        {
+          "race": "protoss",
+          "winner": false,
+          "frame": 8962,
+          "acceptedCommands": 11785,
+          "rejectedCommands": 7,
+          "rejectionReasons": {
+            "actor_native_missing": 4,
+            "target_native_missing": 3
+          },
+          "caughtBotExceptions": 0,
+          "gatherEmptyMaxCount": 0,
+          "historyAgreesWithCallback": true,
+          "historyDuration": "6:13",
+          "historyRecords": 1
+        },
+        {
+          "race": "zerg",
+          "winner": true,
+          "frame": 8966,
+          "acceptedCommands": 41772,
+          "rejectedCommands": 32,
+          "rejectionReasons": {
+            "actor_not_owned": 1,
+            "target_native_missing": 19,
+            "target_not_visible": 10,
+            "actor_native_missing": 2
+          },
+          "caughtBotExceptions": 0,
+          "gatherEmptyMaxCount": 0,
+          "historyAgreesWithCallback": true,
+          "historyDuration": "6:13",
+          "historyRecords": 1
+        }
+      ]
+    },
+    "reloadX64": {
+      "id": "sb6-x64-reload-reload",
+      "gameArchitecture": "x86_64",
+      "sbRevision": "fc315a61f9bd175eaf34a9284bfd96e4224a5c98",
+      "dllSha256": "2dcb04a73fead4c0804e9ca5d6d3bd9f78974f53432f66105e1429b4e0b7dedc",
+      "naturalMatch": false,
+      "finishType": "bounded gameplay then graceful localGameStop",
+      "frameLimit": 1500,
+      "started": "2026-10-26T22:02:49.111Z",
+      "finished": "2026-10-26T22:04:25.048Z",
+      "testedJarSha256": "e2bfd2519e07e6597bd2159b6044df6c2fca11ebc2b86a532f28e182bd452013",
+      "map": "Fighting Spirit 1.4",
+      "strategies": {
+        "protoss": "PvEProxy2Gate",
+        "zerg": "ZvE4Pool"
+      },
+      "instrumentedRuntime": true,
+      "sides": [
+        {
+          "race": "protoss",
+          "winner": false,
+          "frame": 1552,
+          "acceptedCommands": 1004,
+          "rejectedCommands": 0,
+          "rejectionReasons": {},
+          "caughtBotExceptions": 0,
+          "gatherEmptyMaxCount": 0,
+          "historyAgreesWithCallback": true,
+          "historyDuration": "1:04",
+          "historyRecords": 2
+        },
+        {
+          "race": "zerg",
+          "winner": false,
+          "frame": 1553,
+          "acceptedCommands": 1065,
+          "rejectedCommands": 0,
+          "rejectionReasons": {},
+          "caughtBotExceptions": 0,
+          "gatherEmptyMaxCount": 0,
+          "historyAgreesWithCallback": true,
+          "historyDuration": "1:04",
+          "historyRecords": 2
+        }
+      ]
+    },
+    "savedState": {
+      "sourceRun": "naturalX64",
+      "setup": "Identical authentic first-match history copied to read while retaining original write; snapshots preserved. No rows invented or edited.",
+      "sides": [
+        {
+          "race": "protoss",
+          "authenticInputSha256": "079b495a740107350870952b5edd1cca36b025371b97ba6017dd168213b32dc4",
+          "authenticInputBytes": 175,
+          "priorTimestamp": "1793052064316",
+          "priorRowRetainedExactlyOnce": true,
+          "recordsBefore": 1,
+          "recordsAfter": 2,
+          "readInputUnchanged": true,
+          "historyReads": {
+            "read": {
+              "positiveReadEvents": 1,
+              "bytesRead": 175,
+              "firstRead": "2026-10-26T23:03:10.719452800+01:00",
+              "readerStackCaptured": true,
+              "historyLoaderFrameCaptured": false
+            },
+            "write": {
+              "positiveReadEvents": 1,
+              "bytesRead": 175,
+              "firstRead": "2026-10-26T23:03:10.755877700+01:00",
+              "readerStackCaptured": true,
+              "historyLoaderFrameCaptured": false
+            }
+          },
+          "readBeforeWriteObserved": true,
+          "writesToReadObserved": 0,
+          "jfrSha256": "8e844ef82a7aeb9b7a2e3f2b13378104947737dee63bb57f54591f4b9ba5e6ec",
+          "writeOutputSha256": "3a32198a72012a481d3c434851375809a5c315bbd0883716404a3b3ae24e21bf"
+        },
+        {
+          "race": "zerg",
+          "authenticInputSha256": "b6dde82f4cabd5ef2c5222c0c381d18e55fbc97d3f77807a4e749154ae2f633b",
+          "authenticInputBytes": 123,
+          "priorTimestamp": "1793052064696",
+          "priorRowRetainedExactlyOnce": true,
+          "recordsBefore": 1,
+          "recordsAfter": 2,
+          "readInputUnchanged": true,
+          "historyReads": {
+            "read": {
+              "positiveReadEvents": 1,
+              "bytesRead": 123,
+              "firstRead": "2026-10-26T23:03:10.880820800+01:00",
+              "readerStackCaptured": true,
+              "historyLoaderFrameCaptured": false
+            },
+            "write": {
+              "positiveReadEvents": 1,
+              "bytesRead": 123,
+              "firstRead": "2026-10-26T23:03:10.883540+01:00",
+              "readerStackCaptured": true,
+              "historyLoaderFrameCaptured": false
+            }
+          },
+          "readBeforeWriteObserved": true,
+          "writesToReadObserved": 0,
+          "jfrSha256": "4580044dc1080c8ae707fce78a8926dee4df1e26c70ca8d64f684b8e05e11c40",
+          "writeOutputSha256": "711185f4f3a50a5d533b854e0060e26ee33c0693ad204f0af2335a30b38eb542"
+        }
+      ],
+      "scope": "JFR verifies actual history-file reads and read-before-write order in each owned JVM. Captured Java reader stacks lack the HistoryLoader frame; source inspection and retained-row output provide complementary ingestion evidence. Output retains prior row exactly once plus one actual new result. Conflicting-row precedence is source-reviewed, not runtime fault-injected."
+    },
+    "ownedProcessesExited": true
+  }
 }
