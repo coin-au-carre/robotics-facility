@@ -1,0 +1,162 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "purplewave-sb-6",
+  "reviewOnly": true,
+  "recipeRevision": "4bd56332018f3df71e47a3bbfdc83ce042e43c8f",
+  "recipeSha256": "57616388c155cdf2e4cff8ef2b0f711560eaec2029ecd1dd4d3bf0fa187582f4",
+  "toolchain": {
+    "javacVersion": "javac 21.0.11",
+    "java": {
+      "javaVendor": "Eclipse Adoptium",
+      "javaVersion": "21.0.11",
+      "javaVmName": "OpenJDK 64-Bit Server VM",
+      "javaVmVersion": "21.0.11+10-LTS",
+      "osArchitecture": "amd64",
+      "dataModel": "64"
+    },
+    "scalaVersion": "2.12.20"
+  },
+  "source": {
+    "id": "purplewave",
+    "directory": "sources/purplewave",
+    "tree": "8aa959a0c50fd6938f582becc63ac53e7712f999",
+    "source": {
+      "id": "purplewave",
+      "repository": "https://github.com/dgant/PurpleWave.git",
+      "revision": "08672150433a2c60f5db23e10d2bc15dbc6e302e",
+      "patches": [
+        {
+          "path": "patches/purplewave/0001-isolate-runtime-state.patch",
+          "sha256": "bebec454f3504ba6fffab3bf2a125b22ca885f1f4e6e0de3c1711b527728a728"
+        },
+        {
+          "path": "patches/purplewave/0002-guard-empty-gather-threats.patch",
+          "sha256": "292e0a9d855dcbc006787997789bd948d6f2df7b8dfd53ecf6c7f89d33ddfc80"
+        }
+      ]
+    }
+  },
+  "buildFiles": [
+    {
+      "path": "bin/PurpleWave.jar",
+      "sha256": "e2bfd2519e07e6597bd2159b6044df6c2fca11ebc2b86a532f28e182bd452013",
+      "sizeBytes": 6766057
+    },
+    {
+      "path": "bin/lib/scala-library-2.12.20.jar",
+      "sha256": "4d8a8f984cce31a329a24f10b0bf336f042cb62aeb435290a1b20243154cfccb",
+      "sizeBytes": 5436770
+    },
+    {
+      "path": "bin/lib/scala-reflect-2.12.20.jar",
+      "sha256": "5f1914cdc7a70580ea6038d929ebb25736ecf2234f677e2d47f8a4b2bc81e1fb",
+      "sizeBytes": 3670575
+    },
+    {
+      "path": "bin/lib/jna-5.18.1.jar",
+      "sha256": "260c4b1e22b1db9e110ee441c4f13ce115f841fa48c41d78750986214b395557",
+      "sizeBytes": 2002994
+    },
+    {
+      "path": "bin/lib/jna-platform-5.18.1.jar",
+      "sha256": "ad14c1b1ec4f43d396231219dfa635ebf828f738eac9f890ea1bc07795892d9a",
+      "sizeBytes": 1380744
+    },
+    {
+      "path": "bin/lib/commons-lang3-3.8.1.jar",
+      "sha256": "dac807f65b07698ff39b1b07bfef3d87ae3fd46d91bbf8a2bc02b2a831616f68",
+      "sizeBytes": 501879
+    }
+  ],
+  "archive": {
+    "sha256": "c19bd7d3761621d221e652126208c7a1de52e8b5f15fd79e673cb8e5525875a1",
+    "sizeBytes": 20065768
+  },
+  "jarComparisonToSb5": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      "Micro/Actions/Basic/Gather$.class"
+    ],
+    "unchangedRuntimeDependencyJars": 5
+  },
+  "regression": {
+    "baselineFails": true,
+    "assertion": "empty threats must not be lethal: health=0 view=false",
+    "fixedCasesPassed": 8,
+    "health": [
+      0,
+      -1,
+      1,
+      40
+    ],
+    "collections": [
+      "strict empty Vector",
+      "lazy empty SeqView"
+    ],
+    "scope": "Actual compiled Scala 2.12 local lethal predicate; synthetic worker health, no live BWAPI."
+  },
+  "checks": {
+    "metadata": true,
+    "typecheck": true,
+    "lintAndFormat": true,
+    "validate": true,
+    "toolingTestsPassed": 66,
+    "fullBuild": true,
+    "reviewPackage": true,
+    "packagedSourceAndPatchMatch": true,
+    "ownedProcessesExited": true
+  },
+  "gameplay": {
+    "id": "sb6-gather-duel",
+    "gameArchitecture": "x86",
+    "sbRevision": "fc315a61f9bd175eaf34a9284bfd96e4224a5c98",
+    "dllSha256": "b4800e8f4dbce8e0080be920c79d5e74fca74880d2130238178e35f2a3f78360",
+    "naturalMatch": true,
+    "frameLimit": 12000,
+    "strategies": {
+      "protoss": "PvEProxy2Gate",
+      "zerg": "ZvE4Pool"
+    },
+    "map": "Fighting Spirit 1.4",
+    "started": "2026-10-26T20:55:01.528Z",
+    "finished": "2026-10-26T21:02:24.417Z",
+    "testedJarSha256": "e2bfd2519e07e6597bd2159b6044df6c2fca11ebc2b86a532f28e182bd452013",
+    "sides": [
+      {
+        "race": "protoss",
+        "winner": true,
+        "frame": 9555,
+        "acceptedCommands": 14515,
+        "rejectedCommands": 36,
+        "rejectionReasons": {
+          "target_not_visible": 7,
+          "target_native_missing": 27,
+          "actor_native_missing": 1,
+          "target_inaccessible": 1
+        },
+        "caughtBotExceptions": 0,
+        "gatherEmptyMaxCount": 0,
+        "historyAgreesWithCallback": true,
+        "historyDuration": "6:38"
+      },
+      {
+        "race": "zerg",
+        "winner": false,
+        "frame": 9551,
+        "acceptedCommands": 25589,
+        "rejectedCommands": 7,
+        "rejectionReasons": {
+          "actor_not_owned": 1,
+          "actor_native_missing": 3,
+          "target_not_visible": 3
+        },
+        "caughtBotExceptions": 0,
+        "gatherEmptyMaxCount": 0,
+        "historyAgreesWithCallback": true,
+        "historyDuration": "6:37"
+      }
+    ]
+  },
+  "admission": "pending"
+}

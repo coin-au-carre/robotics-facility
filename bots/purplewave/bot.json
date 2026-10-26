@@ -38,7 +38,7 @@
       {
         "id": "one-v-one",
         "support": "unverified",
-        "notes": "sb.6 adds an empty-melee-threat guard. Gameplay verification pending for these changed inputs; sb.5 natural-match evidence remains scoped to sb.5."
+        "notes": "sb.6 completed a natural Protoss-versus-Zerg 1v1 match on x86 with no caught bot exceptions. Broader sb.6 coverage remains unverified; sb.5 evidence stays scoped to sb.5."
       },
       {
         "id": "teams",
@@ -76,7 +76,7 @@
     }
   },
   "compatibility": {
-    "status": "unverified",
+    "status": "prototype-tested",
     "bwapiVersion": "4.4.0",
     "protocol": 10003,
     "botArchitecture": "x86_64",
@@ -87,14 +87,14 @@
     "evidence": "docs/releases/purplewave-sb-6.md",
     "limitations": [
       "Experimental partial BWAPI semantics; train cancellation requires the separate SB bridge fix documented in docs/releases/purplewave-sb-5-bridge-review.md. Remaining instrumented rejections hit native actor/target, ownership or visibility guards.",
-      "Prior sb.5 Protoss/Zerg full-match evidence covers x64 and x86, with a Terran x64 opening test. sb.6 gameplay remains unverified; Terran full matches/x86, Random and other formats remain unverified.",
+      "sb.6 has one natural Protoss-versus-Zerg x86 match. sb.6 x64, Terran, Random and other formats remain unverified; prior sb.5 evidence remains scoped to its original archive.",
       "sb.6 guards the empty-threat Gather predicate; regression/build evidence and gameplay limits are recorded in docs/releases/purplewave-sb-6.md."
     ]
   },
   "build": {
     "status": "recipe-in-robotics-facility",
     "repository": "https://github.com/ShieldBattery/robotics-facility.git",
-    "revision": "33fede6ebdb2f647d1f11878377f21c1cebd1f14",
+    "revision": "4bd56332018f3df71e47a3bbfdc83ce042e43c8f",
     "instructions": "bots/purplewave/BUILD.md"
   },
   "sourceReview": {
