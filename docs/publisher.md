@@ -6,6 +6,22 @@ must pass the schema, source-review approval, and local-distribution approval ga
 Its HTTPS artifact URL must already serve the exact reviewed ZIP. The initial empty
 catalog deliberately fails publication. Synthetic packages exist only in tests.
 
+Each catalog release can carry `releaseStatus`: `candidate`, `staging`, or
+`production-approved`. Missing status means `candidate`. This is a separate gate
+from source review, distribution permission, and individual format test results.
+Development clients show non-production releases with a **Dev only — hidden in
+production** badge. Production clients expose only `production-approved` releases,
+including when an unapproved version was previously installed.
+
+Maintainers approve an exact release by reviewing its package, all advertised races,
+supported formats, installation, lifecycle, and saved-state evidence, then changing
+its catalog `releaseStatus` to `production-approved` through review. Approval must
+not be inferred from a bot name or a single `verified` format flag. Publish a new
+staging revision containing that approval before promoting it. Catalog metadata can
+change without rebuilding the immutable archive or embedded package descriptor.
+Existing entries without explicit approval remain development-only; this change
+does not approve any current bot.
+
 ## Two phases
 
 `node tools/publish.ts prepare staging --revision 1` validates the catalog and ZIPs
@@ -22,8 +38,11 @@ Production uses `prepare production --revision 2 --staging-revision 1`, followed
 `production --revision 2 --staging-revision 1`. Preparation reads the immutable
 signed **`published/1.json` receipt** from the configured staging public base URL,
 verifies staging key ID/public key/channel/revision, and downloads its digest-addressed
-archives. It verifies every archive again and rewrites only delivery URLs and the
-catalog revision for production. Archives and embedded package descriptors are not
+archives for `production-approved` releases. Unapproved releases and bots with no
+approved releases are omitted before downloads; an empty result refuses publication.
+It verifies each retained archive again and rewrites only delivery URLs and the
+catalog revision for production. Signing and upload recheck approval, so a prepared
+bundle containing unapproved releases is rejected. Archives and embedded package descriptors are not
 rebuilt or modified. Do not use `catalogs/1.json` alone as proof of success: that
 snapshot may exist after a failed activation. Production signs using its own key.
 
