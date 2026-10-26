@@ -56,7 +56,7 @@ const recipe: NativePackageRecipe = {
   files: aiFiles.map(name => [`work/bwapi-data/AI/${name}`, `source/bananabrain/AI/${name}`]),
   modifications: [
     {
-      modifier: 'Florian D.',
+      modifier: 'ShieldBattery contributors',
       date: '2026-10-26',
       scope: 'bot',
       summary:

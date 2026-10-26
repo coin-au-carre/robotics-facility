@@ -154,7 +154,7 @@
       "patches": [
         {
           "path": "patches/bananabrain/0001-isolate-storage.patch",
-          "sha256": "b58a69c6531dd84879422cfb239e4e2b501f51a97c0b6680f43f4f6df9cbd3cf"
+          "sha256": "62917ef24f897ae585f531ce96f664faa47023228f238aa0598e6eb7f61e12e6"
         }
       ]
     }

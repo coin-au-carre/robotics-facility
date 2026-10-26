@@ -5,7 +5,7 @@ index 35ea798..0d76de8 100644
 @@ -1,69 +1,7 @@
  #include "BananaBrain.h"
  
-+// Florian D., 2026-10-26: preserve shipped AIIDE configuration, ignore mutable overrides.
++// Keep learning files from overriding the shipped gameplay configuration.
  void Configuration::init()
  {
 -	FILE *f;
@@ -99,7 +99,7 @@ index 9739023..3179c89 100644
  	read_results();
  }
  
-+// Florian D., 2026-10-26: bounded standalone storage; gameplay logic unchanged.
++// Bound saved history independently from strategy lookback.
  void ResultStore::init_filenames()
  {
 -	sprintf_s(ai_filename_, sizeof(ai_filename_), "bwapi-data\\AI\\Results_%s.txt", determine_name().c_str());
@@ -276,7 +276,7 @@ index 39b32d3..82c29ed 100644
  	});
  }
  
-+// Florian D., 2026-10-26: bounded storage shared with result history.
++// Validate map-specific mining data before populating movement caches.
 +namespace {
 +std::string mining_filename()
 +{

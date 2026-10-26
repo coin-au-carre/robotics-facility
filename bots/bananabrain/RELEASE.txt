@@ -5,7 +5,7 @@ original AI text data/configuration. Downstream storage changes are described be
 The BananaBrain license requires written author permission for public StarCraft
 tournament entry. See BananaBrain-License.txt and BWEM-License.txt.
 
-Integration by Florian D., 2026-10-26: builds the sources as a Win32
+Integration by ShieldBattery contributors, 2026-10-26: builds the sources as a Win32
 executable using ShieldBattery's existing single-match native host and static
 MSVC runtime. BWAPI 4.4 is built from source with ShieldBattery's existing
 isolated instance-discovery patch. No original compiled DLL is included.
