@@ -1,0 +1,280 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-26",
+  "scope": "Follow-up bridge diagnosis and scoped native runtime review; admission remains pending. Raw profiles and ETL data remain private.",
+  "archiveSha256": "7bbc47be6b095059e5bbbb60ddbcb7af192a4bca241882e63551a47a51c1e3ce",
+  "bridgeFix": {
+    "revision": "e09aa8c28bc53172b2006fbce8d52734ad601269",
+    "base": "a096b05e199ac0aaa6d46d7da21b8833acfd3218",
+    "target": "ShieldBattery/ShieldBattery feature/bwapi-compat",
+    "patch": "purplewave-sb-5-cancel-train.patch",
+    "patchSha256": "bb2e4831c86a55919c43a8bf2d90bff917b41140f75c68e82dd344774d5bc09d",
+    "productionAndLiveCommandsBlob": "43127cbd2feb52839520f1d673824f1fd33d38d0",
+    "diagnosticDlls": {
+      "shieldbattery.dll": "b4800e8f4dbce8e0080be920c79d5e74fca74880d2130238178e35f2a3f78360",
+      "shieldbattery_64.dll": "2dcb04a73fead4c0804e9ca5d6d3bd9f78974f53432f66105e1429b4e0b7dedc"
+    },
+    "baselineDiagnosticDllHashRetained": false,
+    "diagnosticsPatch": {
+      "path": "purplewave-sb-5-rejection-diagnostics.patch",
+      "sha256": "c1a7265b56e86955832fb244f0666a6e20700cb8503915638dd1673e769906eb",
+      "base": "ff167db43053cead7a991a68c224c8d6bf61066d",
+      "requires": "Apply the train-cancel patch too; opt in with SB_BWAPI_REJECTION_DIAGNOSTICS=1. Test instrumentation only, excluded from production fix."
+    },
+    "productionChecks": {
+      "buildBat": {
+        "x86_64": true,
+        "x86": true
+      },
+      "dllSha256": {
+        "shieldbattery_64.dll": "94de78326f9c68661ba2560eae02b47c583586eb384a77afa6316feece77a6be",
+        "shieldbattery.dll": "cdb4393711c8b8b441310531b39d8fbf6daaf4571b0bac07f92fdb83dca01149"
+      },
+      "libraryTests": {
+        "x86_64": 634,
+        "x86": 634
+      },
+      "allTargetsTests": {
+        "x86_64": 634,
+        "x86": 634
+      },
+      "clippyAllTargetsWorkspace": {
+        "x86_64": true,
+        "x86": true,
+        "warningsDenied": true
+      },
+      "format": true,
+      "commands": [
+        "build.bat debug",
+        "build.bat debug x86",
+        "cargo test --locked --all-targets --no-fail-fast --target <target>",
+        "cargo clippy --locked --all-targets --workspace --target <target> -- -D warnings",
+        "cargo fmt --all -- --check"
+      ]
+    }
+  },
+  "runs": [
+    {
+      "id": "rejection-duel",
+      "gameArchitecture": "x86_64",
+      "sbRevision": "7a13c9dad681cb62f1f42323f71d88ccbdca0664",
+      "naturalMatch": true,
+      "frameLimit": 8000,
+      "strategies": {
+        "protoss": "PvEProxy2Gate",
+        "zerg": "ZvE4Pool"
+      },
+      "started": "2026-10-26T13:16:34.119Z",
+      "finished": "2026-10-26T13:22:16.800Z",
+      "sides": [
+        {
+          "race": "protoss",
+          "winner": false,
+          "frame": 7133,
+          "acceptedCommands": 6202,
+          "rejectedCommands": 11,
+          "rejectionReasons": {
+            "actor_native_missing": 3,
+            "unsupported_or_malformed": 7,
+            "target_native_missing": 1
+          },
+          "acceptedTrainCancellations": 0,
+          "historyAgreesWithCallback": true,
+          "caughtBotExceptions": 4,
+          "exceptionTypes": {
+            "UnsupportedOperationException": 4
+          }
+        },
+        {
+          "race": "zerg",
+          "winner": true,
+          "frame": 7138,
+          "acceptedCommands": 25580,
+          "rejectedCommands": 56,
+          "rejectionReasons": {
+            "target_not_visible": 24,
+            "target_native_missing": 31,
+            "actor_not_owned": 1
+          },
+          "acceptedTrainCancellations": 0,
+          "historyAgreesWithCallback": true,
+          "caughtBotExceptions": 0,
+          "exceptionTypes": {}
+        }
+      ]
+    },
+    {
+      "id": "fixed-cancel-duel",
+      "gameArchitecture": "x86_64",
+      "sbRevision": "fc315a61f9bd175eaf34a9284bfd96e4224a5c98",
+      "naturalMatch": true,
+      "frameLimit": 9000,
+      "strategies": {
+        "protoss": "PvEProxy2Gate",
+        "zerg": "ZvE4Pool"
+      },
+      "started": "2026-10-26T13:33:42.292Z",
+      "finished": "2026-10-26T13:39:29.638Z",
+      "sides": [
+        {
+          "race": "protoss",
+          "winner": false,
+          "frame": 7536,
+          "acceptedCommands": 6045,
+          "rejectedCommands": 2,
+          "rejectionReasons": {
+            "target_not_visible": 1,
+            "actor_native_missing": 1
+          },
+          "acceptedTrainCancellations": 4,
+          "historyAgreesWithCallback": true,
+          "caughtBotExceptions": 0,
+          "exceptionTypes": {}
+        },
+        {
+          "race": "zerg",
+          "winner": true,
+          "frame": 7541,
+          "acceptedCommands": 35968,
+          "rejectedCommands": 36,
+          "rejectionReasons": {
+            "target_native_missing": 34,
+            "actor_not_owned": 1,
+            "target_not_visible": 1
+          },
+          "acceptedTrainCancellations": 0,
+          "historyAgreesWithCallback": true,
+          "caughtBotExceptions": 0,
+          "exceptionTypes": {}
+        }
+      ]
+    },
+    {
+      "id": "fixed-cancel-x86",
+      "gameArchitecture": "x86",
+      "sbRevision": "fc315a61f9bd175eaf34a9284bfd96e4224a5c98",
+      "naturalMatch": true,
+      "frameLimit": 9000,
+      "strategies": {
+        "protoss": "PvEProxy2Gate",
+        "zerg": "ZvE4Pool"
+      },
+      "started": "2026-10-26T15:21:35.410Z",
+      "finished": "2026-10-26T15:27:02.443Z",
+      "sides": [
+        {
+          "race": "protoss",
+          "winner": false,
+          "frame": 6668,
+          "acceptedCommands": 5408,
+          "rejectedCommands": 6,
+          "rejectionReasons": {
+            "actor_native_missing": 5,
+            "target_native_missing": 1
+          },
+          "acceptedTrainCancellations": 5,
+          "historyAgreesWithCallback": true,
+          "caughtBotExceptions": 1,
+          "exceptionTypes": {
+            "UnsupportedOperationException": 1
+          }
+        },
+        {
+          "race": "zerg",
+          "winner": true,
+          "frame": 6673,
+          "acceptedCommands": 20890,
+          "rejectedCommands": 39,
+          "rejectionReasons": {
+            "target_native_missing": 38,
+            "actor_not_owned": 1
+          },
+          "acceptedTrainCancellations": 0,
+          "historyAgreesWithCallback": true,
+          "caughtBotExceptions": 0,
+          "exceptionTypes": {}
+        }
+      ]
+    }
+  ],
+  "nativeTrace": {
+    "mode": "WPR file-mode kernel ProcessThread, Loader, FileIO, FileIOInit, Filename, Registry, network flag 0x10000",
+    "elevation": "Recorder elevated through user-approved UAC; tested Electron/JVM ran without elevation.",
+    "testStarted": "2026-10-26T13:40:35.276Z",
+    "testFinished": "2026-10-26T13:41:19.661Z",
+    "nativeFileIoCoverage": [
+      "2026-10-26T13:40:37.187Z",
+      "2026-10-26T13:41:17.133Z"
+    ],
+    "etlBytes": 1353711616,
+    "totalRecords": 18625436,
+    "jvmHeaderPidMatchedRecords": 14451,
+    "decodedRecords": 13999,
+    "undecodedRecords": 452,
+    "eventsLost": 0,
+    "buffersLost": 0,
+    "processTraceStatus": 0,
+    "decodedTasks": {
+      "FileIo": 12757,
+      "Registry": 1021,
+      "Image": 112,
+      "Thread": 106,
+      "Process": 3
+    },
+    "fileWriteEvents": 336,
+    "writeDestinations": {
+      "distinctFiles": 6,
+      "scope": "bot profile and isolated TEMP only, correlated by file object lifetime"
+    },
+    "registry": {
+      "open": 337,
+      "close": 268,
+      "queryValue": 257,
+      "queryKey": 122,
+      "kcbCreate": 19,
+      "setInformation": 9,
+      "enumerate": 8,
+      "setValue": 1,
+      "setValueContext": "conhost.exe startup value; no call-stack attribution retained",
+      "setInformationContext": "empty key names; attribution incomplete"
+    },
+    "cryptoRead": {
+      "bytes": 90,
+      "writes": 0,
+      "attribution": "Existing J2SE CryptoAPI seed container; PP_UNIQUE_CONTAINER matched observed filename privately.",
+      "existingContextOnly": true,
+      "keysEnumerated": false,
+      "keyMaterialExported": false,
+      "openJdkSource": "https://github.com/openjdk/jdk21u/blob/master/src/java.base/windows/native/libjava/WinCAPISeedGenerator.c",
+      "sourceBlob": "e447ecc43a90119ef4beaa7cc157ced3bad7f852"
+    },
+    "network": {
+      "jvmHeaderPidNetworkEvents": 0,
+      "sampledTcpEndpoints": 0,
+      "sampledUdpEndpoints": 0,
+      "limitation": "Header-PID filtering can miss deferred kernel work; no claim of complete network exclusion."
+    },
+    "childProcess": "conhost.exe",
+    "priorMemoryCapture": "Circular tail only; not used to claim startup coverage.",
+    "limitations": [
+      "452 matched records lacked a decoded schema.",
+      "Registry set-information and set-value events lack complete call-stack attribution.",
+      "Native capture covers one bounded Protoss x64 run, not every configuration, race or lifecycle.",
+      "Source review, JFR and ETW complement each other; no OS sandbox or exhaustive syscall guarantee."
+    ]
+  },
+  "limitations": [
+    "Earlier uninstrumented match rejections cannot be classified retroactively.",
+    "Remaining fixed-run rejections hit stale/native ownership or visibility guards; their rejection reasons are known, underlying timing transitions not fully reconstructed.",
+    "Caught Gather.scala:98 empty.max occurred four times in baseline and once in fixed x86. Both games completed; underlying bot-state cause remains unresolved.",
+    "Explicit queue-slot cancel encoding has unit coverage; observed live cancellation was default slot -2.",
+    "Production fix was rebased and rebuilt separately; live runs used diagnostic ff167-based DLLs with identical commands.rs, not the fresh production DLLs.",
+    "Admission approval, installer/UI reset and signed-catalog installation remain separate."
+  ],
+  "evidenceChecks": {
+    "metadata": true,
+    "catalogValidation": true,
+    "patchApplyChecks": true,
+    "archiveHashUnchanged": true
+  }
+}

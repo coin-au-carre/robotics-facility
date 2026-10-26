@@ -364,8 +364,8 @@
     "malformedConfigurationChecks": 8
   },
   "limitations": [
-    "Nonzero command rejections lack per-reason diagnostics; no unsupported/malformed-command warning appeared. Causes remain unclassified.",
-    "Terran full match and Terran/Zerg x86 were not tested.",
+    "Earlier match rejections remain unclassified; follow-up diagnostic matches identify missing train cancellation and remaining native/ownership/visibility guard rejections.",
+    "Terran full match and Terran x86 were not tested. Follow-up Protoss/Zerg x86 full match is recorded separately.",
     "Old native-menu exits have no preceding SB leave request; input origin remains unresolved.",
     "Reset test restores BYO baseline manually; installer/UI reset, signed-catalog installation and production promotion are separate.",
     "Public competition and human difficulty are unreviewed."
@@ -384,5 +384,10 @@
     "newTimestamps": [
       1793017779968
     ]
+  },
+  "followUpReview": {
+    "report": "purplewave-sb-5-bridge-review.md",
+    "evidence": "purplewave-sb-5-bridge-review.json",
+    "scope": "Adds native trace and instrumented full matches; earlier uninstrumented rejection counts remain historical."
   }
 }

@@ -38,7 +38,7 @@
       {
         "id": "one-v-one",
         "support": "verified",
-        "notes": "sb.5 completed a natural Protoss-versus-Zerg x64 1v1; Terran has x64 opening evidence and Protoss has x86 smoke/reload evidence. Scope and unclassified command rejections: docs/releases/purplewave-sb-5.md."
+        "notes": "sb.5 completed natural Protoss-versus-Zerg 1v1 matches on x64 and x86. Terran has x64 opening evidence. Train-cancel bridge fix and scoped remaining rejections: docs/releases/purplewave-sb-5-bridge-review.md."
       },
       {
         "id": "teams",
@@ -86,8 +86,9 @@
     ],
     "evidence": "docs/releases/purplewave-sb-5.md",
     "limitations": [
-      "Experimental partial BWAPI semantics; nonzero command rejections remain unclassified.",
-      "Protoss/Zerg full-match evidence is x64. Terran has an x64 opening test; Protoss has x86 smoke and history-reload tests. Terran full matches, Terran/Zerg x86, Random and other formats remain unverified."
+      "Experimental partial BWAPI semantics; train cancellation requires the separate SB bridge fix documented in docs/releases/purplewave-sb-5-bridge-review.md. Remaining instrumented rejections hit native actor/target, ownership or visibility guards.",
+      "Protoss/Zerg full-match evidence covers x64 and x86. Terran has an x64 opening test; Terran full matches/x86, Random and other formats remain unverified.",
+      "Caught PurpleWave Gather.scala empty.max exceptions occurred in two diagnostic matches; gameplay and saved results continued. See follow-up report."
     ]
   },
   "build": {
@@ -98,6 +99,6 @@
   },
   "sourceReview": {
     "status": "pending",
-    "evidence": "Automated source-delta, archive, rebuild and JVM I/O review recorded in docs/releases/purplewave-sb-5.md and purplewave-sb-5-validation.json. Full native syscall/registry tracing and admission approval remain pending; prior sb.4 approval is not substituted."
+    "evidence": "Automated source/license, rebuild, JVM and native file/registry/process review recorded in docs/releases/purplewave-sb-5.md and purplewave-sb-5-bridge-review.md. Native tracing has documented attribution/coverage limits; admission approval remains pending."
   }
 }

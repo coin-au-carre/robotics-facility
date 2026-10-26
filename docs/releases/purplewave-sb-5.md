@@ -211,3 +211,12 @@ remain pending: the evidence does not include full native syscall/registry
 tracing, and command rejections still lack a complete explanation. These
 results do not substitute for admission approval or public-competition review.
 The published sb.4 catalog and the sb.5 review archive remain unchanged.
+
+### Bridge and native follow-up
+
+[Additional review](purplewave-sb-5-bridge-review.md) now records per-reason
+command diagnostics, a separate missing train-cancel encoder fix, natural
+Protoss/Zerg matches on both game architectures, and a native file/registry/process
+capture. It supersedes the tracing and x86 coverage gaps above within its stated
+scope. Historical rejection counts remain unclassified; caught bot gathering
+exceptions and native attribution limits remain explicit. Admission is still pending.
