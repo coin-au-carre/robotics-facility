@@ -1,6 +1,6 @@
 # BananaBrain prototype validation
 
-Tested on 2026-10-25. Local prototype only; no catalog entry or publication.
+Tested on 2026-10-25 and 2026-10-26. Local prototype only; no catalog entry or publication.
 
 ## Build
 
@@ -33,11 +33,26 @@ growth from one to two rows confirms reuse in this controlled setup. Owned app
 and game processes exited. These were deliberately stopped opening tests, not
 naturally completed matches or strength measurements.
 
+## Completed human match
+
+On 2026-10-26, a human played Terran against BananaBrain as Protoss on Fighting
+Spirit 1.4 through the normal SB practice UI in the separate `local-bots` profile.
+The executable hash matched the build above. The player confirmed the match had
+finished; the bot's game log recorded `MatchEnd winner=true frame=9115`, followed
+by a clean client finish with 3,243 accepted commands and two rejected commands.
+The rejected commands were not diagnosed in this check.
+
+The bot saved one opponent-result row (83 bytes) and a map-specific mining-data
+file (6,097 bytes) under its working directory's `bwapi-data/write`. The result
+row records frame 9,115 and a win, agreeing with the game log. Persistence was
+verified; reuse of these particular files in a later match remains untested.
+This is one completed local human match, not a strength evaluation.
+
 ## Remaining before admission
 
 Review opponent filenames, parser/file bounds, atomic writes, fixed configuration
 and read/write precedence with pre-populated read data. Add review packaging,
-notices and source-delivery checks before distribution. Test full matches,
+notices and source-delivery checks before distribution. Test more full matches,
 learning reset and additional race/game-architecture combinations. The source
 supports Terran and Zerg but neither was tested here.
 
