@@ -37,8 +37,8 @@
     "formats": [
       {
         "id": "one-v-one",
-        "support": "verified",
-        "notes": "sb.6 completed natural 1v1 games as Protoss, Terran and Zerg on x64 and x86. Terran selected worker rush; broader strategic coverage remains scoped. Saved-history reload verified. docs/releases/purplewave-sb-6-admission.md"
+        "support": "experimental",
+        "notes": "sb.6 has natural all-race 1v1 results on x86/x64 and installed/UI reset checks. Terran factory tests exposed unsupported Lift and Spider Mines commands; production approval withheld. docs/releases/purplewave-sb-6-admission.md"
       },
       {
         "id": "teams",
@@ -86,10 +86,11 @@
     ],
     "evidence": "docs/releases/purplewave-sb-6-admission.md",
     "limitations": [
-      "Requires gathered-resource and train-cancellation bridge fixes documented in docs/releases/purplewave-sb-5-bridge-review.md.",
-      "Natural 1v1 results cover all assigned races on x86/x64; Random, other formats, unusual maps and exhaustive late-game behavior remain unverified.",
-      "Source/runtime tracing has the documented native/JFR limits and is not an OS sandbox. Human difficulty and public competition remain unreviewed.",
-      "Installed-package and UI checks are recorded separately in docs/releases/purplewave-sb-6-admission.md; no public publication is implied."
+      "Production blocked: Terran factory games on x86/x64 repeatedly hit unsupported Lift (kind 24) and Spider Mines (Use_Tech_Position kind 41, tech 3).",
+      "Current ShieldBattery local/practice launch and BWAPI bridge are development-only; production runtime enablement requires a separate upstream change.",
+      "Natural 1v1 results cover assigned races on x86/x64; Random, other formats, unusual maps and exhaustive late-game behavior remain unverified.",
+      "Signed local HTTPS catalog installation, integrity rejection and actual UI reset passed on x86/x64; public staging/CDN publication was not performed.",
+      "Scoped source/runtime tracing is not an OS sandbox. Human difficulty and public competition remain unreviewed."
     ]
   },
   "build": {

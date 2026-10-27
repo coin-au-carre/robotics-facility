@@ -1,6 +1,8 @@
 # PurpleWave sb.6 Gather guard review
 
-Review-only candidate. Source and distribution admission remain pending.
+Historical review-only candidate. See [admission follow-up](purplewave-sb-6-admission.md)
+for completed source, Terran and installed/UI checks and newly identified bridge
+blockers. Production approval remains withheld. The archive below is unchanged.
 
 The candidate adds a hashed one-line Gather predicate guard to PurpleWave
 `08672150433a2c60f5db23e10d2bc15dbc6e302e`, after its existing runtime isolation

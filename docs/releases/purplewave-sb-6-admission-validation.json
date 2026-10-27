@@ -175,5 +175,366 @@
     ],
     "newJarEntries": [],
     "removedJarEntries": []
-  }
+  },
+  "admittedArtifact": {
+    "sha256": "60f80501b9d898b0b392df624e35d15df4bcb3749338e77b8e78820405e980b4",
+    "sizeBytes": 20065845,
+    "entries": 1186,
+    "parentReviewSha256": "c19bd7d3761621d221e652126208c7a1de52e8b5f15fd79e673cb8e5525875a1",
+    "changedEntries": [
+      "package.json"
+    ],
+    "sourceReview": {
+      "status": "approved",
+      "evidence": "Exact sb.6 source/JAR delta and packaged-source offline rebuild reviewed; unchanged dependencies retain scoped source/native review. docs/releases/purplewave-sb-6-admission.md"
+    }
+  },
+  "installedChecks": [
+    {
+      "architecture": "x64",
+      "started": "2026-10-27T00:13:50.010Z",
+      "finished": "2026-10-27T00:23:13.143Z",
+      "scope": "Real signed local-catalog install, negative checks, installed launch and actual details-dialog reset; no public staging/CDN publication",
+      "archiveSha256": "60f80501b9d898b0b392df624e35d15df4bcb3749338e77b8e78820405e980b4",
+      "signing": {
+        "channel": "staging",
+        "keyId": "sb6-isolated-review",
+        "publicKeySha256": "870415d118d03c926fb7c9040e04511d3863a1311e951dcf96ad4c6308595c5f",
+        "catalogSha256": "ed5a0385a2d858d31f9912cc9a418e194266c77ab201d555fa467a1748f58932",
+        "localOnly": true
+      },
+      "tls": {
+        "leafSha256": "87afdd4907e051c6434a11287f34364701674ee7957620148ffadf3119c30258",
+        "trust": "Bootstrap pins only loopback host and this ephemeral leaf; default verification retained for other hosts"
+      },
+      "signatureTamperRejected": true,
+      "archiveTamperRejected": true,
+      "installed": {
+        "releaseId": "purplewave-sb-6",
+        "digest": "60f80501b9d898b0b392df624e35d15df4bcb3749338e77b8e78820405e980b4"
+      },
+      "installedFileCount": 1181,
+      "immutablePackageUnchanged": true,
+      "noticeReadable": true,
+      "resets": {
+        "firstReset": {
+          "uiClicked": true,
+          "bothProfilesRestoredToEmptyBaseline": true,
+          "genuineHistoryFilesBefore": 2
+        },
+        "finalReset": {
+          "uiClicked": true,
+          "bothProfilesRestoredToEmptyBaseline": true,
+          "genuineHistoryFilesBefore": 2
+        }
+      },
+      "matches": [
+        {
+          "label": "installed-baseline",
+          "started": "2026-10-27T00:13:56.854Z",
+          "finished": "2026-10-27T00:15:28.187Z",
+          "boundedStop": true,
+          "naturalResult": false,
+          "resetWhileInUse": {
+            "uiDisabled": true,
+            "ipcRejected": true
+          },
+          "sessionId": "2c6e704d-07c9-4704-8613-fdd068eaeef3",
+          "sides": [
+            {
+              "profile": "work",
+              "race": "terran",
+              "winner": false,
+              "frame": 1264,
+              "acceptedCommands": 399,
+              "rejectedCommands": 0,
+              "rejectionReasons": {},
+              "unsupportedCommandKinds": {}
+            },
+            {
+              "profile": "work-2",
+              "race": "terran",
+              "winner": false,
+              "frame": 1265,
+              "acceptedCommands": 465,
+              "rejectedCommands": 0,
+              "rejectionReasons": {},
+              "unsupportedCommandKinds": {}
+            }
+          ],
+          "sync": {
+            "commonProbes": 6,
+            "lastCommonFrame": 1200,
+            "mismatches": []
+          },
+          "caughtExceptionLogFiles": []
+        },
+        {
+          "label": "installed-terran-tech",
+          "started": "2026-10-27T00:15:30.385Z",
+          "finished": "2026-10-27T00:23:09.376Z",
+          "boundedStop": true,
+          "naturalResult": false,
+          "resetWhileInUse": {
+            "uiDisabled": true,
+            "ipcRejected": true
+          },
+          "sessionId": "57f3bdc6-e41b-4297-8a3e-93a32165e33e",
+          "sides": [
+            {
+              "profile": "work",
+              "race": "terran",
+              "winner": false,
+              "frame": 10053,
+              "acceptedCommands": 30311,
+              "rejectedCommands": 2168,
+              "rejectionReasons": {
+                "unsupported_or_malformed": 2093,
+                "target_not_visible": 68,
+                "target_native_missing": 7
+              },
+              "unsupportedCommandKinds": {
+                "24": 2004,
+                "41": 89
+              }
+            },
+            {
+              "profile": "work-2",
+              "race": "terran",
+              "winner": false,
+              "frame": 10053,
+              "acceptedCommands": 33349,
+              "rejectedCommands": 2233,
+              "rejectionReasons": {
+                "target_not_visible": 16,
+                "unsupported_or_malformed": 2207,
+                "target_native_missing": 10
+              },
+              "unsupportedCommandKinds": {
+                "24": 2168,
+                "41": 39
+              }
+            }
+          ],
+          "sync": {
+            "commonProbes": 42,
+            "lastCommonFrame": 9840,
+            "mismatches": []
+          },
+          "caughtExceptionLogFiles": []
+        }
+      ],
+      "techSnapshots": {
+        "stableSamples": 22,
+        "firstFrame": 1763,
+        "lastFrame": 9955,
+        "maxGatheredGas": 1160,
+        "maxUnitCounts": {
+          "Marine": 6,
+          "Vulture": 12,
+          "SiegeTankTankMode": 1,
+          "SiegeTankSiegeMode": 1,
+          "SCV": 34,
+          "Refinery": 1,
+          "Barracks": 1,
+          "Factory": 3,
+          "MachineShop": 2
+        },
+        "scope": "Read-only BWAPI snapshot from owned first bot; unit IDs cross-checked with packaged JBWAPI UnitType enum"
+      }
+    },
+    {
+      "architecture": "x86",
+      "started": "2026-10-27T00:14:04.228Z",
+      "finished": "2026-10-27T00:23:48.475Z",
+      "scope": "Real signed local-catalog install, negative checks, installed launch and actual details-dialog reset; no public staging/CDN publication",
+      "archiveSha256": "60f80501b9d898b0b392df624e35d15df4bcb3749338e77b8e78820405e980b4",
+      "signing": {
+        "channel": "staging",
+        "keyId": "sb6-isolated-review",
+        "publicKeySha256": "5cf32dcbd5fd9fa2fb9ec609e4f95163c03b7c38d3862b7aa46742a017eb0bb7",
+        "catalogSha256": "1e324ba9510fa83fcbe6c57509c36afcb8556e9f978017751cf9346a093ee75c",
+        "localOnly": true
+      },
+      "tls": {
+        "leafSha256": "87afdd4907e051c6434a11287f34364701674ee7957620148ffadf3119c30258",
+        "trust": "Bootstrap pins only loopback host and this ephemeral leaf; default verification retained for other hosts"
+      },
+      "signatureTamperRejected": true,
+      "archiveTamperRejected": true,
+      "installed": {
+        "releaseId": "purplewave-sb-6",
+        "digest": "60f80501b9d898b0b392df624e35d15df4bcb3749338e77b8e78820405e980b4"
+      },
+      "installedFileCount": 1181,
+      "immutablePackageUnchanged": true,
+      "noticeReadable": true,
+      "resets": {
+        "firstReset": {
+          "uiClicked": true,
+          "bothProfilesRestoredToEmptyBaseline": true,
+          "genuineHistoryFilesBefore": 2
+        },
+        "finalReset": {
+          "uiClicked": true,
+          "bothProfilesRestoredToEmptyBaseline": true,
+          "genuineHistoryFilesBefore": 2
+        }
+      },
+      "matches": [
+        {
+          "label": "installed-baseline",
+          "started": "2026-10-27T00:14:12.214Z",
+          "finished": "2026-10-27T00:15:56.389Z",
+          "boundedStop": true,
+          "naturalResult": false,
+          "resetWhileInUse": {
+            "uiDisabled": true,
+            "ipcRejected": true
+          },
+          "sessionId": "b256a5df-f388-4468-83c9-f24ce2ed0062",
+          "sides": [
+            {
+              "profile": "work",
+              "race": "terran",
+              "winner": false,
+              "frame": 1253,
+              "acceptedCommands": 404,
+              "rejectedCommands": 0,
+              "rejectionReasons": {},
+              "unsupportedCommandKinds": {}
+            },
+            {
+              "profile": "work-2",
+              "race": "terran",
+              "winner": false,
+              "frame": 1253,
+              "acceptedCommands": 405,
+              "rejectedCommands": 0,
+              "rejectionReasons": {},
+              "unsupportedCommandKinds": {}
+            }
+          ],
+          "sync": {
+            "commonProbes": 6,
+            "lastCommonFrame": 1200,
+            "mismatches": []
+          },
+          "caughtExceptionLogFiles": []
+        },
+        {
+          "label": "installed-terran-tech",
+          "started": "2026-10-27T00:15:58.875Z",
+          "finished": "2026-10-27T00:23:45.082Z",
+          "boundedStop": true,
+          "naturalResult": false,
+          "resetWhileInUse": {
+            "uiDisabled": true,
+            "ipcRejected": true
+          },
+          "sessionId": "dec5866a-51f4-4cb4-ae62-73ff28ac8b2f",
+          "sides": [
+            {
+              "profile": "work",
+              "race": "terran",
+              "winner": false,
+              "frame": 10049,
+              "acceptedCommands": 36450,
+              "rejectedCommands": 2195,
+              "rejectionReasons": {
+                "target_not_visible": 33,
+                "unsupported_or_malformed": 2151,
+                "target_native_missing": 11
+              },
+              "unsupportedCommandKinds": {
+                "24": 2099,
+                "41": 52
+              }
+            },
+            {
+              "profile": "work-2",
+              "race": "terran",
+              "winner": false,
+              "frame": 10050,
+              "acceptedCommands": 34487,
+              "rejectedCommands": 2374,
+              "rejectionReasons": {
+                "unsupported_or_malformed": 2339,
+                "target_not_visible": 28,
+                "target_native_missing": 7
+              },
+              "unsupportedCommandKinds": {
+                "24": 2168,
+                "41": 171
+              }
+            }
+          ],
+          "sync": {
+            "commonProbes": 42,
+            "lastCommonFrame": 9840,
+            "mismatches": []
+          },
+          "caughtExceptionLogFiles": []
+        }
+      ],
+      "techSnapshots": {
+        "stableSamples": 14,
+        "firstFrame": 4799,
+        "lastFrame": 9814,
+        "maxGatheredGas": 1168,
+        "maxUnitCounts": {
+          "Marine": 6,
+          "Vulture": 16,
+          "SiegeTankTankMode": 1,
+          "SiegeTankSiegeMode": 1,
+          "SCV": 35,
+          "Refinery": 1,
+          "Barracks": 1,
+          "Factory": 3,
+          "MachineShop": 2
+        },
+        "scope": "Read-only BWAPI snapshot from owned first bot; unit IDs cross-checked with packaged JBWAPI UnitType enum"
+      }
+    }
+  ],
+  "productionReadiness": {
+    "approved": false,
+    "sourceAndLocalDistribution": "approved for scoped experimental local use",
+    "installerAndUi": "passed with local HTTPS/signing trust; not public staging/CDN validation",
+    "blockers": [
+      {
+        "component": "ShieldBattery BWAPI command encoder",
+        "issue": "Lift kind 24 and Spider Mines (Use_Tech_Position kind 41, tech 3) unsupported in factory-strategy matches on x86 and x64; recorded totals are 8,439 Lift and 351 Spider Mines rejections across four bots",
+        "upstreamBase": "a096b05e199ac0aaa6d46d7da21b8833acfd3218",
+        "supportedByPinnedBwapi": "BWAPI GameCommands.cpp routes Lift to Orders::Lift; JBWAPI UnitCommand.lift uses Position.None for unused coordinates",
+        "liftRejections": 8439,
+        "spiderMineRejections": 351,
+        "representativeCommands": [
+          {
+            "kind": 24,
+            "actorUnitType": 111,
+            "x": 32000,
+            "y": 32032,
+            "extra": 0,
+            "actorOwned": true,
+            "meaning": "Lift with JBWAPI Position.None coordinates"
+          },
+          {
+            "kind": 41,
+            "actorUnitType": 2,
+            "x": 3503,
+            "y": 2831,
+            "extra": 3,
+            "actorOwned": true,
+            "meaning": "Spider Mines at valid in-map pixel position"
+          }
+        ]
+      },
+      {
+        "component": "ShieldBattery production runtime",
+        "issue": "Current upstream app rejects non-dev local/practice launch and native BWAPI module is cfg(debug_assertions)"
+      }
+    ]
+  },
+  "ownedAppGameJavaProcessesRemaining": 0
 }
