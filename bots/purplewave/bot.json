@@ -89,14 +89,13 @@
       "Experimental local 1v1 with assigned Protoss, Terran or Zerg only. Random, teams, FFA, unusual maps and exhaustive late-game command coverage remain unverified.",
       "Requires reviewed gathered-resource reporting, training cancellation, building-flight/Spider Mines commands and supervised release practice in the ShieldBattery client.",
       "Historical release-DLL gameplay and saved-state checks apply to their recorded client/runtime combination. Production approval is deferred until client rollout and signed staging delivery are verified.",
-      "A minimumBridgeVersion string alone is not an enforced client-version requirement. Source/distribution admission does not grant production publication approval.",
       "Scoped source/runtime review is not an OS sandbox. Human difficulty and public competition remain unreviewed."
     ]
   },
   "build": {
     "status": "recipe-in-robotics-facility",
     "repository": "https://github.com/ShieldBattery/robotics-facility.git",
-    "revision": "4bd56332018f3df71e47a3bbfdc83ce042e43c8f",
+    "revision": "17b377ca0d5df068e52abb5bdcf57867d697477f",
     "instructions": "bots/purplewave/BUILD.md"
   },
   "sourceReview": {

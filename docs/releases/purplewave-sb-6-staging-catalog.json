@@ -58,8 +58,8 @@
               "formats": [
                 {
                   "id": "one-v-one",
-                  "support": "verified",
-                  "notes": "sb.6 completed natural 1v1 games as Protoss, Terran and Zerg on x64 and x86. Terran selected worker rush; broader strategic coverage remains scoped. Saved-history reload verified. docs/releases/purplewave-sb-6-admission.md"
+                  "support": "experimental",
+                  "notes": "Experimental local play with assigned Protoss, Terran or Zerg. Reviewed gameplay used a compatible ShieldBattery client; broader map, command and rollout coverage remains unverified. See docs/releases/purplewave-sb-6-admission.md."
                 },
                 {
                   "id": "teams",
@@ -73,7 +73,7 @@
                 }
               ],
               "mapConstraints": [
-                "Legacy SC:R unit limits required by the experimental bridge."
+                "Legacy SC:R unit limits required by the BWAPI bridge."
               ],
               "learning": {
                 "mode": "persistent",
@@ -239,7 +239,7 @@
             },
             "sourceReview": {
               "status": "approved",
-              "evidence": "Exact sb.6 source/JAR delta and packaged-source offline rebuild reviewed; unchanged dependencies retain scoped source/native review. docs/releases/purplewave-sb-6-admission.md"
+              "evidence": "Pinned source/runtime effects and corresponding-source delivery reviewed for scoped experimental local play. Archive-specific checks and historical runtime evidence are recorded in docs/releases/purplewave-sb-6-admission.md."
             },
             "writableDirectories": [
               "work/bwapi-data/read",
@@ -249,7 +249,7 @@
               "recipeSource": {
                 "id": "robotics-facility",
                 "repository": "https://github.com/ShieldBattery/robotics-facility.git",
-                "revision": "4bd56332018f3df71e47a3bbfdc83ce042e43c8f",
+                "revision": "17b377ca0d5df068e52abb5bdcf57867d697477f",
                 "patches": []
               },
               "recipePath": "tools/build-purplewave.ts",
@@ -258,12 +258,11 @@
           },
           "artifact": {
             "url": "https://github.com/ShieldBattery/robotics-facility/releases/download/purplewave-sb-6/purplewave-sb-6.zip",
-            "sha256": "60f80501b9d898b0b392df624e35d15df4bcb3749338e77b8e78820405e980b4",
-            "sizeBytes": 20065845,
-            "manifestSha256": "18d363c412fad4c50a7d3d4c7cb52dc9f4219b76ef80259cb66f3b73bba6b21a",
+            "sha256": "477ee3cc900eb0851bcd726c8e2f8781579a38daaf8c0f876383b5127f0db722",
+            "sizeBytes": 20065830,
+            "manifestSha256": "18362afc51831f3bd78135edbf42bcbee4fec5960715811ecce4f2e5cef1d6f0",
             "format": "zip"
-          },
-          "releaseStatus": "production-approved"
+          }
         }
       ]
     }
