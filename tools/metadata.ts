@@ -13,6 +13,10 @@ export type Runtime =
        */
       jvmArguments?: string[]
     }
+  | {
+      kind: 'pluto-v2'
+      companionSha256: string
+    }
 
 export interface MetadataTypes {
   source: Source

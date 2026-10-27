@@ -140,6 +140,7 @@ export async function verifyArchive(bytes: Buffer, release: CatalogRelease): Pro
                 throw new Error(`Required package file missing: ${name}`)
             }
             requireFile(pkg.launch.entrypoint)
+            if (pkg.runtime.kind === 'pluto-v2') requireFile('pluto-upstream.json')
             for (const license of pkg.licenses) requireFile(license.noticePath)
             if (pkg.launch.workingDirectory !== '.') {
               const dir = archivePath(pkg.launch.workingDirectory)

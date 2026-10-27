@@ -289,3 +289,18 @@ await test('candidate metadata supports Java x64 without claiming prototype veri
   record(bot.compatibility).botArchitecture = 'arm64'
   assert.throws(() => validate('candidate', bot))
 })
+
+await test('Pluto catalog runtime requires exact companion launch and Win32', () => {
+  const catalog: unknown = readJson(new URL('../catalog/catalog.json', import.meta.url))
+  validate('catalog', catalog)
+  const pkg = structuredClone(catalog.bots[0].releases[0].package)
+  pkg.runtime = { kind: 'pluto-v2', companionSha256: 'a'.repeat(64) }
+  pkg.platform.architecture = 'x86'
+  pkg.launch = { entrypoint: 'work/pluto-companion.dll', workingDirectory: 'work', arguments: [] }
+  assert.doesNotThrow(() => validate('package', pkg))
+  pkg.platform.architecture = 'x86_64'
+  assert.throws(() => validate('package', pkg), /Win32/)
+  pkg.platform.architecture = 'x86'
+  pkg.launch.arguments.push('unexpected')
+  assert.throws(() => validate('package', pkg), /without arguments/)
+})

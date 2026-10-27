@@ -34,11 +34,18 @@
                 "pattern": "^[a-f0-9]{64}$"
               }
             },
-            "required": ["path", "sha256"]
+            "required": [
+              "path",
+              "sha256"
+            ]
           }
         }
       },
-      "required": ["id", "repository", "revision"]
+      "required": [
+        "id",
+        "repository",
+        "revision"
+      ]
     },
     "bot": {
       "type": "object",
@@ -71,7 +78,9 @@
                 "pattern": "^https://[^\\s]+$"
               }
             },
-            "required": ["name"]
+            "required": [
+              "name"
+            ]
           },
           "minItems": 1
         },
@@ -107,7 +116,9 @@
           "uniqueItems": true
         },
         "humanSkill": {
-          "enum": ["uncalibrated"]
+          "enum": [
+            "uncalibrated"
+          ]
         },
         "externalRatings": {
           "type": "array",
@@ -131,7 +142,10 @@
                 "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
               },
               "ratedVersion": {
-                "type": ["string", "null"]
+                "type": [
+                  "string",
+                  "null"
+                ]
               },
               "sourceUrl": {
                 "type": "string",
@@ -172,17 +186,30 @@
       "additionalProperties": false,
       "properties": {
         "id": {
-          "enum": ["one-v-one", "teams", "free-for-all"]
+          "enum": [
+            "one-v-one",
+            "teams",
+            "free-for-all"
+          ]
         },
         "support": {
-          "enum": ["verified", "experimental", "incompatible", "unverified"]
+          "enum": [
+            "verified",
+            "experimental",
+            "incompatible",
+            "unverified"
+          ]
         },
         "notes": {
           "type": "string",
           "minLength": 1
         }
       },
-      "required": ["id", "support", "notes"]
+      "required": [
+        "id",
+        "support",
+        "notes"
+      ]
     },
     "profile": {
       "type": "object",
@@ -191,13 +218,21 @@
         "selectableRaces": {
           "type": "array",
           "items": {
-            "enum": ["zerg", "terran", "protoss"]
+            "enum": [
+              "zerg",
+              "terran",
+              "protoss"
+            ]
           },
           "minItems": 1,
           "uniqueItems": true
         },
         "randomRace": {
-          "enum": ["supported", "unsupported", "unverified"]
+          "enum": [
+            "supported",
+            "unsupported",
+            "unverified"
+          ]
         },
         "formats": {
           "type": "array",
@@ -219,31 +254,52 @@
           "additionalProperties": false,
           "properties": {
             "mode": {
-              "enum": ["persistent", "none", "unknown"]
+              "enum": [
+                "persistent",
+                "none",
+                "unknown"
+              ]
             },
             "notes": {
               "type": "string",
               "minLength": 1
             }
           },
-          "required": ["mode", "notes"]
+          "required": [
+            "mode",
+            "notes"
+          ]
         }
       },
-      "required": ["selectableRaces", "randomRace", "formats", "mapConstraints", "learning"]
+      "required": [
+        "selectableRaces",
+        "randomRace",
+        "formats",
+        "mapConstraints",
+        "learning"
+      ]
     },
     "eligibility": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "status": {
-          "enum": ["unreviewed", "approved", "restricted", "denied"]
+          "enum": [
+            "unreviewed",
+            "approved",
+            "restricted",
+            "denied"
+          ]
         },
         "evidence": {
           "type": "string",
           "minLength": 1
         }
       },
-      "required": ["status", "evidence"]
+      "required": [
+        "status",
+        "evidence"
+      ]
     },
     "permissions": {
       "type": "object",
@@ -256,7 +312,10 @@
           "$ref": "#/$defs/eligibility"
         }
       },
-      "required": ["localDistribution", "publicCompetition"]
+      "required": [
+        "localDistribution",
+        "publicCompetition"
+      ]
     },
     "candidate": {
       "type": "object",
@@ -301,7 +360,12 @@
               "minLength": 1
             }
           },
-          "required": ["name", "sourceId", "path", "notes"]
+          "required": [
+            "name",
+            "sourceId",
+            "path",
+            "notes"
+          ]
         },
         "permissions": {
           "$ref": "#/$defs/permissions"
@@ -311,7 +375,10 @@
           "additionalProperties": false,
           "properties": {
             "status": {
-              "enum": ["unverified", "prototype-tested"]
+              "enum": [
+                "unverified",
+                "prototype-tested"
+              ]
             },
             "bwapiVersion": {
               "const": "4.4.0"
@@ -320,12 +387,18 @@
               "const": 10003
             },
             "botArchitecture": {
-              "enum": ["x86", "x86_64"]
+              "enum": [
+                "x86",
+                "x86_64"
+              ]
             },
             "gameArchitectures": {
               "type": "array",
               "items": {
-                "enum": ["x86", "x86_64"]
+                "enum": [
+                  "x86",
+                  "x86_64"
+                ]
               },
               "minItems": 1,
               "uniqueItems": true
@@ -358,7 +431,10 @@
           "additionalProperties": false,
           "properties": {
             "status": {
-              "enum": ["recipe-in-shieldbattery", "recipe-in-robotics-facility"]
+              "enum": [
+                "recipe-in-shieldbattery",
+                "recipe-in-robotics-facility"
+              ]
             },
             "repository": {
               "type": "string",
@@ -373,7 +449,12 @@
               "pattern": "^(?!.*(?:^|/)\\.{1,2}(?:/|$))(?!/)[A-Za-z0-9_ .-]+(?:/[A-Za-z0-9_ .-]+)*$"
             }
           },
-          "required": ["status", "repository", "revision", "instructions"]
+          "required": [
+            "status",
+            "repository",
+            "revision",
+            "instructions"
+          ]
         },
         "sourceReview": {
           "$ref": "#/$defs/sourceReview"
@@ -401,7 +482,9 @@
               "const": "native"
             }
           },
-          "required": ["kind"]
+          "required": [
+            "kind"
+          ]
         },
         {
           "type": "object",
@@ -415,7 +498,10 @@
               "minimum": 1
             },
             "architecture": {
-              "enum": ["x86", "x86_64"]
+              "enum": [
+                "x86",
+                "x86_64"
+              ]
             },
             "jvmArguments": {
               "type": "array",
@@ -425,7 +511,28 @@
               "description": "Arguments passed to Java before -jar; launch.arguments are passed to the bot afterward."
             }
           },
-          "required": ["kind", "major", "architecture"]
+          "required": [
+            "kind",
+            "major",
+            "architecture"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "pluto-v2"
+            },
+            "companionSha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            }
+          },
+          "required": [
+            "kind",
+            "companionSha256"
+          ]
         }
       ]
     },
@@ -456,10 +563,16 @@
               "const": "windows"
             },
             "architecture": {
-              "enum": ["x86", "x86_64"]
+              "enum": [
+                "x86",
+                "x86_64"
+              ]
             }
           },
-          "required": ["os", "architecture"]
+          "required": [
+            "os",
+            "architecture"
+          ]
         },
         "runtime": {
           "$ref": "#/$defs/runtime"
@@ -491,7 +604,11 @@
               ]
             }
           },
-          "required": ["entrypoint", "arguments", "workingDirectory"]
+          "required": [
+            "entrypoint",
+            "arguments",
+            "workingDirectory"
+          ]
         },
         "profile": {
           "$ref": "#/$defs/profile"
@@ -513,7 +630,11 @@
               "minLength": 1
             }
           },
-          "required": ["version", "protocol", "minimumBridgeVersion"]
+          "required": [
+            "version",
+            "protocol",
+            "minimumBridgeVersion"
+          ]
         },
         "sources": {
           "type": "array",
@@ -537,7 +658,10 @@
                 "pattern": "^(?!.*(?:^|/)\\.{1,2}(?:/|$))(?!/)[A-Za-z0-9_ .-]+(?:/[A-Za-z0-9_ .-]+)*$"
               }
             },
-            "required": ["name", "noticePath"]
+            "required": [
+              "name",
+              "noticePath"
+            ]
           },
           "minItems": 1
         },
@@ -563,10 +687,18 @@
                 "minLength": 1
               },
               "scope": {
-                "enum": ["bot", "dependency"]
+                "enum": [
+                  "bot",
+                  "dependency"
+                ]
               }
             },
-            "required": ["modifier", "date", "summary", "scope"]
+            "required": [
+              "modifier",
+              "date",
+              "summary",
+              "scope"
+            ]
           }
         },
         "writableDirectories": {
@@ -593,7 +725,11 @@
               "minLength": 1
             }
           },
-          "required": ["recipeSource", "recipePath", "toolchain"]
+          "required": [
+            "recipeSource",
+            "recipePath",
+            "toolchain"
+          ]
         },
         "sourceReview": {
           "$ref": "#/$defs/sourceReview"
@@ -641,7 +777,13 @@
           "const": "zip"
         }
       },
-      "required": ["url", "sha256", "sizeBytes", "manifestSha256", "format"]
+      "required": [
+        "url",
+        "sha256",
+        "sizeBytes",
+        "manifestSha256",
+        "format"
+      ]
     },
     "catalog": {
       "type": "object",
@@ -676,17 +818,27 @@
                       "$ref": "#/$defs/artifact"
                     }
                   },
-                  "required": ["package", "artifact"]
+                  "required": [
+                    "package",
+                    "artifact"
+                  ]
                 },
                 "minItems": 1
               }
             },
-            "required": ["bot", "releases"]
+            "required": [
+              "bot",
+              "releases"
+            ]
           },
           "minItems": 0
         }
       },
-      "required": ["schemaVersion", "revision", "bots"]
+      "required": [
+        "schemaVersion",
+        "revision",
+        "bots"
+      ]
     },
     "sourceLock": {
       "type": "object",
@@ -703,21 +855,31 @@
           "minItems": 1
         }
       },
-      "required": ["schemaVersion", "sources"]
+      "required": [
+        "schemaVersion",
+        "sources"
+      ]
     },
     "sourceReview": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "status": {
-          "enum": ["pending", "approved", "rejected"]
+          "enum": [
+            "pending",
+            "approved",
+            "rejected"
+          ]
         },
         "evidence": {
           "type": "string",
           "minLength": 1
         }
       },
-      "required": ["status", "evidence"]
+      "required": [
+        "status",
+        "evidence"
+      ]
     }
   }
 }

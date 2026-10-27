@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "bot": {
+    "id": "pluto",
+    "name": "Pluto v2",
+    "description": "An all-race neural bot using the official md09b_1331000 model with a conservative ShieldBattery compatibility adapter. Experimental; human difficulty uncalibrated.",
+    "authors": [
+      {
+        "name": "tscmoo",
+        "url": "https://github.com/tscmoo"
+      }
+    ],
+    "homepage": "https://github.com/tscmoo/pluto",
+    "sourceUrl": "https://github.com/tscmoo/pluto",
+    "playStyleTags": [],
+    "humanSkill": "uncalibrated",
+    "externalRatings": []
+  },
+  "sourceIds": [
+    "bwapi",
+    "pluto-companion"
+  ],
+  "profile": {
+    "selectableRaces": [
+      "terran",
+      "protoss",
+      "zerg"
+    ],
+    "randomRace": "supported",
+    "formats": [
+      {
+        "id": "one-v-one",
+        "support": "experimental",
+        "notes": "Two-player Melee with legacy limits; finite guard and gameplay evidence."
+      },
+      {
+        "id": "teams",
+        "support": "incompatible",
+        "notes": "Pluto requires 1v1 Melee."
+      },
+      {
+        "id": "free-for-all",
+        "support": "incompatible",
+        "notes": "Pluto requires exactly one opponent."
+      }
+    ],
+    "mapConstraints": [
+      "Maps at most 128 by 128 tiles; legacy unit limits.",
+      "Windows x64 and AVX2 CPU required; inference helper is x64, game client is x86."
+    ],
+    "learning": {
+      "mode": "persistent",
+      "notes": "Per-opponent opening statistics persist in isolated profiles; reset restores empty read/write directories."
+    }
+  },
+  "license": {
+    "name": "MIT companion with LGPL-3.0 BWAPI; original model downloaded separately",
+    "sourceId": "pluto-companion",
+    "path": "native/LICENSE",
+    "notes": "Facility archive contains adapter and corresponding sources, not original Pluto binaries. Installer downloads pinned official release directly; no original-model redistribution grant is asserted."
+  },
+  "permissions": {
+    "localDistribution": {
+      "status": "approved",
+      "evidence": "Adapter-only package, retained MIT/LGPL notices and matching source; original models fetched directly from official publisher by client. See docs/pluto-catalog-admission.md."
+    },
+    "publicCompetition": {
+      "status": "unreviewed",
+      "evidence": "Local practice support does not establish public competition eligibility."
+    }
+  },
+  "compatibility": {
+    "status": "prototype-tested",
+    "bwapiVersion": "4.4.0",
+    "protocol": 10003,
+    "botArchitecture": "x86",
+    "gameArchitectures": [
+      "x86"
+    ],
+    "evidence": "docs/pluto-catalog-admission.md",
+    "limitations": [
+      "Requires SB Pluto v2 catalog runtime and in-process companion host.",
+      "Bounded fog and binary review; no full isolation certification.",
+      "Prior exact .10 natural Terran match and source-built utility/launch tests; catalog install gameplay evidence recorded separately."
+    ]
+  },
+  "build": {
+    "status": "recipe-in-robotics-facility",
+    "repository": "https://github.com/coin-au-carre/robotics-facility.git",
+    "revision": "4def66bc26aad296c565045b1c8a66d38e9a55ee",
+    "instructions": "bots/pluto/BUILD.md"
+  },
+  "sourceReview": {
+    "status": "pending",
+    "evidence": "Scoped review and known limits documented in docs/pluto-catalog-admission.md; catalog install verification in progress."
+  }
+}

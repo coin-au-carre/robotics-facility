@@ -1,0 +1,16 @@
+Pluto v2.0 md09b_1331000 by tscmoo: https://github.com/tscmoo/pluto
+
+This facility archive contains compatibility companion and matching source, not
+original Pluto model binaries. During installation, ShieldBattery downloads original
+v2.0 release directly from its official GitHub release URL and verifies its ZIP
+and per-file hashes. Original release README is retained in installed work directory.
+No redistribution permission for original model binaries is asserted by this archive.
+
+Companion uses .10 filtered legacy-memory adapter, command translation and lifecycle
+support. Model DLL, inference executable and weights remain unmodified. Matching
+adapter/dependency source and original notices accompany this package.
+
+Support is experimental local practice. Full fog safety, OS isolation and every
+map/race/state are not certified. Source review covers pinned adapter and bounded
+original-binary behavior evidence; closed model sources are unavailable. Public
+competition eligibility and human difficulty remain unreviewed/uncalibrated.

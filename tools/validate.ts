@@ -64,6 +64,15 @@ function validatePackageRelations(pkg: Package): void {
   if (pkg.runtime.kind === 'java' && pkg.runtime.architecture !== pkg.platform.architecture) {
     throw new Error('Java runtime architecture must match package architecture')
   }
+  if (
+    pkg.runtime.kind === 'pluto-v2' &&
+    (pkg.platform.architecture !== 'x86' ||
+      pkg.launch.workingDirectory !== 'work' ||
+      pkg.launch.entrypoint !== 'work/pluto-companion.dll' ||
+      pkg.launch.arguments.length)
+  ) {
+    throw new Error('Pluto companion requires Win32 work/pluto-companion.dll without arguments')
+  }
 }
 
 function validateArtifactUrl(artifact: Artifact): void {

@@ -146,6 +146,12 @@
           "sha256": "24034b0e026335b503b3f49496ee123af6ebe2d6e20cef4c45978d749e4764c1"
         }
       ]
+    },
+    {
+      "id": "pluto-companion",
+      "repository": "https://github.com/coin-au-carre/robotics-facility.git",
+      "revision": "8cd1f60680efcb81ac92cd7221d4ad45b4ed5606",
+      "patches": []
     }
   ]
 }
