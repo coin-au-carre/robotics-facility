@@ -3,14 +3,14 @@
   "bot": {
     "id": "bananabrain",
     "name": "BananaBrain",
-    "description": "AIIDE 2025 Protoss bot with varied openings and persistent opponent results. Experimental local practice; human difficulty uncalibrated.",
+    "description": "AIIDE 2025 Protoss bot using human-opponent opening selection and persistent opponent results. Experimental local practice; human difficulty uncalibrated.",
     "authors": [
       {
         "name": "Johan de Jong"
       }
     ],
     "homepage": "https://davechurchill.ca/starcraft/aiide/results/2025/",
-    "sourceUrl": "https://github.com/coin-au-carre/robotics-facility/tree/source/bananabrain-aiide2025",
+    "sourceUrl": "https://github.com/ShieldBattery/robotics-facility/tree/source/bananabrain-aiide2025",
     "playStyleTags": [
       "varied-openings"
     ],
@@ -59,8 +59,8 @@
   },
   "permissions": {
     "localDistribution": {
-      "status": "approved",
-      "evidence": "docs/releases/bananabrain-sb-5.md: exact-source/storage and notice review, fresh guarded sb.4 review package, offline rebuild, natural x64 Protoss match, isolated concurrent play and crash/save-failure recovery. Scoped supervised local practice only."
+      "status": "unreviewed",
+      "evidence": "New human-opponent runtime remains a review-only experimental candidate pending exact-package and gameplay review. Original license and public-tournament permission condition remain unchanged. docs/releases/bananabrain-sb-6.md"
     },
     "publicCompetition": {
       "status": "unreviewed",
@@ -68,29 +68,30 @@
     }
   },
   "compatibility": {
-    "status": "prototype-tested",
+    "status": "unverified",
     "bwapiVersion": "4.4.0",
     "protocol": 10003,
     "botArchitecture": "x86",
     "gameArchitectures": [
       "x86_64"
     ],
-    "evidence": "docs/releases/bananabrain-sb-5.md",
+    "evidence": "docs/releases/bananabrain-sb-6.md",
     "limitations": [
-      "Assigned Protoss, experimental local 1v1 on Fighting Spirit 1.4; random/Terran/Zerg assignments, teams/FFA and x86 StarCraft are unverified.",
-      "Requires reviewed ShieldBattery native bridge, accurate gathered resources (#1831), supervised release practice (#1838) and separate writable profiles.",
-      "Natural result used a passive Terran control; two command rejection reasons were not captured. Human difficulty uncalibrated.",
+      "Assigned Protoss, experimental local 1v1 only; random/Terran/Zerg assignments, teams/FFA and x86 StarCraft remain unverified.",
+      "Human-opponent mode changes opening selection to UCB1 and enables original glhf/gg chat. Historical sb.5 matches do not verify this new runtime.",
+      "Requires compatible ShieldBattery native bridge, accurate gathered-resource reporting, supervised local practice and separate writable profiles.",
+      "Fresh package/gameplay review and upstream hosting of exact source-import commit remain required. Human difficulty and public competition are unreviewed.",
       "Shared-profile writers, physical disk exhaustion and exhaustive OS tracing are outside reviewed scope."
     ]
   },
   "build": {
     "status": "recipe-in-robotics-facility",
-    "repository": "https://github.com/coin-au-carre/robotics-facility.git",
+    "repository": "https://github.com/ShieldBattery/robotics-facility.git",
     "revision": "09a3008da5e07e3f1b2e8a0e879f7a1387828615",
     "instructions": "bots/bananabrain/BUILD.md"
   },
   "sourceReview": {
-    "status": "approved",
-    "evidence": "docs/releases/bananabrain-sb-5.md: reviewed pinned bot/dependency/host inputs and actual packaged source; bounded storage, injected save failures, interruption recovery, isolated concurrency and fresh exact-runtime gameplay. Not an OS sandbox or public-competition approval."
+    "status": "pending",
+    "evidence": "Human-opponent configuration and corrected source inventory require current-package validation. Historical sb.5 evidence applies only to its recorded inputs. docs/releases/bananabrain-sb-6.md"
   }
 }

@@ -2,7 +2,7 @@ diff --git a/src/Source/Configuration.cpp b/src/Source/Configuration.cpp
 index 35ea798..0d76de8 100644
 --- a/src/Source/Configuration.cpp
 +++ b/src/Source/Configuration.cpp
-@@ -1,69 +1,7 @@
+@@ -1,69 +1,8 @@
  #include "BananaBrain.h"
  
 +// Keep learning files from overriding the shipped gameplay configuration.
@@ -73,6 +73,7 @@ index 35ea798..0d76de8 100644
 -		ZvU_opening_ = value;
 -	}
 +    tournament_ = true;
++    human_opponent_ = true;
  }
 diff --git a/src/Source/Configuration.h b/src/Source/Configuration.h
 index 2b14aae..ea15bb5 100644

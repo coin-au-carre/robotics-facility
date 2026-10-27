@@ -18,7 +18,8 @@ node tools/build-bananabrain.ts bananabrain-prototype
 For an isolated SB local-build test, use the resulting bin/BananaBrain.exe with
 runtime native. Copy the imported AI text data into a fresh working directory's
 bwapi-data/AI; create empty read and write directories. Preserve the original
-Configuration.txt (tournament=true); drawing defaults to disabled. Start Protoss
+Configuration.txt as original source data. Runtime fixes tournament=true and
+human_opponent=true (UCB1 opening selection and original glhf/gg); drawing is disabled. Start Protoss
 first. Test only controlled names in an isolated profile.
 
 Current storage patch bounds parsing, encodes opponent filenames, fixes shipped

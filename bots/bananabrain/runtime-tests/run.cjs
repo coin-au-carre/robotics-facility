@@ -16,6 +16,7 @@ const between = (s, a, b) => {
   return s.slice(start, end)
 }
 const r = read('Results.cpp'), w = read('Worker.cpp')
+const constants = read('Results.h').split('\n').filter(line => /static constexpr (double|int) /.test(line)).join('\n')
 const miningStart = w.indexOf('namespace {\nstd::string mining_filename()')
 if (miningStart < 0) throw new Error('Expected mining storage boundary missing')
 const inc = read('Results.h').split('class ResultStore')[0] + `
@@ -26,6 +27,11 @@ class ResultStore { public:
  static std::string determine_name() { return opponent; }
  void init(); void init_filenames(); void read_prepared_results(); void read_results();
  void read_file(const std::string&); void store();
+ std::string pick_strategy(std::vector<std::string>);
+ std::string pick_strategy_greedy(const std::vector<std::string>&);
+ std::string pick_strategy_ucb1(const std::vector<std::string>&);
+ static std::string pick_at_random(const std::vector<std::string>&);
+ ${constants}
 };
 struct FastPosition { int x,y; FastPosition(int a,int b):x(a),y(b){} };
 struct FastTilePosition : FastPosition { using FastPosition::FastPosition; bool operator<(const FastTilePosition& b) const { return std::tie(x,y)<std::tie(b.x,b.y); } };
@@ -36,8 +42,13 @@ static std::string mapHashValue(40, 'a');
 struct FakeGame { std::string mapHash() { return mapHashValue; } int mapWidth() { return 256; } int mapHeight() { return 256; } } game;
 static FakeGame* Broodwar = &game;
 class WorkerManager { public: std::map<FastTilePosition,std::set<WorkerPositionAndVelocity>> optimal_mining_map_; void init_optimal_mining_data(); void store_optimal_mining_data(); };
-` + read('Configuration.h').replace(' : public Singleton<Configuration>', '') +
+` + read('Configuration.h').replace(' : public Singleton<Configuration>', '') + `
+static Configuration configuration;
+static std::mt19937& random_generator() { static std::mt19937 engine(17); return engine; }
+template <class C, class V> bool contains(const C& collection, const V& value) { return collection.find(value) != collection.end(); }
+` +
   between(r, 'void ResultStore::init()', 'std::string ResultStore::pick_strategy(') +
+  between(r, 'std::string ResultStore::pick_strategy(', 'void ResultStore::apply_result(') +
   between(r, 'void ResultStore::store()', 'std::string ResultStore::determine_name()') +
   w.slice(miningStart) +
   read('Configuration.cpp').replace('#include "BananaBrain.h"', '')

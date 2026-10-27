@@ -1,29 +1,15 @@
-BananaBrain AIIDE 2025 — sb.5 scoped local-practice admission
+BananaBrain AIIDE 2025 — sb.6 experimental review candidate
 
-ShieldBattery review, 2026-10-27: source and local distribution approved for
-assigned Protoss experimental local 1v1, Win32 native bot with x64 StarCraft,
-Fighting Spirit 1.4 and separate writable profiles. Human difficulty uncalibrated.
-No public tournament permission is recorded. Original BananaBrain license and
-written-author-permission condition for public tournaments remain unchanged.
+Human-opponent mode enables original UCB1 opening selection and glhf/gg chat.
+This changes runtime behavior from historical sb.5; its gameplay/admission does
+not establish approval for this candidate. Review-only package metadata remains
+pending/unreviewed. No production or public-competition approval is granted.
 
-This notice records the current decision and supersedes only the historical
-pending-review status in RELEASE.txt. All original notices and attributions are
-retained. See package.json for exact immutable inputs and scoped review metadata.
+Assigned Protoss experimental local 1v1 only. Random/Terran/Zerg assignments,
+x86 StarCraft, teams/FFA, human difficulty and exhaustive OS tracing are unverified.
+New source, patch, build and executable hashes are recorded in package.json and
+source/build-info.json. Original author AI bytes, licenses and tournament-permission
+condition remain unchanged. Source and offline build/relink materials are included.
 
-Runtime comes from guarded recipe 09a3008da5e07e3f1b2e8a0e879f7a1387828615.
-Tested executable SHA-256:
-f4e88bba24eca90aa4251c94bc952ee9dc7a754ff7f040633f7aacbc7a2f6098
-Original source, AI files, storage patch, native helper and build record are retained.
-New release identity, approved review metadata, project modifier label, current
-BUILD instructions and this notice are packaging changes.
-
-Required client: reviewed native bridge with accurate gathered-resource reporting
-and supervised release local practice; app-owned per-instance profiles and idle
-reset. Random/Terran/Zerg assignments, x86 StarCraft, teams/FFA, shared-profile
-writers, physical disk exhaustion and exhaustive OS tracing remain unverified.
-Save-failure tests inject Windows I/O errors; they do not fill a physical disk.
-Two natural-match command rejection reasons were not captured.
-
-Source and relinking/build materials are in source/ in this same ZIP. Preserve
-all included licenses and modification/debugging rights on redistribution.
-Package creation and admission do not publish a release or signed catalog.
+The exact source import still needs hosting on upstream source/bananabrain-aiide2025.
+Packaging does not upload a release or activate a signed catalog.

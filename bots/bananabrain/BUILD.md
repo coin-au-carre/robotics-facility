@@ -25,12 +25,17 @@ directory and register `bin/BananaBrain.exe` through SB's local-build flow with
 working directory `work`, native runtime and Protoss race. Do not copy files into
 the installed game or an existing learning profile.
 
-The sb.5 admission covers assigned Protoss experimental local 1v1 with x64 StarCraft
-and separate writable profiles. See `docs/releases/bananabrain-sb-5.md` for exact
-inputs, tests, limits and delivery requirements. Public tournament entry still
-requires written author permission under the included license. `--review` always
-creates an unapproved review archive; admitted packaging omits it and uses a fresh
-release ID. Packaging does not upload or publish a catalog.
+Current sb.6 changes the fixed configuration to human-opponent mode: UCB1 opening
+exploration and original glhf/gg chat, with tournament history behavior retained
+and drawing disabled. It remains an experimental review candidate. sb.5 evidence
+is historical and does not verify the new executable. See
+`docs/releases/bananabrain-sb-6.md` for exact new inputs and validation scope.
+
+Source commit remains unchanged; canonical import location is ShieldBattery's
+`source/bananabrain-aiide2025`. Maintainers must host that branch before an upstream-only
+fetch is reproducible. Original three nested `.DS_Store` files remain in the pin
+but are excluded from packages; lowercase `readme.txt` is required and included.
+`--review` remains mandatory while current source/distribution review is pending.
 
 ## Offline rebuild from a review ZIP
 

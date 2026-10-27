@@ -29,12 +29,12 @@ const recipe: NativePackageRecipe = {
   executable: 'BananaBrain.exe',
   version: 'AIIDE2025',
   recipePaths: bananabrainRecipePaths,
-  recipeRepository: 'https://github.com/coin-au-carre/robotics-facility.git',
   sources: {
     bwapi: { prefixes: bwapiSourcePrefixes, required: ['bwapi/BWAPIClient/Source/Client.cpp'] },
     bananabrain: {
-      prefixes: ['src', 'AI', 'Readme.txt'],
-      required: ['src/Source/Dll.cpp', 'src/Source/License.txt', 'src/BWEM/LICENSE'],
+      prefixes: ['src', 'AI', 'readme.txt'],
+      excluded: ['src/.DS_Store', 'src/BWEM/.DS_Store', 'src/Source/.DS_Store'],
+      required: ['readme.txt', 'src/Source/Dll.cpp', 'src/Source/License.txt', 'src/BWEM/LICENSE'],
     },
   },
   notices: [
@@ -61,7 +61,7 @@ const recipe: NativePackageRecipe = {
       date: '2026-10-26',
       scope: 'bot',
       summary:
-        'AIIDE 2025 source built in the existing single-match Win32 native host with static MSVC runtime; storage patch bounds parsing, encodes filenames, prefers saved output, fixes configuration and uses atomic saves. Original AI text data included.',
+        "AIIDE 2025 source built in the existing single-match Win32 native host with static MSVC runtime; storage patch bounds parsing, encodes filenames, prefers saved output, fixes configuration and uses atomic saves. Human-opponent mode selects the author's UCB1 opening policy and glhf/gg chat. Original AI text data included.",
     },
     {
       modifier: 'ShieldBattery',

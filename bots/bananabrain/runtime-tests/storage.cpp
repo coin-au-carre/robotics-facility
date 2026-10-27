@@ -7,6 +7,9 @@
 #include <tuple>
 #include <climits>
 #include <stdexcept>
+#include <algorithm>
+#include <cmath>
+#include <random>
 
 namespace fs = std::filesystem;
 void check(bool ok) { if (!ok) throw std::runtime_error("storage regression failed"); }
@@ -127,6 +130,32 @@ int main(int argc, char** argv) {
     put("bwapi-data/read/Configuration.txt", "tournament=false\ndraw=true\n");
     put("bwapi-data/read/schnail.env", "");
     Configuration c; c.init();
-    check(c.tournament() && !c.draw_enabled() && !c.human_opponent() && c.PvT_opening().empty());
+    check(c.tournament() && !c.draw_enabled() && c.human_opponent() && !c.ucb1() && c.PvT_opening().empty());
+    // Synthetic fixtures exercise policy persistence; these are not saved game results.
+    configuration.init();
+    opponent = "HumanOpeningFixture";
+    const std::vector<std::string> openings = {"PvT_2gatedt", "PvT_1gatedtexpo", "PvT_12nexus"};
+    std::map<std::string, int> counts;
+    for (int round = 0; round < 12; ++round) {
+        ResultStore persisted; persisted.init();
+        check(persisted.results_.size() == static_cast<size_t>(round));
+        const std::string selected = persisted.pick_strategy(openings);
+        check(std::find(openings.begin(), openings.end(), selected) != openings.end());
+        if (round < static_cast<int>(openings.size())) check(counts[selected] == 0);
+        ++counts[selected];
+        Result fixture{};
+        fixture.timestamp = "synthetic-fixture-" + std::to_string(round);
+        fixture.start_positions = 4; fixture.start_clock_position = 1; fixture.opponent_clock_position = 2;
+        fixture.map = "fixture.scx"; fixture.strategy = selected;
+        fixture.late_game_strategy = fixture.opponent_strategy = "none";
+        fixture.duration = round + 1;
+        fixture.opponent_dark_templar_frame = fixture.opponent_mutalisk_frame = fixture.opponent_lurker_frame = -1;
+        fixture.is_win = true;
+        persisted.results_.push_back(fixture); persisted.store();
+    }
+    check(counts.size() == openings.size());
+    for (const auto& opening : openings) check(counts[opening] == 4);
+    ResultStore final_reload; final_reload.init(); check(final_reload.results_.size() == 12);
+    std::cout << "Human-opponent UCB1 explored all three openings before repeating, and balanced 12 persisted synthetic wins.\n";
     std::cout << "BananaBrain storage regressions passed.\n";
 }

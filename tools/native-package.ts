@@ -26,7 +26,6 @@ export interface NativePackageRecipe {
   executable: string
   version: string
   recipePaths: readonly string[]
-  recipeRepository?: string
   sources: Readonly<
     Record<
       string,
@@ -199,8 +198,7 @@ export async function packageNativeBot(
     build: {
       recipeSource: {
         id: 'robotics-facility',
-        repository:
-          recipe.recipeRepository ?? 'https://github.com/ShieldBattery/robotics-facility.git',
+        repository: 'https://github.com/ShieldBattery/robotics-facility.git',
         revision: info.recipeRevision,
         patches: [],
       },
