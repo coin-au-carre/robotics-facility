@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "reviewArchiveSha256": "c19bd7d3761621d221e652126208c7a1de52e8b5f15fd79e673cb8e5525875a1",
+  "scope": "Remaining Terran 1v1 validation on exact sb.6 review archive; natural results precede observer cleanup; no strength calibration",
+  "runs": [
+    {
+      "architecture": "x64",
+      "started": "2026-10-27T00:04:39.096Z",
+      "finished": "2026-10-27T00:08:56.762Z",
+      "sessionId": "53f8815a-5ae9-4414-987b-61ee0139e2d0",
+      "naturalMatch": true,
+      "frameLimit": 36000,
+      "archiveSha256": "c19bd7d3761621d221e652126208c7a1de52e8b5f15fd79e673cb8e5525875a1",
+      "dlls": {
+        "shieldbattery.dll": "b4800e8f4dbce8e0080be920c79d5e74fca74880d2130238178e35f2a3f78360",
+        "shieldbattery_64.dll": "2dcb04a73fead4c0804e9ca5d6d3bd9f78974f53432f66105e1429b4e0b7dedc"
+      },
+      "sides": [
+        {
+          "race": "terran",
+          "winner": false,
+          "frame": 4994,
+          "acceptedCommands": 6384,
+          "rejectedCommands": 14,
+          "rejectionReasons": {
+            "target_native_missing": 11,
+            "actor_native_missing": 3
+          },
+          "caughtBotExceptions": 0,
+          "historyAgreesWithCallback": true,
+          "strategies": [
+            "EvEWorkerRush"
+          ]
+        },
+        {
+          "race": "zerg",
+          "winner": true,
+          "frame": 4999,
+          "acceptedCommands": 11413,
+          "rejectedCommands": 3,
+          "rejectionReasons": {
+            "target_native_missing": 2,
+            "actor_not_owned": 1
+          },
+          "caughtBotExceptions": 0,
+          "historyAgreesWithCallback": true,
+          "strategies": [
+            "ZvE4Pool"
+          ]
+        }
+      ]
+    },
+    {
+      "architecture": "x86",
+      "started": "2026-10-27T00:04:39.962Z",
+      "finished": "2026-10-27T00:09:18.462Z",
+      "sessionId": "e11b785a-a080-4e6a-98ab-6abee8aea0d6",
+      "naturalMatch": true,
+      "frameLimit": 36000,
+      "archiveSha256": "c19bd7d3761621d221e652126208c7a1de52e8b5f15fd79e673cb8e5525875a1",
+      "dlls": {
+        "shieldbattery.dll": "b4800e8f4dbce8e0080be920c79d5e74fca74880d2130238178e35f2a3f78360",
+        "shieldbattery_64.dll": "2dcb04a73fead4c0804e9ca5d6d3bd9f78974f53432f66105e1429b4e0b7dedc"
+      },
+      "sides": [
+        {
+          "race": "terran",
+          "winner": false,
+          "frame": 5490,
+          "acceptedCommands": 6485,
+          "rejectedCommands": 5,
+          "rejectionReasons": {
+            "actor_native_missing": 2,
+            "target_native_missing": 3
+          },
+          "caughtBotExceptions": 0,
+          "historyAgreesWithCallback": true,
+          "strategies": [
+            "EvEWorkerRush"
+          ]
+        },
+        {
+          "race": "zerg",
+          "winner": true,
+          "frame": 5495,
+          "acceptedCommands": 17533,
+          "rejectedCommands": 16,
+          "rejectionReasons": {
+            "target_native_missing": 13,
+            "target_not_visible": 2,
+            "actor_not_owned": 1
+          },
+          "caughtBotExceptions": 0,
+          "historyAgreesWithCallback": true,
+          "strategies": [
+            "ZvE4Pool"
+          ]
+        }
+      ]
+    }
+  ],
+  "offlineRebuild": {
+    "scope": "Offline compile using only packaged source/recipe helper and hash-verified cached compiler/dependency JARs; no source clones or network requests",
+    "toolchain": "javac 21.0.11",
+    "sourceCounts": {
+      "java": 118,
+      "macro": 2,
+      "scala": 961
+    },
+    "files": [
+      {
+        "path": "bin/PurpleWave.jar",
+        "sha256": "e2bfd2519e07e6597bd2159b6044df6c2fca11ebc2b86a532f28e182bd452013",
+        "sizeBytes": 6766057
+      },
+      {
+        "path": "bin/lib/scala-library-2.12.20.jar",
+        "sha256": "4d8a8f984cce31a329a24f10b0bf336f042cb62aeb435290a1b20243154cfccb",
+        "sizeBytes": 5436770
+      },
+      {
+        "path": "bin/lib/scala-reflect-2.12.20.jar",
+        "sha256": "5f1914cdc7a70580ea6038d929ebb25736ecf2234f677e2d47f8a4b2bc81e1fb",
+        "sizeBytes": 3670575
+      },
+      {
+        "path": "bin/lib/jna-5.18.1.jar",
+        "sha256": "260c4b1e22b1db9e110ee441c4f13ce115f841fa48c41d78750986214b395557",
+        "sizeBytes": 2002994
+      },
+      {
+        "path": "bin/lib/jna-platform-5.18.1.jar",
+        "sha256": "ad14c1b1ec4f43d396231219dfa635ebf828f738eac9f890ea1bc07795892d9a",
+        "sizeBytes": 1380744
+      },
+      {
+        "path": "bin/lib/commons-lang3-3.8.1.jar",
+        "sha256": "dac807f65b07698ff39b1b07bfef3d87ae3fd46d91bbf8a2bc02b2a831616f68",
+        "sizeBytes": 501879
+      }
+    ],
+    "allSixJarsIdentical": true
+  },
+  "archiveAudit": {
+    "archiveSha256": "c19bd7d3761621d221e652126208c7a1de52e8b5f15fd79e673cb8e5525875a1",
+    "entries": 1186,
+    "duplicatePaths": 0,
+    "packageNotices": 16,
+    "missingNotices": [],
+    "changedFromSb5": [
+      "bin/PurpleWave.jar",
+      "notices/RELEASE.txt",
+      "package.json",
+      "source/BUILD.md",
+      "source/bots/purplewave/BUILD.md",
+      "source/bots/purplewave/RELEASE.txt",
+      "source/build-info.json",
+      "source/purplewave/src/Micro/Actions/Basic/Gather.scala",
+      "source/source-lock.json",
+      "source/tools/build-purplewave.ts",
+      "source/tools/package-purplewave.ts",
+      "work/bwapi-data/AI/revision.txt"
+    ],
+    "addedFromSb5": [
+      "source/bots/purplewave/runtime-tests/GatherEmptyThreatsTest.scala",
+      "source/bots/purplewave/runtime-tests/run-gather-tests.cmd",
+      "source/patches/purplewave/0002-guard-empty-gather-threats.patch"
+    ],
+    "removedFromSb5": [],
+    "upstreamSourceDeltaFromSb5": [
+      "source/purplewave/src/Micro/Actions/Basic/Gather.scala"
+    ],
+    "jarChangedClasses": [
+      "Micro/Actions/Basic/Gather$.class"
+    ],
+    "newJarEntries": [],
+    "removedJarEntries": []
+  }
+}

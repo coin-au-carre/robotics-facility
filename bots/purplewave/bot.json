@@ -37,8 +37,8 @@
     "formats": [
       {
         "id": "one-v-one",
-        "support": "unverified",
-        "notes": "sb.6 completed natural Protoss-versus-Zerg 1v1 matches on x64 and x86 without caught bot exceptions. Later x64 history reload/deduplication is verified. Terran and broader format coverage remain unverified."
+        "support": "verified",
+        "notes": "sb.6 completed natural 1v1 games as Protoss, Terran and Zerg on x64 and x86. Terran selected worker rush; broader strategic coverage remains scoped. Saved-history reload verified. docs/releases/purplewave-sb-6-admission.md"
       },
       {
         "id": "teams",
@@ -67,8 +67,8 @@
   },
   "permissions": {
     "localDistribution": {
-      "status": "unreviewed",
-      "evidence": "sb.6 changes the PurpleWave source patch and requires renewed source/distribution admission. sb.5 review and published sb.4 remain scoped to their original inputs."
+      "status": "approved",
+      "evidence": "Scoped source, runtime effects, source-delivery and complete notice review of exact sb.6 build. Public competition remains unreviewed. docs/releases/purplewave-sb-6-admission.md"
     },
     "publicCompetition": {
       "status": "unreviewed",
@@ -84,11 +84,12 @@
       "x86",
       "x86_64"
     ],
-    "evidence": "docs/releases/purplewave-sb-6.md",
+    "evidence": "docs/releases/purplewave-sb-6-admission.md",
     "limitations": [
-      "Experimental partial BWAPI semantics; train cancellation requires the separate SB bridge fix documented in docs/releases/purplewave-sb-5-bridge-review.md. Remaining instrumented rejections hit native actor/target, ownership or visibility guards.",
-      "sb.6 has natural Protoss-versus-Zerg matches on x64 and x86 plus a bounded x64 saved-history reload test. Terran, Random, other formats and signed-catalog installation remain unverified; prior sb.5 evidence remains scoped to its original archive.",
-      "sb.6 guards the empty-threat Gather predicate; regression/build evidence and gameplay limits are recorded in docs/releases/purplewave-sb-6.md."
+      "Requires gathered-resource and train-cancellation bridge fixes documented in docs/releases/purplewave-sb-5-bridge-review.md.",
+      "Natural 1v1 results cover all assigned races on x86/x64; Random, other formats, unusual maps and exhaustive late-game behavior remain unverified.",
+      "Source/runtime tracing has the documented native/JFR limits and is not an OS sandbox. Human difficulty and public competition remain unreviewed.",
+      "Installed-package and UI checks are recorded separately in docs/releases/purplewave-sb-6-admission.md; no public publication is implied."
     ]
   },
   "build": {
@@ -98,7 +99,7 @@
     "instructions": "bots/purplewave/BUILD.md"
   },
   "sourceReview": {
-    "status": "pending",
-    "evidence": "sb.6 empty-threat guard review: docs/releases/purplewave-sb-6.md. Prior source/runtime evidence covers sb.5 only; admission remains pending."
+    "status": "approved",
+    "evidence": "Exact sb.6 source/JAR delta and packaged-source offline rebuild reviewed; unchanged dependencies retain scoped source/native review. docs/releases/purplewave-sb-6-admission.md"
   }
 }
