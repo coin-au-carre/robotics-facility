@@ -1,4 +1,4 @@
-# BananaBrain review package
+# BananaBrain package
 
 Uses original AIIDE 2025 source/data pinned in `source-lock.json` and recorded in
 `imports/bananabrain-aiide2025.json`, plus the source-locked storage patch and shared
@@ -25,9 +25,12 @@ directory and register `bin/BananaBrain.exe` through SB's local-build flow with
 working directory `work`, native runtime and Protoss race. Do not copy files into
 the installed game or an existing learning profile.
 
-Source/storage review and local-distribution approval remain pending. Public
-tournament entry requires written author permission under the included license.
-This review package is not a catalog release.
+The sb.5 admission covers assigned Protoss experimental local 1v1 with x64 StarCraft
+and separate writable profiles. See `docs/releases/bananabrain-sb-5.md` for exact
+inputs, tests, limits and delivery requirements. Public tournament entry still
+requires written author permission under the included license. `--review` always
+creates an unapproved review archive; admitted packaging omits it and uses a fresh
+release ID. Packaging does not upload or publish a catalog.
 
 ## Offline rebuild from a review ZIP
 
@@ -58,3 +61,18 @@ Tests compile exact patched storage methods against small model stubs, check all
 original training data, and exercise malformed records, stale inputs, failed
 replacement, input/output bounds, junctions and hardlinks. They do not replace SB
 gameplay or full crash/concurrency testing. Fixtures remain in the test directory.
+
+For save-failure and interruption checks, extract a verified review ZIP and pass
+its actual `source/native` directory to the separate Windows harness:
+
+```powershell
+node bots/bananabrain/runtime-tests/faults.cjs extracted/source/native .build/bananabrain-storage-faults
+```
+
+This compiles the packaged helper with wrappers around Windows write, flush and
+replacement calls. It injects disk-full errors, short writes and replacement
+failure, terminates only its own child before/after atomic replacement, and runs
+two writers in separate profiles. It checks retained history and subsequent
+reload/save. Interrupted pre-replacement saves leave an ignored temporary file;
+idle reset can remove it. The harness does not exhaust a physical disk or permit
+multiple writers to share a learning profile.

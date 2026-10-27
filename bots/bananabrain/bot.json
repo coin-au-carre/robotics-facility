@@ -3,7 +3,7 @@
   "bot": {
     "id": "bananabrain",
     "name": "BananaBrain",
-    "description": "AIIDE 2025 bot with varied openings and persistent opponent results. Protoss local prototype; human difficulty uncalibrated.",
+    "description": "AIIDE 2025 Protoss bot with varied openings and persistent opponent results. Experimental local practice; human difficulty uncalibrated.",
     "authors": [
       {
         "name": "Johan de Jong"
@@ -59,8 +59,8 @@
   },
   "permissions": {
     "localDistribution": {
-      "status": "unreviewed",
-      "evidence": "Pending source/storage and distribution review."
+      "status": "approved",
+      "evidence": "docs/releases/bananabrain-sb-5.md: exact-source/storage and notice review, fresh guarded sb.4 review package, offline rebuild, natural x64 Protoss match, isolated concurrent play and crash/save-failure recovery. Scoped supervised local practice only."
     },
     "publicCompetition": {
       "status": "unreviewed",
@@ -75,22 +75,22 @@
     "gameArchitectures": [
       "x86_64"
     ],
-    "evidence": "docs/bananabrain-prototype-validation.md",
+    "evidence": "docs/releases/bananabrain-sb-5.md",
     "limitations": [
-      "Tested with SB ff167db43053cead7a991a68c224c8d6bf61066d (gathered-resource fix).",
-      "Protoss 1v1 on Fighting Spirit 1.4 only; Terran/Zerg bot races and x86 StarCraft untested.",
-      "Source/storage review and package admission remain pending.",
-      "Human difficulty uncalibrated."
+      "Assigned Protoss, experimental local 1v1 on Fighting Spirit 1.4; random/Terran/Zerg assignments, teams/FFA and x86 StarCraft are unverified.",
+      "Requires reviewed ShieldBattery native bridge, accurate gathered resources (#1831), supervised release practice (#1838) and separate writable profiles.",
+      "Natural result used a passive Terran control; two command rejection reasons were not captured. Human difficulty uncalibrated.",
+      "Shared-profile writers, physical disk exhaustion and exhaustive OS tracing are outside reviewed scope."
     ]
   },
   "build": {
     "status": "recipe-in-robotics-facility",
     "repository": "https://github.com/coin-au-carre/robotics-facility.git",
-    "revision": "4c5178c0d81a1514582f51c26c3dc600a36b83c7",
+    "revision": "09a3008da5e07e3f1b2e8a0e879f7a1387828615",
     "instructions": "bots/bananabrain/BUILD.md"
   },
   "sourceReview": {
-    "status": "pending",
-    "evidence": "docs/releases/bananabrain-sb-3.md: guarded committed build, review archive, offline source rebuild, storage regressions and extracted-package full-match/reload checks passed. Crash/disk-full, concurrency and distribution approval remain pending."
+    "status": "approved",
+    "evidence": "docs/releases/bananabrain-sb-5.md: reviewed pinned bot/dependency/host inputs and actual packaged source; bounded storage, injected save failures, interruption recovery, isolated concurrency and fresh exact-runtime gameplay. Not an OS sandbox or public-competition approval."
   }
 }

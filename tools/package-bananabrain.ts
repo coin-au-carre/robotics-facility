@@ -52,11 +52,12 @@ const recipe: NativePackageRecipe = {
       'notices/RELEASE.txt',
       'bots/bananabrain/RELEASE.txt',
     ],
+    ['Scoped local-practice admission', 'notices/ADMISSION.txt', 'bots/bananabrain/ADMISSION.txt'],
   ],
   files: aiFiles.map(name => [`work/bwapi-data/AI/${name}`, `source/bananabrain/AI/${name}`]),
   modifications: [
     {
-      modifier: 'ShieldBattery contributors',
+      modifier: 'ShieldBattery',
       date: '2026-10-26',
       scope: 'bot',
       summary:
