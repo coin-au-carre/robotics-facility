@@ -235,7 +235,7 @@ export interface Catalog {
       /**
        * Release-specific rollout approval, separate from source review and format support. Missing status is a candidate and is excluded from production.
        */
-      releaseStatus?: 'candidate' | 'staging' | 'production-approved'
+      releaseStatus?: 'candidate' | 'production-approved'
       package: Package
       artifact: Artifact
     }[]

@@ -406,8 +406,14 @@ await test('production selects only approved releases from mixed staging catalog
   assert.ok(promoted.artifacts.get(approved.artifact.sha256)?.equals(f.bytes))
 })
 
-await test('missing, candidate and staging statuses never authorize production', async () => {
-  for (const releaseStatus of [undefined, 'candidate', 'staging'] as const) {
+await test('staging is a publication channel, not a release approval status', async () => {
+  const f = await fixture()
+  Object.assign(f.release, { releaseStatus: 'staging' })
+  assert.throws(() => validate('catalog', f.catalog), /releaseStatus/)
+})
+
+await test('missing and candidate statuses never authorize production', async () => {
+  for (const releaseStatus of [undefined, 'candidate'] as const) {
     const f = await fixture()
     f.release.releaseStatus = releaseStatus
     const staged = await stage(f)

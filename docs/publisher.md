@@ -6,9 +6,10 @@ must pass the schema, source-review approval, and local-distribution approval ga
 Its HTTPS artifact URL must already serve the exact reviewed ZIP. The initial empty
 catalog deliberately fails publication. Synthetic packages exist only in tests.
 
-Each catalog release can carry `releaseStatus`: `candidate`, `staging`, or
+Each catalog release can carry `releaseStatus`: `candidate` or
 `production-approved`. Missing status means `candidate`. This is a separate gate
 from source review, distribution permission, and individual format test results.
+Staging is a publication channel, not a separate release approval status.
 Development clients show non-production releases with a **Dev only — hidden in
 production** badge. Production clients use the fixed production catalog URL,
 channel, and signing key; overrides and release-status badges are development-only.
