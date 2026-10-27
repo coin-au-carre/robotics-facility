@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "catalogBaseCommit": "0f9be676da625dddf3da85ee35b55c2f11a85731",
-  "reviewScope": "Seven local-practice approvals: six existing releases and a metadata-only PurpleWave successor. Existing runtime evidence re-assessed, no new matches or bot compilation.",
+  "reviewScope": "Eight scoped local-practice approvals: six existing releases, metadata-only PurpleWave sb.7 and newly admitted BananaBrain sb.5 from PR #3. Existing runtime evidence retained at its scope; fresh BananaBrain package/gameplay/installer evidence linked to exact source PR commit.",
   "approvals": [
     {
       "botId": "zzzkbot",
@@ -199,6 +199,41 @@
         "Assigned Protoss/Terran/Zerg local 1v1 only; Random, teams/FFA, unusual maps, human difficulty and public competition remain unverified",
         "New immutable sb.7 artifact must be uploaded and included in a new signed staging revision before production promotion"
       ]
+    },
+    {
+      "botId": "bananabrain",
+      "releaseId": "bananabrain-sb-5",
+      "archiveSha256": "c83f384e00d7c5ca61ccd5db5cc900d77379510cca47b775270773d71d245154",
+      "sizeBytes": 3294521,
+      "manifestSha256": "09a01e8c6279dff9522989835a6210e7a572efdb67afa91f3a49ec188b4fdaa9",
+      "packageSha256": "d4aa4a85e2c3fef8045eb329feadeb4786cbf3c17c025a0beecc1827301c3e58",
+      "scope": {
+        "use": "local-practice",
+        "format": "one-v-one",
+        "selectableRaces": [
+          "protoss"
+        ],
+        "gameArchitectures": [
+          "x86_64"
+        ],
+        "existingFormatSupport": "experimental",
+        "mapEvidence": "Fighting Spirit 1.4, natural win against passive Terran and deliberately stopped installed/concurrent play. Broad map or active-human strength not claimed."
+      },
+      "evidence": "https://github.com/coin-au-carre/robotics-facility/blob/62f7375ce8bdc16b4340896b9026fafd471577b0/docs/releases/bananabrain-sb-5.md",
+      "reviewedPrHead": "62f7375ce8bdc16b4340896b9026fafd471577b0",
+      "observations": [
+        "Fresh guarded review build from current locked inputs; extracted-source offline rebuild; final sb.5 runtime/source/AI/original notices byte-identical to tested review artifact",
+        "Natural x64 Protoss win at frame 8683; saved winner/frame agreement; two isolated gameplay instances and forced owned-bot exit cleanup",
+        "Packaged-helper malformed-state, save-failure injection, atomic-replacement crash-boundary and isolated concurrent-writer tests passed",
+        "Final sb.5 signed loopback install and tamper rejection, same-opponent saved-state reload, two installed profiles, active-reset rejection and idle offline reset passed"
+      ],
+      "limitations": [
+        "Win32 native bot with x64 StarCraft; assigned Protoss experimental local 1v1 only. Random/Terran/Zerg, x86 StarCraft, teams/FFA, unusual maps and human difficulty remain unverified",
+        "Requires reviewed SB bridge, #1831 gathered-resource fix, #1838 release practice and separate writable profiles; shared-profile writers unsupported",
+        "Two natural-match command rejection reasons were not captured. Disk-full tests inject Windows I/O failures; physical exhaustion and exhaustive OS tracing were not tested",
+        "Public StarCraft tournament submission requires separate written author permission; no public-competition approval granted",
+        "Exact new sb.5 archive needs versioned upload and new signed staging delivery before production promotion"
+      ]
     }
   ],
   "withheld": [
@@ -216,10 +251,12 @@
     {
       "botId": "bananabrain",
       "releaseIds": [
-        "bananabrain-sb-3"
+        "bananabrain-sb-2",
+        "bananabrain-sb-3",
+        "bananabrain-sb-4"
       ],
-      "reason": "PR #3 is not admitted to the catalog; source/local-distribution approval remains pending. Existing x64 Protoss gameplay/reload evidence belongs to an earlier recipe/archive. Current patch provenance and package metadata require a fresh guarded package and artifact evidence.",
-      "reviewedPrHead": "09a3008da5e07e3f1b2e8a0e879f7a1387828615",
+      "reason": "Historical review-only archives remain unapproved. Only new admitted sb.5 is imported and approved, with fresh artifact and installer evidence; no approval is backfilled into older review packages.",
+      "reviewedPrHead": "62f7375ce8bdc16b4340896b9026fafd471577b0",
       "followUp": "https://github.com/ShieldBattery/robotics-facility/pull/3"
     }
   ],
@@ -234,7 +271,7 @@
     "Assigned races and ordinary local 1v1 practice only; no new Random, teams, FFA, unusual-map, human-rating or public-competition approval. Existing metadata is retained unchanged.",
     "No OS sandbox, exhaustive syscall trace, all-command correctness or all-map certification is claimed.",
     "Use a client with verified supervised release practice and existing native-command, Zerg morph/completion, frame-zero and mineral-normalization fixes; historical test DLLs are not a general runtime approval.",
-    "Existing catalog entries and packages remain unchanged. PurpleWave sb.7 is a new immutable metadata-only successor with original sb.6 preserved; runtime/source/configuration/notices are unchanged.",
+    "Existing catalog entries and packages remain unchanged. PurpleWave sb.7 is a new immutable metadata-only successor with original sb.6 preserved; runtime/source/configuration/notices are unchanged. BananaBrain sb.5 is a new admitted package from PR #3; its existing reviewed runtime and original notices are preserved.",
     "A new signed staging revision must carry these approval fields before production promotion. Existing signed staging revision 12 does not gain approval from this source change. No signing, upload, publication or workflow dispatch is authorized or performed."
   ],
   "stagingReadback": {
@@ -255,6 +292,6 @@
     ],
     "bytesUnchanged": true,
     "descriptorsUnchanged": true,
-    "scope": "Historical six-release dry run; see purplewave-sb-7-validation.json for the seven-release follow-up."
+    "scope": "Historical six-release dry run; see purplewave-sb-7-validation.json for seven and local-practice-eight-validation.json for current eight-release follow-up."
   }
 }

@@ -1,0 +1,80 @@
+{
+  "signedStagingRevision": 12,
+  "verifiedInputReleases": [
+    {
+      "releaseId": "zzzkbot-sb-1",
+      "verified": true,
+      "source": "signed-staging-readback"
+    },
+    {
+      "releaseId": "purplewave-sb-1",
+      "verified": true,
+      "source": "signed-staging-readback"
+    },
+    {
+      "releaseId": "purplewave-sb-2",
+      "verified": true,
+      "source": "signed-staging-readback"
+    },
+    {
+      "releaseId": "purplewave-sb-3",
+      "verified": true,
+      "source": "signed-staging-readback"
+    },
+    {
+      "releaseId": "purplewave-sb-4",
+      "verified": true,
+      "source": "signed-staging-readback"
+    },
+    {
+      "releaseId": "purplewave-sb-7",
+      "verified": true,
+      "source": "new-local-reviewed-archive"
+    },
+    {
+      "releaseId": "ualbertabot-sb-3",
+      "verified": true,
+      "source": "signed-staging-readback"
+    },
+    {
+      "releaseId": "marine-hell-sb-4",
+      "verified": true,
+      "source": "signed-staging-readback"
+    },
+    {
+      "releaseId": "opprimobot-sb-1",
+      "verified": true,
+      "source": "signed-staging-readback"
+    },
+    {
+      "releaseId": "infested-artosis-sb-1",
+      "verified": true,
+      "source": "signed-staging-readback"
+    },
+    {
+      "releaseId": "steamhammer-sb-1",
+      "verified": true,
+      "source": "signed-staging-readback"
+    },
+    {
+      "releaseId": "bananabrain-sb-5",
+      "verified": true,
+      "source": "new-local-reviewed-archive"
+    }
+  ],
+  "approvedReleaseIds": [
+    "bananabrain-sb-5",
+    "infested-artosis-sb-1",
+    "marine-hell-sb-4",
+    "opprimobot-sb-1",
+    "purplewave-sb-7",
+    "steamhammer-sb-1",
+    "ualbertabot-sb-3",
+    "zzzkbot-sb-1"
+  ],
+  "stagingPreparationPassed": true,
+  "productionPreparationPassed": true,
+  "archiveBytesPreserved": true,
+  "newArtifactPublicDeliveryVerified": false,
+  "scope": "Local preparation of new staging metadata and eight-release production selection with .invalid destinations and verified disk bytes. No signing, upload, workflow dispatch or public delivery claimed."
+}

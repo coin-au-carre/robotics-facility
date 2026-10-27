@@ -2,9 +2,10 @@
 
 This proposal reviews the seven existing catalog bots and BananaBrain against
 release-specific source, artifact, gameplay, installer, and state evidence. It adds
-production availability for six existing releases and the metadata-only PurpleWave
-sb.7 successor. It does not recompile bots,
-change their immutable package descriptors, or claim fresh gameplay evidence.
+production availability for six existing releases, the metadata-only PurpleWave
+sb.7 successor, and newly admitted BananaBrain sb.5 from PR #3. This approval PR
+preserves existing immutable package descriptors. Fresh BananaBrain build, gameplay,
+installer and state evidence comes from its linked admission PR.
 The [machine-readable decisions](local-practice-production-approvals.json) pin the
 archive, manifest, and canonical package digests and record per-release limits.
 
@@ -26,7 +27,7 @@ this report is an evidence boundary, not a newly implemented runtime format lock
 | Steamhammer | `steamhammer-sb-1` | Approve experimental 1v1 | Assigned Terran/Protoss/Zerg, ordinary local 1v1 with required frame-zero/mineral/refinery fixes. Keep experimental 1v1 and incompatible FFA. Final-build Terran x86 evidence is a concurrent smoke; its 1v1 combat evidence uses x64. |
 | PurpleWave | `purplewave-sb-7` | Approve | Assigned Protoss/Terran/Zerg local 1v1. Metadata-only successor to reviewed sb.6; Java 21 x64 and required client fixes. Runtime bytes and evidence scope unchanged. |
 | PurpleWave | Existing `purplewave-sb-1` through `sb-4` | Withhold | Earlier packages lack the libffi notice corrected in sb.4. sb.4 exposes three races while dedicated game evidence carried forward is Protoss-only. New sb.6 evidence does not approve these older bytes. |
-| BananaBrain | Review `bananabrain-sb-3` in PR #3 | Withhold | Source/local-distribution approval remains pending. The tested artifact belongs to an earlier recipe; current patch/package metadata requires a fresh guarded package and artifact evidence. |
+| BananaBrain | `bananabrain-sb-5` | Approve experimental 1v1 | Assigned Protoss, Win32 native bot with x64 StarCraft, Fighting Spirit 1.4. Fresh package/source rebuild, natural passive-control win, isolated concurrency, interruption/save-failure and signed local install/reload/reset checks passed. Public tournaments require separate author permission. |
 
 See [PurpleWave sb.7](purplewave-sb-7.md) for the exact parent/archive delta and
 new immutable artifact.
@@ -35,7 +36,18 @@ Pluto remains development-only. No Pluto package, candidate, or approval is impo
 by this change. Missing status remains a candidate; no other historical release is
 implicitly approved.
 
-## Evidence supporting the seven approvals
+## Evidence supporting the eight approvals
+
+- **BananaBrain sb.5:** [exact admission review](https://github.com/coin-au-carre/robotics-facility/blob/62f7375ce8bdc16b4340896b9026fafd471577b0/docs/releases/bananabrain-sb-5.md)
+  pins the fresh guarded build, offline extracted-source rebuild, original AI bytes,
+  natural Protoss win at frame 8,683, two-instance gameplay, forced bot exit and
+  zero-owned-process cleanup. Packaged-helper fault injection and replacement-boundary
+  interruptions passed. Final sb.5 signed loopback installation rejected tampering;
+  same-opponent reload retained prior history despite corrupt stale input. Active
+  reset was rejected and idle offline reset preserved AI and package bytes. Keep
+  experimental 1v1 and x64-game-only scope; two natural-match command rejection
+  reasons, physical disk exhaustion, exhaustive tracing and active-human strength
+  remain unverified. Review-only sb.2-sb.4 archives stay unapproved.
 
 - **PurpleWave sb.7:** [metadata-successor review](purplewave-sb-7.md) pins the exact
   parent, changed fields, unchanged runtime JARs, inherited evidence limits, client
@@ -82,7 +94,7 @@ These are artifact-specific reassessments of existing evidence. Limited command
 rejections, missing exhaustive tracing, uncalibrated strength, and untested formats
 are retained as limitations rather than relabelled as completed tests.
 
-## PurpleWave successor and BananaBrain follow-up
+## PurpleWave successor and BananaBrain admission
 
 [PurpleWave sb.4](purplewave-sb-4.md) fixes native libffi notice delivery but does
 not supply dedicated Terran/Zerg gameplay for its all-race profile. sb.1-sb.3 do not
@@ -95,12 +107,14 @@ New runtime evidence is not backfilled into sb.1-sb.4, and the original sb.6 ZIP
 remains intact. sb.7 needs its own prerelease upload and signed staging delivery.
 
 [BananaBrain PR #3](https://github.com/ShieldBattery/robotics-facility/pull/3), reviewed
-at `09a3008da5e07e3f1b2e8a0e879f7a1387828615`, records an x64 Protoss natural win and
-saved-state reuse for the earlier review archive. Its current patch provenance and
-package attribution metadata differ; the report explicitly withholds
-source/distribution approval and does not claim a rebuilt current-head package.
-Finish those concrete items before adding a catalog approval. No approval is
-inferred merely from the bot's use as a local test opponent.
+at `62f7375ce8bdc16b4340896b9026fafd471577b0`, now completes source/distribution
+admission for exact sb.5. Its ZIP SHA-256 is
+`c83f384e00d7c5ca61ccd5db5cc900d77379510cca47b775270773d71d245154`.
+All 294 unchanged parent members include the tested runtime, source, original AI
+and existing notices. Only descriptor/BUILD text changes and a current admission
+notice is added. This catalog entry copies the final admitted descriptor verbatim;
+only its external `releaseStatus` is added here. Public sb.5 delivery is still a
+maintainer rollout step, not an already completed CDN test.
 
 ## Client and publication requirements
 
@@ -121,8 +135,12 @@ client integration; these metadata approvals do not implement missing commands.
 
 For the original catalog entries, only six external `releaseStatus` fields change.
 The new sb.7 entry adds a metadata-only archive with unchanged runtime/source/configuration
-and notices. Historical entries and archives stay intact. No bot compilation, new
-match, signing, upload, workflow dispatch, or production promotion is part of this change.
+and notices. BananaBrain adds the exact admitted sb.5 entry from PR #3. Historical
+entries and archives stay intact. Fresh BananaBrain compilation/matches are recorded
+in its admission; this approval PR does not rebuild them. Local publisher
+preparation verified all 12 input releases and selected exactly eight approvals;
+see [preparation evidence](local-practice-eight-validation.json). No public signing,
+upload, workflow dispatch or production promotion is part of this change.
 
 The existing signed staging revision does not gain these flags retroactively.
 After review/merge, maintainers publish a **new signed staging revision** carrying
@@ -145,3 +163,9 @@ sb.7 archive. Its fresh public delivery is pending; sb.7 is not represented as a
 already published staging artifact. Its destination was `.invalid`; nothing was signed
 or uploaded. This dry run does not establish a newly signed staging receipt or
 a production deployment. A new real staging revision remains required.
+
+The current [eight-release follow-up](local-practice-eight-validation.json) also
+verifies the exact local sb.5 archive and preserves all 11 prior catalog releases.
+All 12 staging inputs pass verification; production selects exactly eight scoped
+approvals. sb.5 and sb.7 still need public artifact delivery and a new signed
+staging revision before promotion.

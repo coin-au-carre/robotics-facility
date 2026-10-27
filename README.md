@@ -12,8 +12,8 @@ build instructions, and offline license/modification notices. See the
 [Infested Artosis](docs/infested-artosis-admission.md), and
 [Steamhammer](docs/steamhammer-admission.md) admission records for exact scope.
 The [scoped production approvals](docs/releases/local-practice-production-approvals.md)
-review seven exact releases for local practice; experimental capability labels remain
-explicit. PurpleWave uses a metadata-only sb.7 successor; BananaBrain admission remains pending.
+review eight exact releases for local practice; experimental capability labels remain
+explicit. PurpleWave uses a metadata-only sb.7 successor; BananaBrain sb.5 is approved for assigned Protoss experimental 1v1 with x64 StarCraft.
 Human difficulty remains uncalibrated; supported races and formats are
 release-specific. The game bridge currently requires a ShieldBattery debug build.
 
