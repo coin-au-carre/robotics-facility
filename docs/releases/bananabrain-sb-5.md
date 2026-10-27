@@ -1,7 +1,7 @@
 # BananaBrain sb.5 local-practice admission
 
 Review date: 2026-10-27. Source and local-distribution review approved for the
-inputs and scope below. Final admitted archive/installer checks are recorded separately.
+inputs, admitted archive and scope below. Final installer checks passed.
 Scope: assigned Protoss, experimental local 1v1, Win32 native bot with x64
 StarCraft on Fighting Spirit 1.4. Human strength remains uncalibrated. Teams, FFA,
 random/Terran/Zerg assignments and x86 StarCraft are unverified. Public tournament
@@ -34,7 +34,12 @@ The admitted sb.5 package carries the same tested executable, patched source,
 original AI bytes, build record and existing license notices. Its new identity,
 review metadata, project modifier attribution, current BUILD instructions and
 additional admission notice are packaging changes. Earlier review archives stay
-immutable. Archive delta and final hashes are recorded below after assembly.
+immutable. Assembly used committed admission metadata `55f60b3`. Exactly 294 parent members
+are byte-identical; only `package.json` and `source/BUILD.md` change and
+`notices/ADMISSION.txt` is added. Nothing is removed. New ZIP SHA-256:
+`c83f384e00d7c5ca61ccd5db5cc900d77379510cca47b775270773d71d245154`
+(3,294,521 bytes, 297 entries). The [validation record](bananabrain-sb-5-validation.json)
+pins the manifest digest and exact source/artifact evidence.
 
 ## Source and dependency review
 
@@ -108,6 +113,33 @@ The forced bot-exit test reached frame 1,200 in two independent instances, then
 terminated one owned bot process. Normal supervisor stop removed the remaining
 owned test processes; cleanup census found zero owned app/game/bot processes.
 This is forced-process-exit evidence, not an unhandled game-engine crash.
+
+## Final installed-package verification
+
+An isolated loopback HTTPS fixture signed the exact sb.5 catalog with an ephemeral
+Ed25519 development key. The real SB catalog verifier/installer rejected a corrupt
+signature and a corrupt ZIP, then installed the correct archive digest. All seven
+notice texts were readable through the actual notice API. Production trust and
+public catalogs were unchanged; this is local signed-install evidence, not CDN
+readback or public publication.
+
+| Installed run | Gameplay through frame 720 | Saved results |
+| --- | --- | --- |
+| Baseline vs passive control | 33 accepted, zero rejected | One row |
+| Same-opponent reload | 39 accepted, zero rejected | Two rows, original row retained |
+| Two installed instances | 50/38 accepted, zero rejected | Independent opponent/mining files |
+
+These runs were deliberately stopped. Before reload, the prior result hash carried
+over and malformed older read input was seeded under the same filename. Reload
+retained the original row and added a second; corrupt read bytes stayed unchanged.
+This verifies newer saved-output precedence, not a strength or adaptation result.
+
+Reset was rejected during each active match. Idle reset succeeded with the fixture
+unavailable and zero network requests, cleared both mutable profiles, preserved
+all original AI assets and left the installed package byte-for-byte unchanged.
+No in-use leases or failed installs remained. Final census found zero owned
+app/game/bot processes. Checks used real IPC and installed gameplay; authenticated
+renderer navigation and the reset button UI were not retested in this bot change.
 
 ## Distribution and notices
 

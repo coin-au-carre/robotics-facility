@@ -1,10 +1,5 @@
 {
   "schemaVersion": 1,
-  "releaseId": "bananabrain-sb-4",
-  "reviewOnly": true,
-  "archiveSha256": "845af610e6fef89c7bcb19499edecd58359cd702106018b30de5a1809556b268",
-  "sizeBytes": 3292765,
-  "manifestSha256": "6f497103bd5a08104d80b7c728676e7a412a686ceb2cf9553195d9f1cf3049ca",
   "build": {
     "schemaVersion": 1,
     "recipeRevision": "09a3008da5e07e3f1b2e8a0e879f7a1387828615",
@@ -201,5 +196,127 @@
     ],
     "fullSystemCallTrace": false
   },
-  "installer": "Final sb.5 installer checks pending assembly"
+  "installer": {
+    "passed": true,
+    "trust": "Ephemeral loopback HTTPS certificate and Ed25519 development key; production trust unchanged",
+    "publicDeliveryVerified": false,
+    "installedReleaseId": "bananabrain-sb-5",
+    "installedDigest": "c83f384e00d7c5ca61ccd5db5cc900d77379510cca47b775270773d71d245154",
+    "badSignatureRejected": true,
+    "badArchiveRejected": true,
+    "noticeCountReadable": 7,
+    "packageBytesUnchanged": true,
+    "reset": {
+      "idleOfflinePassed": true,
+      "networkRequests": 0,
+      "aiAssetsUnchanged": true,
+      "emptyMutableProfiles": true
+    },
+    "matches": [
+      {
+        "label": "installed-baseline",
+        "deliberatelyStopped": true,
+        "gameplay": [
+          {
+            "frame": 720,
+            "units": 130,
+            "accepted": 33,
+            "rejected": 0,
+            "minerals": 44
+          }
+        ],
+        "activeResetRejected": true,
+        "resultRowCounts": [
+          [
+            1
+          ],
+          []
+        ]
+      },
+      {
+        "label": "installed-reload",
+        "deliberatelyStopped": true,
+        "gameplay": [
+          {
+            "frame": 720,
+            "units": 130,
+            "accepted": 39,
+            "rejected": 0,
+            "minerals": 44
+          }
+        ],
+        "activeResetRejected": true,
+        "resultRowCounts": [
+          [
+            2
+          ],
+          []
+        ]
+      },
+      {
+        "label": "installed-concurrent",
+        "deliberatelyStopped": true,
+        "gameplay": [
+          {
+            "frame": 720,
+            "units": 130,
+            "accepted": 50,
+            "rejected": 0,
+            "minerals": 44
+          },
+          {
+            "frame": 720,
+            "units": 130,
+            "accepted": 38,
+            "rejected": 0,
+            "minerals": 44
+          }
+        ],
+        "activeResetRejected": true,
+        "resultRowCounts": [
+          [
+            1,
+            2
+          ],
+          [
+            1
+          ]
+        ]
+      }
+    ],
+    "reload": {
+      "sameOpponent": true,
+      "priorRows": 1,
+      "laterRows": 2,
+      "priorRowRetained": true,
+      "corruptReadIgnored": true,
+      "savedHashRetainedBeforeRestart": true
+    },
+    "remainingOwnedProcesses": 0
+  },
+  "reviewPackage": {
+    "releaseId": "bananabrain-sb-4",
+    "reviewOnly": true,
+    "archiveSha256": "845af610e6fef89c7bcb19499edecd58359cd702106018b30de5a1809556b268",
+    "sizeBytes": 3292765,
+    "manifestSha256": "6f497103bd5a08104d80b7c728676e7a412a686ceb2cf9553195d9f1cf3049ca"
+  },
+  "releaseId": "bananabrain-sb-5",
+  "reviewOnly": false,
+  "archiveSha256": "c83f384e00d7c5ca61ccd5db5cc900d77379510cca47b775270773d71d245154",
+  "sizeBytes": 3294521,
+  "manifestSha256": "09a01e8c6279dff9522989835a6210e7a572efdb67afa91f3a49ec188b4fdaa9",
+  "packagingRevision": "55f60b3",
+  "archiveDelta": {
+    "unchangedParentMembers": 294,
+    "changed": [
+      "package.json",
+      "source/BUILD.md"
+    ],
+    "added": [
+      "notices/ADMISSION.txt"
+    ],
+    "deleted": [],
+    "runtimeSourceAiAndOriginalNoticesIdentical": true
+  }
 }

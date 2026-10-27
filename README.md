@@ -10,9 +10,11 @@ build instructions, and offline license/modification notices. See the
 [release reviews](docs/releases/), [Marine Hell](docs/marine-hell-admission.md),
 [OpprimoBot](docs/opprimobot-admission.md),
 [Infested Artosis](docs/infested-artosis-admission.md), and
-[Steamhammer](docs/steamhammer-admission.md) admission records for exact scope.
+[Steamhammer](docs/steamhammer-admission.md), and
+[BananaBrain sb.5](docs/releases/bananabrain-sb-5.md) admission records for exact scope.
 Human difficulty remains uncalibrated; supported races and formats are
-release-specific. The game bridge currently requires a ShieldBattery debug build.
+release-specific. BananaBrain release practice requires the reviewed client
+integration described in its admission report, including SB #1831 and #1838.
 
 Separate staging and production publishing Actions validate archives, sign catalogs,
 and publish to Spaces; they refuse empty/unapproved releases. See
