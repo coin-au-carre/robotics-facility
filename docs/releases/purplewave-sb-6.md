@@ -1,5 +1,8 @@
 # PurpleWave sb.6 Gather guard review
 
+Current production readiness is recorded in [the release-DLL follow-up](purplewave-sb-6-production.md).
+This report preserves earlier validation and its then-open blockers.
+
 Historical review-only candidate. See [admission follow-up](purplewave-sb-6-admission.md)
 for completed source, Terran and installed/UI checks and newly identified bridge
 blockers. Production approval remains withheld. The archive below is unchanged.

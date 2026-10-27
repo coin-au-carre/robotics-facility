@@ -37,8 +37,8 @@
     "formats": [
       {
         "id": "one-v-one",
-        "support": "experimental",
-        "notes": "sb.6 has natural all-race 1v1 results on x86/x64 and installed/UI reset checks. Terran factory tests exposed unsupported Lift and Spider Mines commands; production approval withheld. docs/releases/purplewave-sb-6-admission.md"
+        "support": "verified",
+        "notes": "Exact sb.6 archive verified on x86/x64 release DLLs: natural assigned-race 1v1 results, factory progression with actual lifted Barracks/Spider Mines, signed local installation and reset. Requires the linked ShieldBattery fixes. docs/releases/purplewave-sb-6-production.md"
       },
       {
         "id": "teams",
@@ -52,7 +52,7 @@
       }
     ],
     "mapConstraints": [
-      "Legacy SC:R unit limits required by the experimental bridge."
+      "Legacy SC:R unit limits required by the BWAPI bridge."
     ],
     "learning": {
       "mode": "persistent",
@@ -84,12 +84,12 @@
       "x86",
       "x86_64"
     ],
-    "evidence": "docs/releases/purplewave-sb-6-admission.md",
+    "evidence": "docs/releases/purplewave-sb-6-production.md",
     "limitations": [
-      "Production blocked: Terran factory games on x86/x64 repeatedly hit unsupported Lift (kind 24) and Spider Mines (Use_Tech_Position kind 41, tech 3).",
-      "Current ShieldBattery local/practice launch and BWAPI bridge are development-only; production runtime enablement requires a separate upstream change.",
-      "Natural 1v1 results cover assigned races on x86/x64; Random, other formats, unusual maps and exhaustive late-game behavior remain unverified.",
-      "Signed local HTTPS catalog installation, integrity rejection and actual UI reset passed on x86/x64; public staging/CDN publication was not performed.",
+      "Requires ShieldBattery gathered-resource (#1831), training cancellation (#1837), production approval/runtime (#1838), and building-flight/Spider Mines (#1841) changes.",
+      "Production-approved status is proposed for exact sb.6 archive 60f80501b9d898b0b392df624e35d15df4bcb3749338e77b8e78820405e980b4. Publish only after schema/publisher #4 and required client fixes are integrated and exact staging bytes verified.",
+      "Verified scope is assigned Protoss, Terran or Zerg 1v1; Random, teams, FFA, unusual maps and exhaustive late-game command coverage remain unverified.",
+      "Signed isolated HTTPS installer, tamper rejection, immutable package, reset and real release-DLL gameplay passed on x86/x64. Public staging/CDN delivery and production signing-key configuration remain publication checks.",
       "Scoped source/runtime tracing is not an OS sandbox. Human difficulty and public competition remain unreviewed."
     ]
   },

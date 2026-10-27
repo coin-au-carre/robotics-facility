@@ -1,5 +1,8 @@
 # PurpleWave sb.6 admission follow-up
 
+Current production readiness is recorded in [the release-DLL follow-up](purplewave-sb-6-production.md).
+This report preserves earlier validation and its then-open blockers.
+
 **Production approval is withheld.** Remaining installer/UI checks passed, but
 Terran factory games exposed unsupported Lift and Spider Mines commands in the
 ShieldBattery bridge on both architectures. ShieldBattery also retains an explicit
