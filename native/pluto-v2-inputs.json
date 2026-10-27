@@ -1,0 +1,832 @@
+{
+  "schemaVersion": 1,
+  "version": "v2.0-md09b_1331000-fog-guard.10",
+  "companionSha256": "ebee643e483016462c08566861df4b6cf89be26505bf210e470a49e0de51dd4f",
+  "assets": {
+    "pluto.dll": "603fea2f77a4b652f29b832c2977cf5bc9d83bbcb927febd04499220020ce3bc",
+    "pluto/pluto_infer.exe": "3f2814a51034b9817b396e52b38d30341ede506a2baedc7cbc11cb6ebcece2cc",
+    "pluto/pluto_weights.bin": "c53a559b4910777dc0e1c561c0d89d243091f465d8e9fc0f5f72e56597067d86"
+  },
+  "sourceInventory": [
+    {
+      "path": "CMakeLists.txt",
+      "sha256": "585c889076a0af55516c731c310b9fef52741e0a73ac1a6ac1e7f57a02324c65"
+    },
+    {
+      "path": "src/bridge.cpp",
+      "sha256": "b35e2e4261766cafbcd30ac66e55940516a52c9e3037a4293e2744398e74e8f9"
+    },
+    {
+      "path": "src/commands.cpp",
+      "sha256": "6bd3ae5ab0762868180786ac2f54683b8ef33d752af81f2a6b0c9fa2eed257a1"
+    },
+    {
+      "path": "src/commands.h",
+      "sha256": "5b54af22c833e8501acf75d58e68f0e6028f044c793684820dc5e5a7fa4d0aa7"
+    },
+    {
+      "path": "src/companion.def",
+      "sha256": "6eed7c8b00df46c8bbc7e523afc7b68aafcd997cb3d8843dc7148a17dc6152c3"
+    },
+    {
+      "path": "src/companion_api.h",
+      "sha256": "1ef1884f68c95241561554be64aea34a57e6daafe004a9f04cd585711c52fd4a"
+    },
+    {
+      "path": "src/companion_policy.h",
+      "sha256": "c0e45920c85c1479537417f8e11d9ca48bea6bbd13099ca16e8e5769eec0ebca"
+    },
+    {
+      "path": "src/file_hash.h",
+      "sha256": "306b8a5f13d2be03803d93f5a6ca1dfd510237e0eef3b57fa903700e3af64352"
+    },
+    {
+      "path": "src/fog-policy.hpp",
+      "sha256": "d57317bde4ca6b05985f22a886e8a2a1f1cf42d5896a528e8a8d892da5c86201"
+    },
+    {
+      "path": "src/legacy_view.cpp",
+      "sha256": "09a48ffb5c985b594479d5d5cd261e1f17a4ddae4c84f658a6ffb95bac113b82"
+    },
+    {
+      "path": "src/legacy_view.h",
+      "sha256": "38ac82aa2bd95daebe66eb03151decaa70dfcb17e0939e30c4cea6b2db482c16"
+    },
+    {
+      "path": "src/loader.cpp",
+      "sha256": "f5fb55687acbbc997dec4bbc1fd41d3df2a67119520e342fdda6fe74bbdd3e47"
+    },
+    {
+      "path": "src/messages.cpp",
+      "sha256": "9738847a4c94fddfe5f9cb2ba70250ab080c380a3967d64ceb41200101430f51"
+    },
+    {
+      "path": "src/messages.h",
+      "sha256": "c0dfd81c3f0a36308530ab138335fd5983e402f4f0afe328f9a338a5df2f8858"
+    },
+    {
+      "path": "src/overlay.cpp",
+      "sha256": "b6ce1bc5ea792b41554f6a6dedecc719d5a9b86393d516b2e4040faecc85548b"
+    },
+    {
+      "path": "src/overlay.h",
+      "sha256": "4c578014c6bf8655afe2be181821d16e98154122fa5856699ff7a3ec5021314e"
+    },
+    {
+      "path": "src/pluto_bindings.h",
+      "sha256": "1c367752d65951f8bf212740be986415a83635766832f687e96a52c619ab5327"
+    },
+    {
+      "path": "src/scr_layout.h",
+      "sha256": "9d60e48597c4259e8847eeb811c5b357c19b3563e492e99d01a4c3a1faecc58c"
+    },
+    {
+      "path": "src/scr_profile_13515_x86.h",
+      "sha256": "85af1435bf53712456ca34a522d6bb142ad7b15c1f03b234ba6d31b30e52f477"
+    },
+    {
+      "path": "src/session.h",
+      "sha256": "daf4ab2d5b1714c30e2ff7d197f4ca79264006977101be988c59c45a9f62169c"
+    },
+    {
+      "path": "src/snapshot.cpp",
+      "sha256": "c72a1cc032e5a0e97d2fd31c29dff8110d9e0287b4891bdf5534bf23507ba07d"
+    },
+    {
+      "path": "src/snapshot.h",
+      "sha256": "4ccd37ea2e3f3d1f8c554250820a54c46eab2de40ba7189b20beb5aa7c025a62"
+    },
+    {
+      "path": "tests/commands_test.cpp",
+      "sha256": "7a64dcd0f845b642a3ad21d5fb7d4f01e1b75549ee3d1cd80554107b30f99ea6"
+    },
+    {
+      "path": "tests/companion_abi_test.cpp",
+      "sha256": "c6e167640df6915b711a2869008aba0b656513093e2d98378f5eea7c26a8685e"
+    },
+    {
+      "path": "tests/companion_policy_test.cpp",
+      "sha256": "deffa29091baf06d6c5a59f20045a8d7b886e56ff2a7ad022c0e2706146c387b"
+    },
+    {
+      "path": "tests/messages_test.cpp",
+      "sha256": "e2a82ae60e21726c1a2aa9a474b945cb95954dc9569cf3f18cac962591d4a3af"
+    },
+    {
+      "path": "tests/pluto_fog_probe.cpp",
+      "sha256": "f9a7232ca54484618f872a33e05e642c4715fe9838b994a6f890380b05dfc756"
+    },
+    {
+      "path": "tests/pluto_observation_probe.cpp",
+      "sha256": "25f27b09482ea5dfbab8af90016834a4d9edb82d0917a31596a242b6692df3a3"
+    },
+    {
+      "path": "tests/session_test.cpp",
+      "sha256": "1ab687962e27447e06656d7476794ae9564a10108c2a88a3564a33a294db4305"
+    },
+    {
+      "path": "THIRD_PARTY.md",
+      "sha256": "debd7f18140a8c557d8ba48990aea05ebc22e56dd77df7934f6d6a56e181e5f5"
+    },
+    {
+      "path": "vendor/bwapi/BWAPIClient/BWAPIClient.vcxproj",
+      "sha256": "3e8924abbed99357b8f129bc55b6ba61daa7b90d9c00dee945e769e48efbde4e"
+    },
+    {
+      "path": "vendor/bwapi/BWAPIClient/BWAPIClient.vcxproj.filters",
+      "sha256": "afc7928dac21161ce3f7c7bdfef3e04f57fd2ace00b14cb0d10228298ed0e27c"
+    },
+    {
+      "path": "vendor/bwapi/BWAPIClient/Source/BulletImpl.cpp",
+      "sha256": "874effc54f69fc83c6292de1b1e30995ef63e9aa0239f3b6600a8167bf44338e"
+    },
+    {
+      "path": "vendor/bwapi/BWAPIClient/Source/Client.cpp",
+      "sha256": "1122474862e6ab1c28030dd3b4b19c76aa09dbaf62d99d752c93d7215c3d0cbc"
+    },
+    {
+      "path": "vendor/bwapi/BWAPIClient/Source/Command.h",
+      "sha256": "25b8f6c115c2032962512527d869b18d88cdb63cdb568967f5bfb608300c82a9"
+    },
+    {
+      "path": "vendor/bwapi/BWAPIClient/Source/Convenience.h",
+      "sha256": "271a8668f44bfb3a5b740b1a038d7855deddf0a638764788a125958d2957236f"
+    },
+    {
+      "path": "vendor/bwapi/BWAPIClient/Source/ForceImpl.cpp",
+      "sha256": "265a28223b5a0466452d0115ec39fdf19046ff8d0dbe8018a23ea96494b4a5e9"
+    },
+    {
+      "path": "vendor/bwapi/BWAPIClient/Source/GameImpl.cpp",
+      "sha256": "fa0ed0556fb4e68ea60555df9982fbb92b7886351966335661ef18deaea42b32"
+    },
+    {
+      "path": "vendor/bwapi/BWAPIClient/Source/PlayerImpl.cpp",
+      "sha256": "3a1c6d1aff6e31ac8edeaafc779b658266ae8c0be0d076c741b8dcaf52fe63e3"
+    },
+    {
+      "path": "vendor/bwapi/BWAPIClient/Source/RegionImpl.cpp",
+      "sha256": "ab46b05c84cf672114e47b851076994fd6f7a53fcadb1035df6eb0814bda322c"
+    },
+    {
+      "path": "vendor/bwapi/BWAPIClient/Source/UnitImpl.cpp",
+      "sha256": "9775135206cab8593c26910bed52a804c5433370720b8373de1beaa1fe10629d"
+    },
+    {
+      "path": "vendor/bwapi/BWAPILIB/BWAPILIB.vcxproj",
+      "sha256": "ea63301044c6188838f8e3b4b1cc2cea94cfc118645c4bf16b4d1264bd2166d9"
+    },
+    {
+      "path": "vendor/bwapi/BWAPILIB/BWAPILIB.vcxproj.filters",
+      "sha256": "1cc10d34ae2dc3a7072090eb99ccc95aaef956e8eeaa555f8b798a3ee05f33dc"
+    },
+    {
+      "path": "vendor/bwapi/BWAPILIB/Source/AIModule.cpp",
+      "sha256": "1c6ee9ee332b4ddb197bb553bb687fdef16f0c9a8322be8887e483d8a1fa6af4"
+    },
+    {
+      "path": "vendor/bwapi/BWAPILIB/Source/BroodwarOutputDevice.cpp",
+      "sha256": "2b3af95571e0529cfb0e79ec72dcf018653f74f16f7a863e1581e30d36539da8"
+    },
+    {
+      "path": "vendor/bwapi/BWAPILIB/Source/BulletType.cpp",
+      "sha256": "3a81efff39aa58a0d26f2208488d5b11d3325325af0f642dc243b87b97521ad9"
+    },
+    {
+      "path": "vendor/bwapi/BWAPILIB/Source/BWAPI.cpp",
+      "sha256": "a3e7782ec7e9a1b14d97e1a36b5d9cde27ea076dda8c7799e2c3e884787b483f"
+    },
+    {
+      "path": "vendor/bwapi/BWAPILIB/Source/Color.cpp",
+      "sha256": "af77ebbb1b2458b8734155aa4bc74c38da38703a18c3da6f0cce9695ff556d28"
+    },
+    {
+      "path": "vendor/bwapi/BWAPILIB/Source/DamageType.cpp",
+      "sha256": "93dddd8250ddc9c16af68856813c8288a5ca9aea08cc4fbb4531ee22887ae5f6"
+    },
+    {
+      "path": "vendor/bwapi/BWAPILIB/Source/Error.cpp",
+      "sha256": "67bb304c9a153b68c2cb766685fec7be8e14be87b58009f14e9f676c42f27ea0"
+    },
+    {
+      "path": "vendor/bwapi/BWAPILIB/Source/Event.cpp",
+      "sha256": "1adb133f9f5cb1bde908b68a4598abb8234c3769ce7a0f1fa719d95d7dd1e059"
+    },
+    {
+      "path": "vendor/bwapi/BWAPILIB/Source/ExplosionType.cpp",
+      "sha256": "ae087960add6ba14a1e451cf279af3c39f64c194c4e813a04b231761d1285512"
+    },
+    {
+      "path": "vendor/bwapi/BWAPILIB/Source/Filters.cpp",
+      "sha256": "93189a3936d03f8e00c0c20b0c6af777f8d03a8011d441adffdeaed80777b362"
+    },
+    {
+      "path": "vendor/bwapi/BWAPILIB/Source/Forceset.cpp",
+      "sha256": "19454dc2e7e66049e5fdbc8b4e7b76b9da4e6de94e1bd5a2fdd449ca3d616af3"
+    },
+    {
+      "path": "vendor/bwapi/BWAPILIB/Source/Game.cpp",
+      "sha256": "2795dff64cc042437125d3c9e122b23b620b425270f4041ae43fc777ad1eeb59"
+    },
+    {
+      "path": "vendor/bwapi/BWAPILIB/Source/GameType.cpp",
+      "sha256": "0a8cbb4ab6af27313699867e67d63ccd97172e507916f83ce70cb486c91d7b45"
+    },
+    {
+      "path": "vendor/bwapi/BWAPILIB/Source/Order.cpp",
+      "sha256": "75a5a54584bd043853c3c99559493e58ecef2de04731c148e465236d71428b8c"
+    },
+    {
+      "path": "vendor/bwapi/BWAPILIB/Source/Player.cpp",
+      "sha256": "8600cded108093a2fb6e7da71d41d5164cef4d1462cf1e243d09de05e903aa7a"
+    },
+    {
+      "path": "vendor/bwapi/BWAPILIB/Source/Playerset.cpp",
+      "sha256": "f7d76b3ae67516167ee14cedf84a406066074275ab6cf3e966d7b20170b81bda"
+    },
+    {
+      "path": "vendor/bwapi/BWAPILIB/Source/PlayerType.cpp",
+      "sha256": "fff8de8556747ed00091eb99472d5ebe603546618cc3532a0b0c614e195e27a0"
+    },
+    {
+      "path": "vendor/bwapi/BWAPILIB/Source/Position.cpp",
+      "sha256": "20fd43b020b6a070983310c30384d8b13bdf44448a80c4f13b7aaebcb361868e"
+    },
+    {
+      "path": "vendor/bwapi/BWAPILIB/Source/Race.cpp",
+      "sha256": "d42dd66bb8784b66a5ffa859c46940e49c16d36896402fb2348fe4be5e258710"
+    },
+    {
+      "path": "vendor/bwapi/BWAPILIB/Source/Region.cpp",
+      "sha256": "bc7b0a69bcbd43e37e41d0c87b78118d7030933da4dc28d8dcfd7f589c961346"
+    },
+    {
+      "path": "vendor/bwapi/BWAPILIB/Source/Regionset.cpp",
+      "sha256": "5143182b1c519cc2ecb4a9d99ab3e2a370594d57e3fd21d92baf2553d409a14f"
+    },
+    {
+      "path": "vendor/bwapi/BWAPILIB/Source/Streams.cpp",
+      "sha256": "24dd81affd2bd9cef1124b276ae2a182c59031708d14b080d4a806b748dde9bb"
+    },
+    {
+      "path": "vendor/bwapi/BWAPILIB/Source/TechType.cpp",
+      "sha256": "84c209953b49ca5142bf671bb638991a50325b21c86e0972e7c1137153c46fe7"
+    },
+    {
+      "path": "vendor/bwapi/BWAPILIB/Source/Unit.cpp",
+      "sha256": "82e8e211d6b793992f3910723494416e64042454607110d0e7b486244fc2cdf3"
+    },
+    {
+      "path": "vendor/bwapi/BWAPILIB/Source/UnitCommandType.cpp",
+      "sha256": "3246cd97102d1a0bb57f3691ec1f443892710770d5339fb9b0f79a7d0caf51d9"
+    },
+    {
+      "path": "vendor/bwapi/BWAPILIB/Source/Unitset.cpp",
+      "sha256": "90495a9527138fc8fb58d277f993ca23e12bfdc352873062095b2258975e7c10"
+    },
+    {
+      "path": "vendor/bwapi/BWAPILIB/Source/UnitSizeType.cpp",
+      "sha256": "448ba78129583a6304a010c31d348efdc1bb02fcd1fa03c376cff4854fa026e6"
+    },
+    {
+      "path": "vendor/bwapi/BWAPILIB/Source/UnitType.cpp",
+      "sha256": "b5ffb3f41e053c8198ee4254b1f06d9eb664c348648935561586b9d523359710"
+    },
+    {
+      "path": "vendor/bwapi/BWAPILIB/Source/UpgradeType.cpp",
+      "sha256": "5575217dd535d5e41d7b6680ca3cc55c4a85283abba6c24045f43ef1bddaa4b0"
+    },
+    {
+      "path": "vendor/bwapi/BWAPILIB/Source/WeaponType.cpp",
+      "sha256": "4636ebc2edbe5b5fa3887d6ee99d7a7d0ea6c8afe8f4f3208428e163bfbbdad2"
+    },
+    {
+      "path": "vendor/bwapi/BWAPILIB/UnitCommand.cpp",
+      "sha256": "30b1965963e277215280bd2be73e4766e6633394185a15604483e857f32989c7"
+    },
+    {
+      "path": "vendor/bwapi/COPYING.GPL-3.0.txt",
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    },
+    {
+      "path": "vendor/bwapi/include/.gitignore",
+      "sha256": "6abcf785762331d8450c622a83d1f6e0353d0761693a8a894151d114756502f1"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI.h",
+      "sha256": "6f3d3b67684f9455f496383fd58746caebf1b2f8ef9833186a19d4c714309e08"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/AIModule.h",
+      "sha256": "596d2ddd275ce7bb3474707749f89effbade888ed9649b939bfe3b5945a8cec1"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/ArithmaticFilter.h",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/BestFilter.h",
+      "sha256": "bce537c6174cb434227eaa00f71f11302cf7f2463973632a14244efc9fdee990"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/BroodwarOutputDevice.h",
+      "sha256": "62319b296ef8ee9b86c8657f2ea5579a8df72dff7c2039fc6ecfa249454fce46"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Bullet.h",
+      "sha256": "16f5c959264c3e2f3ac71b07a42680be7ae99f57c88a2e2aea205b024365a652"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Bulletset.h",
+      "sha256": "1b8aeb20b06aa309042d0014128b92ebc43a9c86f77ceb346d0bfe200c4fdfef"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/BulletType.h",
+      "sha256": "7c746e184b4f34a235e5c78bc8e041f9861cc2b6aa3325534521f83d3af327e0"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Client.h",
+      "sha256": "297916ee32e0e8d4fd8550011a04291ecfa6a86a39dbe1fbbe8add2d9dc23254"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Client/BulletData.h",
+      "sha256": "a54847e30c4a1a499aa2a03f7ddf0aadf8fd7736f6edc711151fbea8fadfea7d"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Client/BulletImpl.h",
+      "sha256": "9f0125ede9674ab0e768c5841353c06e66846b4dd4a4356f6210df4dcf21bf09"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Client/Client.h",
+      "sha256": "867bf1462848f139677d05e977fd9b3fa81ed39590a3604da5397504ab901ca1"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Client/Command.h",
+      "sha256": "3f0de25c2f4e7059d59c1f2192da9dc26bb40828d5e07144e0c2a1fe9cd1e958"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Client/CommandTemp.h",
+      "sha256": "c1a92f95110d071705e4aec6448c15edb4aa93c9afbd83021e54c556a8d5dbd8"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Client/CommandType.h",
+      "sha256": "77a596cf831b3a60e3220321bb9dd988b7c89f11f2077f37c5195e23663b8cdd"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Client/Event.h",
+      "sha256": "921588549e19241b72dd68dba56b793cbc073b4201c90980862f153d83478a6f"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Client/ForceData.h",
+      "sha256": "633890230205b2c2649ff979dd524bff2e6b51a1a19d5142becb6d17764ec316"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Client/ForceImpl.h",
+      "sha256": "011e07e77bb28f14fe7f64a9283c8f815c2859724d18b9995ee564b3f3e66e3d"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Client/GameData.h",
+      "sha256": "23997b90fef14f65803bddb1603cb7a1ae1b1943523b5185d70b2628e44b28fc"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Client/GameImpl.h",
+      "sha256": "61e5fbe501289d8dba1739040e5ec8ad1c51425ee8ed7cd99e41852481bf8bb9"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Client/GameTable.h",
+      "sha256": "d8fbe8a5a43beabebcfc60d98a4634228cddf925b1913a3e71fbcc0ac1be95bd"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Client/PlayerData.h",
+      "sha256": "a2422ba3290f61391a3e30dba95aed1754aa71dddbdbd7931c4f4aff1a854569"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Client/PlayerImpl.h",
+      "sha256": "95fa8b7bd25d7913582e90e1b51abc8867942723ef32beb0d3b13f7fde3a2fc7"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Client/RegionData.h",
+      "sha256": "c391c0b8d0a201babef293efff772fa47d073309d07cd3a6209cab7e0fbb7e20"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Client/RegionImpl.h",
+      "sha256": "620df1c6c2a1084be9656046afb0260f1f498c0e9455246dfe1c1987870c4898"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Client/Shape.h",
+      "sha256": "2ddd3ba85e17d1a6088b519362903c885510e53883ab5e7d602dd427e8a0cb69"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Client/ShapeType.h",
+      "sha256": "3224bec46f8ef681bf5c7c39f4ddb3a94eb710d4e88b4b2842116dbcd88d066f"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Client/UnitCommand.h",
+      "sha256": "1bf160573e9d396711af6b448be51139245b83ad1b37f29e99e9691cf1b2a225"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Client/UnitData.h",
+      "sha256": "dfd6c953afcd206eef75ab268b589cade36a5e4fa3b1098663334e41315f30db"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Client/UnitImpl.h",
+      "sha256": "88b3a27485c217ac7d48450f6f5e57f70ab44886ad1fc475685d9bf96f88cf4a"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Color.h",
+      "sha256": "654d01514b3f0699c1796b3c665bd8250c9f01b8a497dc42252207755c45157a"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/ComparisonFilter.h",
+      "sha256": "5c32df47eeae6fceb6dfaf01ecabb0b3046d6c47d46685ed9af816c431f9fc2d"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Constants.h",
+      "sha256": "c9e62265f89c13f050ee320829198e98cae8b370d1de20829e245e2b2a4f24be"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/CoordinateType.h",
+      "sha256": "547ed0039bbbc6e9540fe39ae48cdc44c7f89005d67bcc6692a0d67df9b296b3"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/DamageType.h",
+      "sha256": "03faae159dbdbf262e19d862b9570696f35f63ee1d49179c87770fea1916db72"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Error.h",
+      "sha256": "1e76aa9f344e972022c18575bd66e35cc4cdefdf376522d2fc707ce913cfeabe"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Event.h",
+      "sha256": "eac2639d1cc848f5333b55c5066f1d4d8a7484fe1ad9759be3e36dee566c443f"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/EventType.h",
+      "sha256": "f395f801e812f20fa2e2eea13fd87d68fa3cee346f8a0b4ce9ac0602b3dc28b1"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/ExplosionType.h",
+      "sha256": "e4a858e30980b1601ed6123c66909de9e2e0f9d7cb416a78d3c67bce6f0231a7"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Filters.h",
+      "sha256": "447c766e3cfe2bd5276aefcc353f7746c6a594f7e2646bb41431712903b150bf"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Flag.h",
+      "sha256": "666304aea718aac06f2610d01d5a2779fb9e39911b0802aa47724266eb1824a6"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Force.h",
+      "sha256": "8ac3cafd6c60d4a2793652429bf0cc63dc3a67df720a0c7021bd5b3d8b54665b"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Forceset.h",
+      "sha256": "0474d5959911e8b19167a9ed573160b53d93fc29578cd9e416b3de7340d39cbc"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Game.h",
+      "sha256": "316616baeea3bae1bf555e0db69e3708a6fa7f3628046dccd5bf1801d1908c7c"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/GameType.h",
+      "sha256": "226e63574da525f23a8f19ac57ca0b3f559555295ace3149dd7e059c1b34f670"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Input.h",
+      "sha256": "239b75c326d33b98a2cebe1ac8ac582b018c0b3cf66fe103d63fa3a07cfcfa84"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Interface.h",
+      "sha256": "7d4571f8ec953357035d3f09de78838d65ef23a34fe60e78f55f00da7153bf4c"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/InterfaceEvent.h",
+      "sha256": "7b45ab4b2044e185d675122b24bb16823133aacd38f6699f59055d3fc94898e1"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Latency.h",
+      "sha256": "8c9054455a72b8719c8e9d3d7ea863083f39f7cc467c768dbd3006b733acc981"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Order.h",
+      "sha256": "34dac0b1a661c8f041b6a152ebc6affafbbe1864ed1a0a0ef8480f4e17a03c2e"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Player.h",
+      "sha256": "731be695a5b0c8a1e02308c8b4f37127a0e2e5dc80970c6857c4987734badb08"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Playerset.h",
+      "sha256": "34c7ff056682014e119034b15bbc5cdbdefc8bc88b0ccac01ed58f9519abe548"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/PlayerType.h",
+      "sha256": "110a2367d198ba98dd6f90ffe6565838906f1186d5617cc98c8442587ce32dc5"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Position.h",
+      "sha256": "84bd6df2c4349e591681746ab000b644345d793d6efed0cea14386413f34314d"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Race.h",
+      "sha256": "21865b1786e71ea80256033a6282bc5e0359a686d0ce8219b5ae21eebc41c7dc"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Region.h",
+      "sha256": "d7a7ede121874ddcbdf10caeb1d828423552b2fe1b0bf3b5bc27f1a3eabdfc27"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Regionset.h",
+      "sha256": "60cc242ad430af976b7e1f23dcf4eb41736c27d54a2cd912a7befe1469a768b4"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/SetContainer.h",
+      "sha256": "1c5dea6cc30984b006d31a0ab4775a6a3c7c0b7c995fd3050a96899431b7fdfa"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Streams.h",
+      "sha256": "5ba870b8a9d757b94f6c9b6ae428c4592c207cb932d5cf0bc0c549906dfd1d18"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/TechType.h",
+      "sha256": "1855d263619e41ed928e1b4d157df687a03bfe12f3fe80af1ed1e3065bc12621"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/TournamentAction.h",
+      "sha256": "e9e1d8213d2b6a0714a43424c11ebc178999ca7a1df38dfabfc68d03e289464f"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Type.h",
+      "sha256": "de0a610a1ce78a1f2866d2efae01c0f78af5e8857a9b6da3b394b34e52686b2f"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/UnaryFilter.h",
+      "sha256": "52166a5dffb9be5f98c269a8aef33acdb07ebe7f60952bcd4852a438c90f5b2b"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Unit.h",
+      "sha256": "261c67366c892939223c867f66a40f4a7fab32b828ee465cc1653a226297b16b"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/UnitCommand.h",
+      "sha256": "0c52c5646645741fc8d5c1d3437ff2c70c8bfc8b8cdbcad297cbdcb6e1e677fc"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/UnitCommandType.h",
+      "sha256": "bc60d0f64fee51082ff99705333d053592846731424c18082f83c265f10686b8"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/Unitset.h",
+      "sha256": "7ce497e35f049ae45a3900183ec4c72aac5d33cc5ed292f1157383748a0eda75"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/UnitSizeType.h",
+      "sha256": "00df42fe7ae957832d133643d658923cd592bf36c4f884d453c92359aeec217c"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/UnitType.h",
+      "sha256": "59ea6503db4de3910dca3c153e705be91aaa5967a9573f3b990531cb5b760280"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/UpgradeType.h",
+      "sha256": "b30c16aa7253664619957c606c3a40d134ab80fbae942bbad3f4af52aaa241d5"
+    },
+    {
+      "path": "vendor/bwapi/include/BWAPI/WeaponType.h",
+      "sha256": "3556f70ce845a61266c1bcfa7ec9584f943e255b9043e48fb77e338202112fb9"
+    },
+    {
+      "path": "vendor/bwapi/include/Debug.h",
+      "sha256": "abbff45e16f867f250d90f394cf18d0edd3b20446b3021d65aa75a5564f9485a"
+    },
+    {
+      "path": "vendor/bwapi/include/starcraftver.h",
+      "sha256": "3724a379fa1c61a35d6ca0cc759b1e74d2b1f3a5ca66b01d04cc0eb95c83ca91"
+    },
+    {
+      "path": "vendor/bwapi/include/svnrev.h",
+      "sha256": "67e934acb0d5be0417c0944b3eebdfca1214334b905a5ac9c3c7bf40504bf8f8"
+    },
+    {
+      "path": "vendor/bwapi/include/swig.i",
+      "sha256": "07b3bcb925a14b7289a93c5ee33c1d77d58e595e2568e3792dfc98879cfd39a8"
+    },
+    {
+      "path": "vendor/bwapi/include/swig_lib/java/common.i",
+      "sha256": "31a606076b66f0ea3dfa24cf633c60b9e02f578a4efa210da8a1f29fb937bd42"
+    },
+    {
+      "path": "vendor/bwapi/include/swig_lib/java/Position.i",
+      "sha256": "8eb84cb378838cfe85b5b0d0440cdd3917bca2414d99ff2b97cd4a42a543a680"
+    },
+    {
+      "path": "vendor/bwapi/include/swig_lib/java/std_function.i",
+      "sha256": "d42d96c165b759c98fd72e22f7156f888ffa9f0fc6586e559642ca32cc1b1878"
+    },
+    {
+      "path": "vendor/bwapi/include/swig_lib/java/std_list.i",
+      "sha256": "a2f77454fb525e5629fa5d598c73178c56d241c44807dc0177e9398f948827d6"
+    },
+    {
+      "path": "vendor/bwapi/include/swig_lib/java/Type.i",
+      "sha256": "93cd14d0762344c19aef18ea1342f6afe874942c00bc78ae58bdc1de3168f2ac"
+    },
+    {
+      "path": "vendor/bwapi/LICENSE",
+      "sha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768"
+    },
+    {
+      "path": "vendor/bwapi/LICENSE.md",
+      "sha256": "9df2543e0baa819fe1d4137219e74868aa7dfaf06d75917703eab524868f270a"
+    },
+    {
+      "path": "vendor/bwapi/Shared/BulletShared.cpp",
+      "sha256": "62cbc169df042685eb6a689a012637f5a5a49b4df7caa24489d96498ee3792d3"
+    },
+    {
+      "path": "vendor/bwapi/Shared/ForceShared.cpp",
+      "sha256": "d3a47a2ea00a0352417a326892b02080248abfa84d8ac1a476bdfb5d20d61f9f"
+    },
+    {
+      "path": "vendor/bwapi/Shared/GameShared.cpp",
+      "sha256": "78ff13593ecac13dd1de6a47e008ec1fcd33c2dbc8bc34bc69ec5f61c3b6c55e"
+    },
+    {
+      "path": "vendor/bwapi/Shared/PlayerShared.cpp",
+      "sha256": "e7fe5747467228a1924b7c81ffdfa96fd7d715cedbab59f355bbfba1b3f19b26"
+    },
+    {
+      "path": "vendor/bwapi/Shared/RegionShared.cpp",
+      "sha256": "a6a1ef47a77b911ad3a15efc996c2ae6bb107297d6053fccc35bb510004e2cf7"
+    },
+    {
+      "path": "vendor/bwapi/Shared/Templates.h",
+      "sha256": "07c05c4e439e6c31e8930d9d748ada0accc22141c3c4c2c4994f80cf3f312ea8"
+    },
+    {
+      "path": "vendor/bwapi/Shared/UnitShared.cpp",
+      "sha256": "17ee884617d2cbe9b848ade96dfd20f8f63b6f49837d719039950049ed72b2cf"
+    },
+    {
+      "path": "vendor/bwapi/Storm/storm.cpp",
+      "sha256": "46968365f8837735e11e74506806ec094e1e863bee5b42393b6661d9ff6394ff"
+    },
+    {
+      "path": "vendor/bwapi/Storm/storm.def",
+      "sha256": "fb5c784f7410b062aa1fadd3500f11c72d79d317a60df0a2b57a1a55360d8b15"
+    },
+    {
+      "path": "vendor/bwapi/Storm/storm.h",
+      "sha256": "f94a1a71031c60eceb47e534b43f1570860d79fe0d1bf582004a38be05d347cf"
+    },
+    {
+      "path": "vendor/bwapi/Storm/Storm.vcxproj",
+      "sha256": "f8b18baeb2459b717881fd11cf062a04a4953c2473b4e3dc8e07ec32ffc28f90"
+    },
+    {
+      "path": "vendor/bwapi/Util/Source/Util/Clamp.h",
+      "sha256": "9e2c18cafb68a85a66cafde6522b742320191e651f300680bb81eee23f13ecfc"
+    },
+    {
+      "path": "vendor/bwapi/Util/Source/Util/Convenience.h",
+      "sha256": "b00fca6c336b385af383ecbe7bb8e159f6d9e41f34436efd9de4a5bda8c4c4d2"
+    },
+    {
+      "path": "vendor/bwapi/Util/Source/Util/Exceptions.cpp",
+      "sha256": "7e46d6f1621762726b38bca47fc15957d130751460be353b47ce2b69ccdb0336"
+    },
+    {
+      "path": "vendor/bwapi/Util/Source/Util/Exceptions.h",
+      "sha256": "4aa9c8fc67cdaabb7a1d289156922bd9fb01cac6c3ea8fb8122b89a1116b2271"
+    },
+    {
+      "path": "vendor/bwapi/Util/Source/Util/MemoryFrame.cpp",
+      "sha256": "0ad15a4d62071e396ce5fe6f32de78f3be33c9a38160d2e282e9cc41b37d7556"
+    },
+    {
+      "path": "vendor/bwapi/Util/Source/Util/MemoryFrame.h",
+      "sha256": "19dcbe93c6a3226c6d2e07954b87324cafecc8aa4d294993b05b70044c9d202a"
+    },
+    {
+      "path": "vendor/bwapi/Util/Source/Util/Mutex.cpp",
+      "sha256": "cf02b079d0072ddbd47e615f9c3c675c11937fffac8c18f20c15ac49b2358925"
+    },
+    {
+      "path": "vendor/bwapi/Util/Source/Util/Mutex.h",
+      "sha256": "781fa964e7fc67eab782211f0d8dc8e075b498fc68765016387f3cb75069a721"
+    },
+    {
+      "path": "vendor/bwapi/Util/Source/Util/Path.h",
+      "sha256": "2e3d49c08920e626a7ae14783a9d247ee4940a290355b2d0a86bfc976b451224"
+    },
+    {
+      "path": "vendor/bwapi/Util/Source/Util/RemoteProcess.cpp",
+      "sha256": "9632b7afde22670fc1b760adaa0daac765436c2f93c1072e2b9971e18b6f0f46"
+    },
+    {
+      "path": "vendor/bwapi/Util/Source/Util/RemoteProcess.h",
+      "sha256": "b6009efb6a42aaaaa45adcf3577bf5c199b893a3efb862ad795b791d73f5d858"
+    },
+    {
+      "path": "vendor/bwapi/Util/Source/Util/RemoteProcessID.h",
+      "sha256": "ead67a05c7ec83a57955ef21e33315d6dc1de0d1dbdb4175ff469eae228d076a"
+    },
+    {
+      "path": "vendor/bwapi/Util/Source/Util/Sha1.cpp",
+      "sha256": "13ad077efed36c64ee1def57e43b6fba3778c22e3d24f6220dd05214555bbedb"
+    },
+    {
+      "path": "vendor/bwapi/Util/Source/Util/Sha1.h",
+      "sha256": "940b90c08096bc8e971d0cdff1a6a5e3c99a38d3adb710c74cbfafbd37b8c31c"
+    },
+    {
+      "path": "vendor/bwapi/Util/Source/Util/SharedMemory.cpp",
+      "sha256": "5d38ad2d72398f8440188fd1f7746837ea34f85383ee85ee95bfc5f5701f43d5"
+    },
+    {
+      "path": "vendor/bwapi/Util/Source/Util/SharedMemory.h",
+      "sha256": "58496ac2218de69b06e6b0764e45b9fef978245591f284a89265199bf0d571fd"
+    },
+    {
+      "path": "vendor/bwapi/Util/Source/Util/SharedStructure.h",
+      "sha256": "6f203d65462e636f6fd87024feaa0ea947d2d598da2b127ce4aee18e8cf85792"
+    },
+    {
+      "path": "vendor/bwapi/Util/Source/Util/StringUtil.h",
+      "sha256": "c469890c82e75b42fa0b5155429e90f94f751a2152ba8b1c88d1661f34333311"
+    },
+    {
+      "path": "vendor/bwapi/Util/Source/Util/Types.h",
+      "sha256": "c6db3f791966094e1f256f253aae06a80d29a1fc61ef35b96b516f5ab8f97a09"
+    },
+    {
+      "path": "vendor/bwapi/Util/Util.vcxproj",
+      "sha256": "bd8595d9b35a9e481bdf37211bcf05461c60ce5975849785f33fef5af1c7a36d"
+    },
+    {
+      "path": "vendor/bwapi/Util/Util.vcxproj.filters",
+      "sha256": "d22af9bcd56b3aa49ceff526be227dab9468e09521c8636b0318fdf0ad856b2f"
+    },
+    {
+      "path": "vendor/minhook/CMakeLists.txt",
+      "sha256": "c6b531bb7d3b62149fef9c3d9032e985df287b6d02e3c2887dfa04ab39a09a07"
+    },
+    {
+      "path": "vendor/minhook/include/MinHook.h",
+      "sha256": "e34bbf7b855c842694f6e3dd78e2d280e99ed9732501e3dc1532a8626a8db8e5"
+    },
+    {
+      "path": "vendor/minhook/LICENSE.txt",
+      "sha256": "d5c2224982b0b95a16b098a561335fa93f3eaf4d0aa964b7843edb986df78dc8"
+    },
+    {
+      "path": "vendor/minhook/src/buffer.c",
+      "sha256": "75a789eb718bd5ed2de039ccd330736a31d0a2d14e43d8e15e6cd2332432482d"
+    },
+    {
+      "path": "vendor/minhook/src/buffer.h",
+      "sha256": "9769702bd625249e59a19ede05c84365fcc7707e1fa0e5df08df42227cee13e3"
+    },
+    {
+      "path": "vendor/minhook/src/hde/hde32.c",
+      "sha256": "7749d5720abd98f3e2cbe7b17d02ecd9215f66917e8d9bd0af8a32b58a7e3657"
+    },
+    {
+      "path": "vendor/minhook/src/hde/hde32.h",
+      "sha256": "5132de5be8ac7a9d054420f5caef0fb01437faa892f03b3cdc77f795973bf15a"
+    },
+    {
+      "path": "vendor/minhook/src/hde/hde64.c",
+      "sha256": "35a6596188905a85d21d7d928bbb636e146dadd10c372762486a1c8541d0641d"
+    },
+    {
+      "path": "vendor/minhook/src/hde/hde64.h",
+      "sha256": "84063581e7e2f15262b789283669ecc0984f6497dd40c44ab7abdd7b90776249"
+    },
+    {
+      "path": "vendor/minhook/src/hde/pstdint.h",
+      "sha256": "604d1cdf45c5a95bc9cf1bbf39ca05ef83013541101d34971c5cd7577e3d5247"
+    },
+    {
+      "path": "vendor/minhook/src/hde/table32.h",
+      "sha256": "a8a59b03cbb2cdbd7dc3c1cd7a95c4b46faf2fc3d195f8540654c7e3565e3f2f"
+    },
+    {
+      "path": "vendor/minhook/src/hde/table64.h",
+      "sha256": "7b4d49f3733cbf9fb93e678cb6a408c6897bc9fcb33b94740eaded928617a4c1"
+    },
+    {
+      "path": "vendor/minhook/src/hook.c",
+      "sha256": "3060d3c42f03a2f11324cbee95d853071757ed0fe4b1bc9eb5f0d8fc9e346a37"
+    },
+    {
+      "path": "vendor/minhook/src/trampoline.c",
+      "sha256": "d837f8555681c3762468d712c43f2064ed31dee610e0b02965fd8aa54b88172f"
+    },
+    {
+      "path": "vendor/minhook/src/trampoline.h",
+      "sha256": "27426751dde36cdd8346469e61cdcca47950b1056a69f21cc63f4b41743faf6a"
+    }
+  ]
+}

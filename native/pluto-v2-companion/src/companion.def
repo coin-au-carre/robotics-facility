@@ -1,0 +1,7 @@
+LIBRARY pluto-companion
+EXPORTS
+  PlutoInitialize
+  PlutoMatchStart
+  PlutoFrame
+  PlutoMatchEnd
+  PlutoShutdown

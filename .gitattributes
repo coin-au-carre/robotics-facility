@@ -1,3 +1,5 @@
 * text=auto eol=lf
 # Patch context preserves the exact upstream line endings and hashed bytes.
 *.patch -text -whitespace
+# Companion inventory pins imported source bytes, including upstream whitespace and line endings.
+/native/pluto-v2-companion/** -text -whitespace
