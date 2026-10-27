@@ -38,22 +38,41 @@ cmake -S source -B rebuild -G "Visual Studio 17 2022" -A Win32
 cmake --build rebuild --config Release --target pluto-companion
 ```
 
-Rebuilt binary may have a different digest. Register its actual digest in a separate
-local-build descriptor; never bypass hash verification or overwrite pinned original
-model operands. Source here covers companion and dependencies, not closed Pluto
-model binaries.
+Rebuilt binary has its own digest. Automated preparation below records that digest
+in a new local-build descriptor; it never overwrites original model operands.
+Source here covers companion and dependencies, not closed Pluto model binaries.
 
-From robotics-facility checkout, prepare a fresh local bundle from user-supplied,
-hash-matching `.10` files using Node 24 and installed workspace dependencies:
+From robotics-facility checkout on Windows with Node 24, installed workspace
+dependencies and Visual Studio C++ tools, run:
 
 ```powershell
-node tools/package-pluto-v2-local.ts C:\path\to\guard-10-bundle pluto-v2-local-new
+node tools/prepare-pluto-v2-local.ts pluto-v2-local-new
 ```
 
 Output: `dist/local/pluto-v2-local-new/`, containing ready-to-import bundle, matching
 source, manifest, this guide and ZIP. Source lives in `native/pluto-v2-companion`;
 `native/pluto-v2-inputs.json` pins all 205 compilation/dependency/test source files.
-Packaging preserves tested companion bytes rather than silently rebuilding them.
+Preparation downloads the [official v2.0 ZIP](https://github.com/tscmoo/pluto/releases/tag/v2.0),
+verifies its published SHA-256 and all four extracted file hashes, builds companion
+from pinned source and assembles SB descriptor and notices. New companion digest,
+source inventory and recipe hashes are recorded. Historical artifact digests stay
+unchanged; source-built companion is a distinct artifact even with identical source.
+
+`native/pluto-v2-upstream.json` pins release URL, exact ZIP size/hash and file
+sizes/hashes. Verified download is reused from ignored `.build/downloads/`; corrupt
+cache is rejected. No ZIP, executable or weights enter Git. `.build/` and `dist/`
+remain ignored. No manual original-binary selection is required.
+
+To download/verify official files without building (also works outside Windows):
+
+```sh
+node tools/fetch-pluto-v2.ts .build/pluto-official-new
+```
+
+Existing already-built `.10` baseline remains supported by
+`node tools/package-pluto-v2-local.ts C:\path\to\guard-10-bundle pluto-v2-local-new`.
+That legacy path preserves its tested companion bytes. Automatic preparation builds
+only adapter; Pluto model binaries always come unchanged from official release.
 
 ## Tested scope
 

@@ -15,6 +15,18 @@ interface Inputs {
   sourceInventory: Array<{ path: string; sha256: string }>
 }
 
+export interface BuiltPlutoCompanion {
+  path: string
+  sha256: string
+  inputsSha256: string
+  recipes: Record<string, string>
+}
+
+interface PackageOptions {
+  companion: BuiltPlutoCompanion
+  upstream: { url: string; sha256: string; tag: string }
+}
+
 async function regularFile(directory: string, name: string): Promise<Buffer> {
   if (!/^[A-Za-z0-9_.-]+(?:\/[A-Za-z0-9_.-]+)*$/.test(name))
     throw new Error(`Invalid package input path: ${name}`)
@@ -37,13 +49,24 @@ async function verified(directory: string, name: string, digest: string): Promis
   return bytes
 }
 
-/** Assemble already-reviewed user-supplied assets, preserving the exact companion artifact. */
-export async function packagePlutoLocal(bundleDirectory: string, outputName: string) {
+/** Assemble verified original assets with either pinned baseline or source-built companion. */
+export async function packagePlutoLocal(
+  bundleDirectory: string,
+  outputName: string,
+  options?: PackageOptions,
+) {
   if (!/^[a-z0-9][a-z0-9-]*$/.test(outputName)) throw new Error('Invalid output name')
   const inputsBytes = await readFile(path.join(root, 'native/pluto-v2-inputs.json'))
   const inputs = JSON.parse(inputsBytes.toString('utf8')) as Inputs
   if (inputs.schemaVersion !== 1 || inputs.sourceInventory.length === 0)
     throw new Error('Invalid companion inventory')
+  if (options && options.companion.inputsSha256 !== hash(inputsBytes))
+    throw new Error('Built companion input inventory mismatch')
+  if (options) {
+    for (const [name, digest] of Object.entries(options.companion.recipes))
+      await verified(root, name, digest)
+  }
+  const companionSha256 = options?.companion.sha256 ?? inputs.companionSha256
   for (const name of ['bwapi-data/read', 'bwapi-data/write']) {
     try {
       const directory = path.join(bundleDirectory, name)
@@ -58,16 +81,26 @@ export async function packagePlutoLocal(bundleDirectory: string, outputName: str
     entries.push([`bundle/${name}`, await verified(bundleDirectory, name, digest)])
   entries.push([
     'bundle/pluto-companion.dll',
-    await verified(bundleDirectory, 'pluto-companion.dll', inputs.companionSha256),
+    options
+      ? await verified(
+          path.dirname(options.companion.path),
+          path.basename(options.companion.path),
+          companionSha256,
+        )
+      : await verified(bundleDirectory, 'pluto-companion.dll', companionSha256),
   ])
-  for (const name of [
-    'README.txt',
-    'THIRD_PARTY.md',
-    'BWAPI-LICENSE.txt',
-    'COPYING.GPL-3.0.txt',
-    'SB-EXPERIMENT.txt',
-  ])
-    entries.push([`bundle/${name}`, await regularFile(bundleDirectory, name)])
+  entries.push(['bundle/README.txt', await regularFile(bundleDirectory, 'README.txt')])
+  const notices = [
+    ['THIRD_PARTY.md', 'native/pluto-v2-companion/THIRD_PARTY.md'],
+    ['BWAPI-LICENSE.txt', 'native/pluto-v2-companion/vendor/bwapi/LICENSE'],
+    ['COPYING.GPL-3.0.txt', 'native/pluto-v2-companion/vendor/bwapi/COPYING.GPL-3.0.txt'],
+    ['SB-EXPERIMENT.txt', 'native/pluto-v2-modifications.txt'],
+  ] as const
+  for (const [name, source] of notices)
+    entries.push([
+      `bundle/${name}`,
+      await regularFile(options ? root : bundleDirectory, options ? source : name),
+    ])
   for (const item of inputs.sourceInventory)
     entries.push([
       `source/${item.path}`,
@@ -81,7 +114,7 @@ export async function packagePlutoLocal(bundleDirectory: string, outputName: str
     args: [],
     runtime: { kind: 'native' },
     races: ['terran', 'protoss', 'zerg'],
-    pluto: { companionSha256: inputs.companionSha256 },
+    pluto: { companionSha256 },
   }
   entries.push(['bundle/sb-bot.json', Buffer.from(JSON.stringify(descriptor, null, 2) + '\n')])
   const guide = await readFile(path.join(root, 'docs/pluto-v2-local.md'))
@@ -92,10 +125,20 @@ export async function packagePlutoLocal(bundleDirectory: string, outputName: str
   )
   const info = {
     schemaVersion: 1,
-    kind: 'user-supplied-local-build',
+    kind: options ? 'official-download-local-build' : 'user-supplied-local-build',
     name: 'Pluto v2',
     version: inputs.version,
-    companionSha256: inputs.companionSha256,
+    companionSha256,
+    ...(options
+      ? {
+          upstream: options.upstream,
+          adapterBuild: {
+            sha256: options.companion.sha256,
+            inputsSha256: options.companion.inputsSha256,
+            recipes: options.companion.recipes,
+          },
+        }
+      : {}),
     assets: inputs.assets,
     sourceFiles: inputs.sourceInventory.length,
     recipeSha256: hash(await readFile(fileURLToPath(import.meta.url))),

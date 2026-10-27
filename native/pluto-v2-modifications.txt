@@ -1,0 +1,17 @@
+ShieldBattery compatibility companion for Pluto v2.0 md09b_1331000.
+
+Original Pluto DLL, inference executable, weights and README remain unchanged.
+Companion implements Snapshot/BWAPI access, validated legacy operand relocation,
+command translation and match lifecycle through ShieldBattery's in-process host.
+
+Guard .10 filters hidden foreign state, caches last-known neutral resources,
+delays unknown opponent race, rebuilds public linked lists and uses explicit
+legacy scalar/terrain allowlists. Matching companion and dependency sources
+are included in source/. Original model sources are not included.
+
+Compatibility and fog reviews provide finite evidence, not complete safety or
+isolation certification. Rebuilt companion has its own recorded SHA-256 and local
+descriptor. Historical gameplay applies only to its recorded artifact hashes.
+
+Original model files are downloaded from pinned official release for local use.
+This bundle does not establish public redistribution or signed catalog approval.

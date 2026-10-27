@@ -14,10 +14,11 @@ build instructions, and offline license/modification notices. See the
 Human difficulty remains uncalibrated; supported races and formats are
 release-specific. The game bridge currently requires a ShieldBattery debug build.
 
-[Pluto v2 local integration](docs/pluto-v2-local.md) supplies a pinned companion,
-matching rebuild sources and a ready-to-import bundle recipe for user-supplied
-model binaries. It requires SB companion host support and is separate from the
-shared downloadable catalog.
+[Pluto v2 local integration](docs/pluto-v2-local.md) downloads hash-pinned official
+model binaries, builds facility companion and assembles a ready-to-import bundle
+with matching sources. Run `node tools/prepare-pluto-v2-local.ts <fresh-name>` on
+Windows with MSVC. It requires SB companion host support and is separate from
+shared downloadable catalog. Large binaries stay outside Git.
 
 Separate staging and production publishing Actions validate archives, sign catalogs,
 and publish to Spaces; they refuse empty/unapproved releases. See
