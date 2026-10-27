@@ -106,3 +106,23 @@ classified by the bounded native-host log. Signed catalog installation was not
 attempted. Pending review and compatibility status remain conservative. Test-owned
 Electron/game processes were stopped; installed game and pinned bot bundles were
 not changed. Full structured evidence: [validation record](bananabrain-sb-6-validation.json).
+
+## Admission and profile-copy follow-up
+
+The active catalog no longer includes the earlier sb.5 proposal. It now matches
+upstream main exactly; sb.5 records stay historical and sb.6 stays review-only.
+This avoids advertising the old runtime or adding a download dependency before
+current-package review, source hosting and exact artifact hosting are resolved.
+No production approval is requested.
+
+The inspected ShieldBattery profile seeder uses `fs.cp` for the entire launch
+working tree, including `bwapi-data/AI`; it does not hardlink package assets.
+A Windows check invoked the actual `ensureWorkingCopy` function from app source
+`04dc6ee699b4cfbf91dc66a1d0b61d84ccfc2c89` on the extracted sb.6 baseline.
+All 12 original AI files matched their package bytes, source and destination
+reported link count one, and each copy had a distinct file ID. This is a focused
+profile-seeding check, not signed-catalog installation or new gameplay evidence.
+
+No recorded author confirmation establishes AIIDE 2025 as the recommended build
+for human practice. Author recommendation and initial production-roster priority
+remain open; this experimental integration does not settle either.

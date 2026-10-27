@@ -168,5 +168,22 @@
   ],
   "productionApproval": false,
   "pushed": false,
-  "commentsPosted": false
+  "commentsPosted": false,
+  "admissionFollowUp": {
+    "activeCatalogMatchesUpstreamMain": true,
+    "historicalSb5EntryWithheld": true,
+    "sourceImportStillOnForkOnly": true,
+    "sourceImportRemoteRevision": "f66d7336ca61a0a0a1a984fad55c162d942694e4",
+    "authorRecommendedBuildConfirmed": false,
+    "rosterDecision": "deferred",
+    "profileSeeding": {
+      "scope": "Actual ensureWorkingCopy function from inspected app source; exact extracted sb.6 work tree. Not an installed-catalog or gameplay test.",
+      "appSourceRevision": "04dc6ee699b4cfbf91dc66a1d0b61d84ccfc2c89",
+      "copiesMatchPackage": true,
+      "allSourceAndDestinationLinkCountsOne": true,
+      "distinctFileIds": true,
+      "files": 12,
+      "originalAiFiles": 12
+    }
+  }
 }
