@@ -55,6 +55,38 @@ App typecheck/lint and 252 focused tests passed on current upstream bridge targe
 Facility typecheck/lint/metadata validation and 73 tests passed. A deliberately
 incomplete source inventory was rejected without producing an archive.
 
+## Release-host gameplay evidence
+
+SB revision `6d9cae445` fixes the production-client practice gate: resolved Pluto
+launches are supported, while external BWAPI bots still require development DLLs.
+254 app tests, TypeScript and targeted lint passed. Both game architectures built
+through `build.bat release` with dependency notices generated. Rust tests passed on
+both architectures (633 each), both-target Clippy passed with warnings denied, and
+formatting passed. Initial Clippy failure was corrected by moving Pluto's `impl`
+before the test module. Removing `cfg(test)` code leaves the release token sequence
+unchanged; no gameplay behavior was changed after the recorded live run.
+
+A fresh Electron process reopened the catalog-installed profile with
+`ELECTRON_IS_DEV=0`. Main/renderer bundles were development bundles; this explicitly
+exercised Electron's actual production-mode launch gate and catalog trust, not a
+signed packaged production distribution. Installed release remained usable despite
+the different catalog trust. **Start game** launched human Protoss on x64 and Pluto
+Terran on x86, Fighting Spirit 1.4. Companion completed startup and submitted 54
+translated command packets. Graceful manual stop reached finished state, released
+library lease and left zero owned inference helpers. Immutable installed model and
+adapter hashes were unchanged. No natural match completion, learning reload or
+strength result is claimed by this run.
+
+| Loaded release DLL | SHA-256 |
+| --- | --- |
+| x86 Pluto | `505d582bd2e71b0d6a7acf198fc1d3b87fa137ab970fe786bb485eec020037b9` |
+| x64 human | `a0065229172a01b3a1a90401aead76fe07aa6da96691f549bbf1143308d89829` |
+
+Evidence: `signed-production-2.json`. First production-mode harness attempt stopped
+before launch because it omitted bot-library navigation; corrected run passed.
+Runtime command evidence and game DLL hashes belong to this exact run, independently
+of earlier historical .10 matches.
+
 ## Admission and rollout
 
 [Review catalog](../../bots/pluto/catalog-review.json) retains exact reviewed ZIP
@@ -79,5 +111,12 @@ not include upstream signing secrets or permission to merge protected branches.
 Local evidence: FBH
 `StarCraftLab/research/compatibility/pluto-v2-catalog-integration/`, including
 `signed-install-3.json`, `signed-cancel-1.json`, `app-checks-final.json`,
-`facility-checks-final.json` and `inventory-rejection.json`. Private profiles and
+`facility-checks-final.json`, `inventory-rejection.json`, `signed-production-2.json`,
+`app-checks-production-gate2.json` and `fresh-release-build-notices.json`. Private profiles and
 raw logs are excluded from repository.
+
+Integration PRs: [ShieldBattery #1843](https://github.com/ShieldBattery/ShieldBattery/pull/1843)
+and [robotics-facility #5](https://github.com/ShieldBattery/robotics-facility/pull/5).
+Public review-archive readback matched the tested SHA-256 exactly. Consolidated local
+record: `pluto-v2-catalog-integration/validation.json`, with source-layout correction
+tracked separately in `lint-move.json` and `lint-fix-checks.json`.

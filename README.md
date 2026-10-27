@@ -12,13 +12,21 @@ build instructions, and offline license/modification notices. See the
 [Infested Artosis](docs/infested-artosis-admission.md), and
 [Steamhammer](docs/steamhammer-admission.md) admission records for exact scope.
 Human difficulty remains uncalibrated; supported races and formats are
-release-specific. The game bridge currently requires a ShieldBattery debug build.
+release-specific. The external BWAPI bridge currently requires a ShieldBattery debug build.
 
 [Pluto v2 local integration](docs/pluto-v2-local.md) downloads hash-pinned official
 model binaries, builds facility companion and assembles a ready-to-import bundle
 with matching sources. Run `node tools/prepare-pluto-v2-local.ts <fresh-name>` on
 Windows with MSVC. It requires SB companion host support and is separate from
 shared downloadable catalog. Large binaries stay outside Git.
+
+[Pluto shared-catalog integration](docs/releases/pluto-sb-1.md) adds a small
+adapter/source archive and the `pluto-v2` runtime. Updated SB installer fetches
+original models directly from their pinned official release, then installs a complete
+local package. Normal signed development-catalog Download, cancellation and retry
+are verified. [Review catalog](bots/pluto/catalog-review.json) remains separate from
+active catalog pending admission and client rollout; it does not activate public
+availability. See [build recipe](bots/pluto/BUILD.md).
 
 Separate staging and production publishing Actions validate archives, sign catalogs,
 and publish to Spaces; they refuse empty/unapproved releases. See

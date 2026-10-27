@@ -34,10 +34,13 @@ source-built artifact from exact source passed official-download/local-library
 launch with real commands and graceful cleanup. Those are not reassigned as signed
 catalog install evidence or complete fog certification.
 
-Current catalog install/play/reload/reset evidence is in progress. Candidate source
-review remains pending until exact shared-package path is verified. Local
-distribution approval covers adapter/source archive and notices, not redistribution
-of original closed models. Full binary noninterference, all map/race combinations,
+Normal signed development-catalog Download, model hash verification, cancellation
+cleanup/retry and later Play through production-mode admission with release game
+DLLs passed. Exact package, DLL hashes and bounded runtime evidence are recorded in
+[release review](releases/pluto-sb-1.md). No natural completion or learning reload is
+claimed for this catalog run. Candidate source admission remains pending maintainer
+review; local-distribution approval covers adapter/source archive and notices, not
+redistribution of original closed models. Full binary noninterference, all map/race combinations,
 arbitrary hostile state and OS containment remain outside approval scope.
 
 Production rollout additionally requires SB host/installer release, public adapter
