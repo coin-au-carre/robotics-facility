@@ -472,3 +472,52 @@ await test('object keys, URLs, and workflow input parsing constrain publication 
   assert.throws(() => parsePublishArgs(['production', '--revision', '2']))
   assert.throws(() => parsePublishArgs(['staging', '--revision', '2', '--staging-revision', '1']))
 })
+
+await test('catalog production approvals match reviewed exact local-practice scopes', async () => {
+  const catalog: unknown = JSON.parse(
+    await readFile(new URL('../catalog/catalog.json', import.meta.url), 'utf8'),
+  )
+  validate('catalog', catalog)
+  const review = JSON.parse(
+    await readFile(
+      new URL('../docs/releases/local-practice-production-approvals.json', import.meta.url),
+      'utf8',
+    ),
+  )
+  const expected = [
+    'zzzkbot-sb-1',
+    'ualbertabot-sb-3',
+    'marine-hell-sb-4',
+    'opprimobot-sb-1',
+    'infested-artosis-sb-1',
+    'steamhammer-sb-1',
+  ].sort()
+  const approved = catalog.bots
+    .flatMap(bot => bot.releases)
+    .filter(release => release.releaseStatus === 'production-approved')
+  assert.deepEqual(approved.map(release => release.package.releaseId).sort(), expected)
+  assert.equal(review.approvals.length, expected.length)
+  for (const release of approved) {
+    const record = review.approvals.find(
+      (entry: { releaseId: string }) => entry.releaseId === release.package.releaseId,
+    )
+    assert.ok(record)
+    assert.equal(release.artifact.sha256, record.archiveSha256)
+    assert.equal(release.artifact.sizeBytes, record.sizeBytes)
+    assert.equal(release.artifact.manifestSha256, record.manifestSha256)
+    assert.equal(sha256(canonical(release.package)), record.packageSha256)
+    assert.deepEqual(release.package.profile.selectableRaces, record.scope.selectableRaces)
+    assert.equal(
+      release.package.profile.formats.find(format => format.id === 'one-v-one')?.support,
+      record.scope.existingFormatSupport,
+    )
+    assert.equal(release.package.permissions.localDistribution.status, 'approved')
+    assert.equal(release.package.sourceReview.status, 'approved')
+  }
+  assert.ok(!catalog.bots.some(bot => ['bananabrain', 'pluto'].includes(bot.bot.id)))
+  const steamhammer = approved.find(release => release.package.botId === 'steamhammer')!
+  assert.equal(
+    steamhammer.package.profile.formats.find(format => format.id === 'free-for-all')?.support,
+    'incompatible',
+  )
+})

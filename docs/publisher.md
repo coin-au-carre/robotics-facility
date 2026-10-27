@@ -10,17 +10,24 @@ Each catalog release can carry `releaseStatus`: `candidate`, `staging`, or
 `production-approved`. Missing status means `candidate`. This is a separate gate
 from source review, distribution permission, and individual format test results.
 Development clients show non-production releases with a **Dev only — hidden in
-production** badge. Production clients expose only `production-approved` releases,
-including when an unapproved version was previously installed.
+production** badge. Production clients use the fixed production catalog URL,
+channel, and signing key; overrides and release-status badges are development-only.
+The publisher selects approved releases before production delivery. The client
+retains existing installations when a catalog entry disappears, including offline
+launch and uninstall access; publication approval is not package revocation.
 
-Maintainers approve an exact release by reviewing its package, all advertised races,
-supported formats, installation, lifecycle, and saved-state evidence, then changing
+Maintainers approve an exact release by reviewing its package, declared race/format scope,
+installation, lifecycle, and saved-state evidence, then changing
 its catalog `releaseStatus` to `production-approved` through review. Approval must
 not be inferred from a bot name or a single `verified` format flag. Publish a new
 staging revision containing that approval before promoting it. Catalog metadata can
 change without rebuilding the immutable archive or embedded package descriptor.
-Existing entries without explicit approval remain development-only; this change
-does not approve any current bot.
+The [scoped local-practice review](releases/local-practice-production-approvals.md)
+approves six exact current releases while retaining experimental capability labels
+and documented limits. PurpleWave updates and BananaBrain admission remain separate;
+Pluto stays development-only. Entries without explicit approval are omitted from
+new production publications. Missing human difficulty calibration or an untested
+optional format does not by itself disqualify an otherwise reviewed local profile.
 
 ## Two phases
 
