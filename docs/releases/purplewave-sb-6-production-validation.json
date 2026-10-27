@@ -357,9 +357,33 @@
     "productionElectronBuild": "passed",
     "productionIpcSmoke": "passed",
     "extraReleaseUnitTests": {
-      "status": "failed",
-      "errors": 20,
-      "scope": "Unchanged upstream debug-control tests in app_socket.rs and netcode_v2/mod.rs reference APIs compiled out of release; normal CI tests and actual release DLL builds passed."
+      "status": "resolved",
+      "initialAttempt": {
+        "status": "failed",
+        "errors": 20,
+        "scope": "Unchanged upstream debug-control tests in app_socket.rs and netcode_v2/mod.rs reference APIs compiled out of release; normal CI tests and actual release DLL builds passed."
+      },
+      "followUp": {
+        "status": "passed",
+        "pullRequest": "https://github.com/ShieldBattery/ShieldBattery/pull/1842",
+        "testFixCommit": "2b6994dfde5f3f5e75ce50b1918c64f42ff7067c",
+        "integrationCommit": "07595bd56318a5ad4272004c4e3cffac2bd13722",
+        "testsPerArchitecture": {
+          "debug": 640,
+          "release": 614
+        },
+        "clippy": "all-targets/workspace, debug/release, x86/x64, warnings denied",
+        "format": "passed",
+        "workflowYaml": "parsed; both architecture jobs retain debug checks and add release checks",
+        "releaseRegression": "All eight debug-control commands plus invalid/null payloads are rejected as unknown commands; test executed on release x86/x64",
+        "debugRegression": "All eight positive debug dispatch tests remain active on both debug targets",
+        "runtimeCode": "unchanged; both modified Rust file prefixes before cfg(test) match upstream byte for byte",
+        "gameplayEvidence": "Original native game results and DLL hashes preserved; test-only patch does not claim another gameplay run",
+        "logSha256": {
+          "debug": "ba7118bd705ff3087f6e92e04d97adc536ab9ecd6a3354c810780ced50f1c435",
+          "release": "47a240308037414989d8592ef5ed5b896df5c1a2cb8910e6ce58294c8b5b1be6"
+        }
+      }
     },
     "robotics": {
       "metadata": "passed",

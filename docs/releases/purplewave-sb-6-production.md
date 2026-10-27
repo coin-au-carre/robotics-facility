@@ -121,3 +121,8 @@ An extra release-unit-test attempt hit 20 pre-existing compilation errors in
 unchanged upstream debug-control tests in `app_socket.rs` and `netcode_v2/mod.rs`.
 Release DLL builds and release library Clippy passed; debug controls stayed out of
 release DLLs. This extra suite is not reported as passing.
+
+The release-unit compilation issue is now resolved by the
+[test-only follow-up](purplewave-sb-6-release-unit-validation.md). Full debug/release
+tests and all-target/workspace Clippy pass on both architectures; original
+failed-attempt evidence remains preserved.
