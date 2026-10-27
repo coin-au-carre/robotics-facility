@@ -178,7 +178,7 @@ export async function packagePurpleWave({
         scope: 'bot',
       },
       {
-        modifier: 'Florian D.',
+        modifier: 'ShieldBattery',
         date: '2026-10-25',
         summary:
           'Updated PurpleWave to upstream revision 08672150433a2c60f5db23e10d2bc15dbc6e302e and rebased the existing runtime isolation patch.',
