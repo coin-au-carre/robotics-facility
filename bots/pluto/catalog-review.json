@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "revision": 0,
+  "bots": [
+    {
+      "bot": {
+        "id": "pluto",
+        "name": "Pluto v2",
+        "description": "An all-race neural bot using the official md09b_1331000 model with a conservative ShieldBattery compatibility adapter. Experimental; human difficulty uncalibrated.",
+        "authors": [
+          {
+            "name": "tscmoo",
+            "url": "https://github.com/tscmoo"
+          }
+        ],
+        "homepage": "https://github.com/tscmoo/pluto",
+        "sourceUrl": "https://github.com/tscmoo/pluto",
+        "playStyleTags": [],
+        "humanSkill": "uncalibrated",
+        "externalRatings": []
+      },
+      "releases": [
+        {
+          "package": {
+            "schemaVersion": 1,
+            "botId": "pluto",
+            "releaseId": "pluto-sb-1",
+            "version": "2.0-md09b_1331000-sb.1",
+            "platform": {
+              "os": "windows",
+              "architecture": "x86"
+            },
+            "runtime": {
+              "kind": "pluto-v2",
+              "companionSha256": "854492a20a8e7f38640e8dc097970fda6741393ff076b5e167d6cf6b2fbce440"
+            },
+            "launch": {
+              "entrypoint": "work/pluto-companion.dll",
+              "workingDirectory": "work",
+              "arguments": []
+            },
+            "profile": {
+              "selectableRaces": [
+                "terran",
+                "protoss",
+                "zerg"
+              ],
+              "randomRace": "supported",
+              "formats": [
+                {
+                  "id": "one-v-one",
+                  "support": "experimental",
+                  "notes": "Two-player Melee with legacy limits; finite guard and gameplay evidence."
+                },
+                {
+                  "id": "teams",
+                  "support": "incompatible",
+                  "notes": "Pluto requires 1v1 Melee."
+                },
+                {
+                  "id": "free-for-all",
+                  "support": "incompatible",
+                  "notes": "Pluto requires exactly one opponent."
+                }
+              ],
+              "mapConstraints": [
+                "Maps at most 128 by 128 tiles; legacy unit limits.",
+                "Windows x64 and AVX2 CPU required; inference helper is x64, game client is x86."
+              ],
+              "learning": {
+                "mode": "persistent",
+                "notes": "Per-opponent opening statistics persist in isolated profiles; reset restores empty read/write directories."
+              }
+            },
+            "bwapi": {
+              "version": "4.4.0",
+              "protocol": 10003,
+              "minimumBridgeVersion": "pluto-v2-catalog-1"
+            },
+            "sources": [
+              {
+                "id": "bwapi",
+                "repository": "https://github.com/bwapi/bwapi.git",
+                "revision": "7687da8abc4726f8366401f11ab648d421385793",
+                "patches": [
+                  {
+                    "path": "patches/bwapi/instance-discovery.patch",
+                    "sha256": "e35d406e61cef1c5ff28b2bd3202f3f41a1091c83d4b8dcc82236d946cc01ec0"
+                  }
+                ]
+              },
+              {
+                "id": "pluto-companion",
+                "repository": "https://github.com/coin-au-carre/robotics-facility.git",
+                "revision": "8cd1f60680efcb81ac92cd7221d4ad45b4ed5606",
+                "patches": []
+              }
+            ],
+            "licenses": [
+              {
+                "name": "MIT - compatibility companion",
+                "noticePath": "notices/Companion-MIT.txt"
+              },
+              {
+                "name": "LGPL-3.0 - BWAPI",
+                "noticePath": "notices/BWAPI-LGPL.txt"
+              },
+              {
+                "name": "GPL-3.0 license text",
+                "noticePath": "notices/GPL-3.0.txt"
+              },
+              {
+                "name": "Original Pluto download disclosure",
+                "noticePath": "notices/PLUTO.txt"
+              },
+              {
+                "name": "Adapter modifications",
+                "noticePath": "notices/MODIFICATIONS.txt"
+              }
+            ],
+            "permissions": {
+              "localDistribution": {
+                "status": "approved",
+                "evidence": "Adapter-only package, retained MIT/LGPL notices and matching source; original models fetched directly from official publisher by client. See docs/pluto-catalog-admission.md."
+              },
+              "publicCompetition": {
+                "status": "unreviewed",
+                "evidence": "Local practice support does not establish public competition eligibility."
+              }
+            },
+            "modifications": [
+              {
+                "modifier": "ShieldBattery",
+                "date": "2026-10-27",
+                "scope": "dependency",
+                "summary": "Adds .10 compatibility companion with filtered legacy view, command translation and isolated lifecycle; original Pluto binaries downloaded unchanged from pinned official release."
+              }
+            ],
+            "writableDirectories": [
+              "work/bwapi-data/read",
+              "work/bwapi-data/write"
+            ],
+            "build": {
+              "recipeSource": {
+                "id": "robotics-facility",
+                "repository": "https://github.com/coin-au-carre/robotics-facility.git",
+                "revision": "77fcc198cdb53412a780a2bc7f9757d6beff0733",
+                "patches": []
+              },
+              "recipePath": "tools/package-pluto-v2.ts",
+              "toolchain": "MSVC 19.35 Win32; CMake; exact companion source inventory verified against source pin"
+            },
+            "sourceReview": {
+              "status": "pending",
+              "evidence": "Scoped review and known limits documented in docs/pluto-catalog-admission.md; catalog install verification in progress."
+            }
+          },
+          "artifact": {
+            "url": "https://github.com/coin-au-carre/robotics-facility/releases/download/pluto-sb-1-review-1/pluto-sb-1.zip",
+            "sha256": "d96b2b12744892e9e7cbf185f8d41457d225f15d3c3ce7c99e3e4b41bf6cf646",
+            "sizeBytes": 626958,
+            "manifestSha256": "3136b0daf0495f362f88fcdbd23c5aa4f946ae691f1c7ba8f1e62788d89388c5",
+            "format": "zip"
+          }
+        }
+      ]
+    }
+  ]
+}

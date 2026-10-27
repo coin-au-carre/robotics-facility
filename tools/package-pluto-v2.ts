@@ -3,6 +3,7 @@ import { createHash } from 'node:crypto'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { isDeepStrictEqual } from 'node:util'
 import type { Candidate, Package, SourceLock } from './metadata.ts'
 import type { ArchiveEntry } from './package-archive.ts'
 import { writeReleasePackage } from './release-package.ts'
@@ -25,6 +26,11 @@ const build = JSON.parse(await readFile(path.join(buildDirectory, 'build-info.js
 }
 const inputs = await readFile(path.join(root, 'native/pluto-v2-inputs.json'))
 if (sha(inputs) !== build.companion.inputsSha256) throw new Error('Companion inputs changed')
+const expectedInventory = JSON.parse(inputs.toString('utf8')) as {
+  sourceInventory: Array<{ path: string; sha256: string }>
+}
+if (!isDeepStrictEqual(build.sourceInventory, expectedInventory.sourceInventory))
+  throw new Error('Build source inventory differs from pinned companion inputs')
 const companion = await readFile(build.companion.path)
 if (sha(companion) !== build.companion.sha256) throw new Error('Built companion digest changed')
 const candidate = JSON.parse(

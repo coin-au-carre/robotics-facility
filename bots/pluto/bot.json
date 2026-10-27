@@ -87,7 +87,7 @@
   "build": {
     "status": "recipe-in-robotics-facility",
     "repository": "https://github.com/coin-au-carre/robotics-facility.git",
-    "revision": "4def66bc26aad296c565045b1c8a66d38e9a55ee",
+    "revision": "77fcc198cdb53412a780a2bc7f9757d6beff0733",
     "instructions": "bots/pluto/BUILD.md"
   },
   "sourceReview": {
