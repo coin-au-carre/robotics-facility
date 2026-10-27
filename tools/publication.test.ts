@@ -491,13 +491,21 @@ await test('catalog production approvals match reviewed exact local-practice sco
     'opprimobot-sb-1',
     'infested-artosis-sb-1',
     'steamhammer-sb-1',
-    'purplewave-sb-7',
-    'bananabrain-sb-5',
   ].sort()
   const approved = catalog.bots
     .flatMap(bot => bot.releases)
     .filter(release => release.releaseStatus === 'production-approved')
   assert.deepEqual(approved.map(release => release.package.releaseId).sort(), expected)
+  assert.deepEqual(
+    catalog.bots.flatMap(bot => bot.releases.map(release => release.package.releaseId)).sort(),
+    [
+      ...expected,
+      'purplewave-sb-1',
+      'purplewave-sb-2',
+      'purplewave-sb-3',
+      'purplewave-sb-4',
+    ].sort(),
+  )
   assert.equal(review.approvals.length, expected.length)
   for (const release of approved) {
     const record = review.approvals.find(
@@ -516,19 +524,7 @@ await test('catalog production approvals match reviewed exact local-practice sco
     assert.equal(release.package.permissions.localDistribution.status, 'approved')
     assert.equal(release.package.sourceReview.status, 'approved')
   }
-  assert.ok(!catalog.bots.some(bot => bot.bot.id === 'pluto'))
-  const banana = approved.find(release => release.package.botId === 'bananabrain')!
-  assert.deepEqual(banana.package.profile.selectableRaces, ['protoss'])
-  assert.equal(banana.package.permissions.publicCompetition.status, 'unreviewed')
-  assert.equal(
-    banana.package.profile.formats.find(format => format.id === 'one-v-one')?.support,
-    'experimental',
-  )
-  assert.deepEqual(
-    review.approvals.find((entry: { releaseId: string }) => entry.releaseId === 'bananabrain-sb-5')
-      .scope.gameArchitectures,
-    ['x86_64'],
-  )
+  assert.ok(!catalog.bots.some(bot => ['bananabrain', 'pluto'].includes(bot.bot.id)))
   const steamhammer = approved.find(release => release.package.botId === 'steamhammer')!
   assert.equal(
     steamhammer.package.profile.formats.find(format => format.id === 'free-for-all')?.support,

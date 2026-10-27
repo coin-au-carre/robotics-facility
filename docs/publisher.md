@@ -23,8 +23,8 @@ not be inferred from a bot name or a single `verified` format flag. Publish a ne
 staging revision containing that approval before promoting it. Catalog metadata can
 change without rebuilding the immutable archive or embedded package descriptor.
 The [scoped local-practice review](releases/local-practice-production-approvals.md)
-approves eight exact releases while retaining experimental capability labels
-and documented limits. PurpleWave sb.7 carries the reviewed sb.6 runtime; BananaBrain sb.5 is approved for assigned Protoss experimental 1v1 with x64 StarCraft;
+approves six exact current releases while retaining experimental capability labels
+and documented limits. PurpleWave updates and BananaBrain admission remain separate;
 Pluto stays development-only. Entries without explicit approval are omitted from
 new production publications. Missing human difficulty calibration or an untested
 optional format does not by itself disqualify an otherwise reviewed local profile.
