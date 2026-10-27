@@ -491,6 +491,7 @@ await test('catalog production approvals match reviewed exact local-practice sco
     'opprimobot-sb-1',
     'infested-artosis-sb-1',
     'steamhammer-sb-1',
+    'purplewave-sb-7',
   ].sort()
   const approved = catalog.bots
     .flatMap(bot => bot.releases)

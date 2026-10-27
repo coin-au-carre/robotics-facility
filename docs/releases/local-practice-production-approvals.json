@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "catalogBaseCommit": "0f9be676da625dddf3da85ee35b55c2f11a85731",
-  "reviewScope": "Proposal for production availability of exact existing packages for supervised local practice; existing source/artifact/gameplay evidence re-assessed, no new matches or bot builds performed",
+  "reviewScope": "Seven local-practice approvals: six existing releases and a metadata-only PurpleWave successor. Existing runtime evidence re-assessed, no new matches or bot compilation.",
   "approvals": [
     {
       "botId": "zzzkbot",
@@ -169,6 +169,36 @@
         "FFA stays incompatible after the observed Zerg production stall; teams/Random remain unverified",
         "Requires frame-zero/mineral normalization and refinery compatibility fixes"
       ]
+    },
+    {
+      "botId": "purplewave",
+      "releaseId": "purplewave-sb-7",
+      "archiveSha256": "ec3089ee4e93632e1940ce0fdb85d01e547fd593c62725f7e6a7e0aedb7f6b34",
+      "sizeBytes": 20068672,
+      "manifestSha256": "ca56c5349c1c7c99edb055906f3f00607580a3e4b8f52eb88763e711f890a483",
+      "packageSha256": "4a0a9479bcbf5457a2c4a0f7881aac812896c7ba8b37609a97ce2b11d1d12782",
+      "scope": {
+        "use": "local-practice",
+        "format": "one-v-one",
+        "selectableRaces": [
+          "protoss",
+          "terran",
+          "zerg"
+        ],
+        "existingFormatSupport": "verified",
+        "mapEvidence": "Fighting Spirit natural 1v1 and bounded progression evidence inherited from exact sb.6 runtime; unusual maps remain unverified."
+      },
+      "evidence": "docs/releases/purplewave-sb-7.md",
+      "observations": [
+        "All six runtime JARs, configuration, source, original build record and notices byte-identical to reviewed sb.6",
+        "sb.6 release x86/x64 natural outcomes, saved-state agreement/reload, signed isolated installer and reset evidence retained at original scope",
+        "New package passed metadata-only member comparison and archive/descriptor verification; no fresh gameplay or public CDN delivery claimed"
+      ],
+      "limitations": [
+        "Requires x64 Java 21 and client integration from SB #1831, #1838 and #1841; #1837 training cancellation is already merged",
+        "Assigned Protoss/Terran/Zerg local 1v1 only; Random, teams/FFA, unusual maps, human difficulty and public competition remain unverified",
+        "New immutable sb.7 artifact must be uploaded and included in a new signed staging revision before production promotion"
+      ]
     }
   ],
   "withheld": [
@@ -180,7 +210,7 @@
         "purplewave-sb-3",
         "purplewave-sb-4"
       ],
-      "reason": "sb.1-sb.3 lack the native libffi notice corrected in sb.4. The sb.4 package exposes all three races while its carried-forward dedicated game evidence is Protoss-only. The separately reviewed sb.6 package and approval proposal remain in PR #2; do not broaden or backport their evidence to these bytes.",
+      "reason": "sb.1-sb.3 lack the libffi notice corrected in sb.4; sb.4 has incomplete dedicated race coverage. The original sb.6 artifact and current catalog fragment have an attribution mismatch. A metadata-only sb.7 successor preserves reviewed sb.6 runtime bytes and is approved separately.",
       "followUp": "https://github.com/ShieldBattery/robotics-facility/pull/2"
     },
     {
@@ -204,7 +234,7 @@
     "Assigned races and ordinary local 1v1 practice only; no new Random, teams, FFA, unusual-map, human-rating or public-competition approval. Existing metadata is retained unchanged.",
     "No OS sandbox, exhaustive syscall trace, all-command correctness or all-map certification is claimed.",
     "Use a client with verified supervised release practice and existing native-command, Zerg morph/completion, frame-zero and mineral-normalization fixes; historical test DLLs are not a general runtime approval.",
-    "Package descriptors, archive digests, source pins, configuration, format support and runtime operands stay unchanged. Only releaseStatus is added outside the package.",
+    "Existing catalog entries and packages remain unchanged. PurpleWave sb.7 is a new immutable metadata-only successor with original sb.6 preserved; runtime/source/configuration/notices are unchanged.",
     "A new signed staging revision must carry these approval fields before production promotion. Existing signed staging revision 12 does not gain approval from this source change. No signing, upload, publication or workflow dispatch is authorized or performed."
   ],
   "stagingReadback": {
@@ -225,6 +255,6 @@
     ],
     "bytesUnchanged": true,
     "descriptorsUnchanged": true,
-    "scope": "Local preparation of proposed approval metadata over the verified staging package set, with .invalid destination; no signing, upload or workflow dispatch; existing signed receipt has no approval flags, so final rollout needs a new signed staging revision"
+    "scope": "Historical six-release dry run; see purplewave-sb-7-validation.json for the seven-release follow-up."
   }
 }

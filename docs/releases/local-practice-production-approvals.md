@@ -2,7 +2,8 @@
 
 This proposal reviews the seven existing catalog bots and BananaBrain against
 release-specific source, artifact, gameplay, installer, and state evidence. It adds
-production availability for six exact existing releases. It does not rebuild bots,
+production availability for six existing releases and the metadata-only PurpleWave
+sb.7 successor. It does not recompile bots,
 change their immutable package descriptors, or claim fresh gameplay evidence.
 The [machine-readable decisions](local-practice-production-approvals.json) pin the
 archive, manifest, and canonical package digests and record per-release limits.
@@ -23,14 +24,22 @@ this report is an evidence boundary, not a newly implemented runtime format lock
 | OpprimoBot | `opprimobot-sb-1` | Approve | Assigned Terran, ordinary local 1v1, fresh process each match. Natural defeats on both game architectures; caches/history stay disabled. |
 | Infested Artosis | `infested-artosis-sb-1` | Approve experimental 1v1 | Assigned Zerg with x64 Java 21 and corrected morph/completion bridge. Keep `one-v-one: experimental`; late progression and one unclassified rejection remain outside verified scope. |
 | Steamhammer | `steamhammer-sb-1` | Approve experimental 1v1 | Assigned Terran/Protoss/Zerg, ordinary local 1v1 with required frame-zero/mineral/refinery fixes. Keep experimental 1v1 and incompatible FFA. Final-build Terran x86 evidence is a concurrent smoke; its 1v1 combat evidence uses x64. |
+| PurpleWave | `purplewave-sb-7` | Approve | Assigned Protoss/Terran/Zerg local 1v1. Metadata-only successor to reviewed sb.6; Java 21 x64 and required client fixes. Runtime bytes and evidence scope unchanged. |
 | PurpleWave | Existing `purplewave-sb-1` through `sb-4` | Withhold | Earlier packages lack the libffi notice corrected in sb.4. sb.4 exposes three races while dedicated game evidence carried forward is Protoss-only. New sb.6 evidence does not approve these older bytes. |
 | BananaBrain | Review `bananabrain-sb-3` in PR #3 | Withhold | Source/local-distribution approval remains pending. The tested artifact belongs to an earlier recipe; current patch/package metadata requires a fresh guarded package and artifact evidence. |
+
+See [PurpleWave sb.7](purplewave-sb-7.md) for the exact parent/archive delta and
+new immutable artifact.
 
 Pluto remains development-only. No Pluto package, candidate, or approval is imported
 by this change. Missing status remains a candidate; no other historical release is
 implicitly approved.
 
-## Evidence supporting the six approvals
+## Evidence supporting the seven approvals
+
+- **PurpleWave sb.7:** [metadata-successor review](purplewave-sb-7.md) pins the exact
+  parent, changed fields, unchanged runtime JARs, inherited evidence limits, client
+  dependencies, and remaining delivery steps.
 
 - **ZZZKBot:** [release review](zzzkbot-sb-1.md) records pinned source/notice review,
   source-only rebuild, unsafe-name tests, a natural synchronized x64 win, history
@@ -73,14 +82,17 @@ These are artifact-specific reassessments of existing evidence. Limited command
 rejections, missing exhaustive tracing, uncalibrated strength, and untested formats
 are retained as limitations rather than relabelled as completed tests.
 
-## PurpleWave and BananaBrain follow-up
+## PurpleWave successor and BananaBrain follow-up
 
-[PurpleWave sb.4](purplewave-sb-4.md) fixes native libffi notice delivery, but does
+[PurpleWave sb.4](purplewave-sb-4.md) fixes native libffi notice delivery but does
 not supply dedicated Terran/Zerg gameplay for its all-race profile. sb.1-sb.3 do not
-inherit that notice correction. [PR #2](https://github.com/ShieldBattery/robotics-facility/pull/2)
-contains the separate exact sb.6 package and scoped approval proposal. Its reviewed
-source/binaries and new release tests must not be backfilled into sb.1-sb.4.
-Bring sb.6 into the catalog through that reviewed change and its publication flow.
+inherit that notice correction. The separately reviewed sb.6 runtime from
+[PR #2](https://github.com/ShieldBattery/robotics-facility/pull/2) is now included here
+as metadata-only [sb.7](purplewave-sb-7.md). Its original current-head fragment and
+ZIP had a descriptor mismatch after project-attribution correction; the successor
+resolves it with a new immutable identity and unchanged runtime/source/notices.
+New runtime evidence is not backfilled into sb.1-sb.4, and the original sb.6 ZIP
+remains intact. sb.7 needs its own prerelease upload and signed staging delivery.
 
 [BananaBrain PR #3](https://github.com/ShieldBattery/robotics-facility/pull/3), reviewed
 at `09a3008da5e07e3f1b2e8a0e879f7a1387828615`, records an x64 Protoss natural win and
@@ -107,11 +119,10 @@ collected-resource totals, and [SB #1841](https://github.com/ShieldBattery/Shiel
 supplies building flight/Spider Mine translations where used. Ship the reviewed
 client integration; these metadata approvals do not implement missing commands.
 
-Only the external `releaseStatus` field changes in `catalog/catalog.json`.
-Archive URLs/digests/sizes, package descriptors, source pins, runtime operands,
-licenses, configuration, races, and format support remain unchanged. No bot build,
-new match, archive repack, signing, upload, workflow dispatch, or production
-promotion is part of this change.
+For the original catalog entries, only six external `releaseStatus` fields change.
+The new sb.7 entry adds a metadata-only archive with unchanged runtime/source/configuration
+and notices. Historical entries and archives stay intact. No bot compilation, new
+match, signing, upload, workflow dispatch, or production promotion is part of this change.
 
 The existing signed staging revision does not gain these flags retroactively.
 After review/merge, maintainers publish a **new signed staging revision** carrying
@@ -128,8 +139,9 @@ including its size, SHA-256, descriptor digest/content, paths, entry sizes, CRCs
 required files. Their descriptors match the signed staging catalog and the source
 catalog. The machine-readable record pins the verified signed envelope digest.
 
-Local production preparation applied the proposed approval fields to the verified
-staging package set, selected exactly those six releases, and retained identical
-archive and descriptor bytes. Its destination was `.invalid`; nothing was signed
+The initial six-release preparation retained exact staging archive and descriptor
+bytes. The follow-up seven-release preparation includes the new locally verified
+sb.7 archive. Its fresh public delivery is pending; sb.7 is not represented as an
+already published staging artifact. Its destination was `.invalid`; nothing was signed
 or uploaded. This dry run does not establish a newly signed staging receipt or
 a production deployment. A new real staging revision remains required.

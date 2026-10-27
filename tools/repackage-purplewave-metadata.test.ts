@@ -40,3 +40,15 @@ await test('PurpleWave metadata successor refuses another identity, release, ver
   ])
     assert.throws(() => successorPackage(input))
 })
+
+await test('PurpleWave repack refuses a parent archive with changed bytes before assembly', async t => {
+  const { mkdtemp, writeFile, rm } = await import('node:fs/promises')
+  const { tmpdir } = await import('node:os')
+  const { join } = await import('node:path')
+  const { repackagePurpleWaveMetadata } = await import('./repackage-purplewave-metadata.ts')
+  const directory = await mkdtemp(join(tmpdir(), 'purplewave-parent-'))
+  t.after(() => rm(directory, { recursive: true, force: true }))
+  const file = join(directory, 'changed.zip')
+  await writeFile(file, 'invalid parent')
+  await assert.rejects(repackagePurpleWaveMetadata(file), /Parent archive size changed/)
+})
