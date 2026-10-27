@@ -37,8 +37,8 @@
     "formats": [
       {
         "id": "one-v-one",
-        "support": "verified",
-        "notes": "Exact sb.6 archive verified on x86/x64 release DLLs: natural assigned-race 1v1 results, factory progression with actual lifted Barracks/Spider Mines, signed local installation and reset. Requires the linked ShieldBattery fixes. docs/releases/purplewave-sb-6-production.md"
+        "support": "experimental",
+        "notes": "Experimental local play with assigned Protoss, Terran or Zerg. Reviewed gameplay used a compatible ShieldBattery client; broader map, command and rollout coverage remains unverified. See docs/releases/purplewave-sb-6-admission.md."
       },
       {
         "id": "teams",
@@ -84,13 +84,13 @@
       "x86",
       "x86_64"
     ],
-    "evidence": "docs/releases/purplewave-sb-6-production.md",
+    "evidence": "docs/releases/purplewave-sb-6-admission.md",
     "limitations": [
-      "Requires ShieldBattery gathered-resource (#1831), training cancellation (#1837), production approval/runtime (#1838), and building-flight/Spider Mines (#1841) changes.",
-      "Production-approved status is proposed for exact sb.6 archive 60f80501b9d898b0b392df624e35d15df4bcb3749338e77b8e78820405e980b4. Publish only after schema/publisher #4 and required client fixes are integrated and exact staging bytes verified.",
-      "Verified scope is assigned Protoss, Terran or Zerg 1v1; Random, teams, FFA, unusual maps and exhaustive late-game command coverage remain unverified.",
-      "Signed isolated HTTPS installer, tamper rejection, immutable package, reset and real release-DLL gameplay passed on x86/x64. Public staging/CDN delivery and production signing-key configuration remain publication checks.",
-      "Scoped source/runtime tracing is not an OS sandbox. Human difficulty and public competition remain unreviewed."
+      "Experimental local 1v1 with assigned Protoss, Terran or Zerg only. Random, teams, FFA, unusual maps and exhaustive late-game command coverage remain unverified.",
+      "Requires reviewed gathered-resource reporting, training cancellation, building-flight/Spider Mines commands and supervised release practice in the ShieldBattery client.",
+      "Historical release-DLL gameplay and saved-state checks apply to their recorded client/runtime combination. Production approval is deferred until client rollout and signed staging delivery are verified.",
+      "A minimumBridgeVersion string alone is not an enforced client-version requirement. Source/distribution admission does not grant production publication approval.",
+      "Scoped source/runtime review is not an OS sandbox. Human difficulty and public competition remain unreviewed."
     ]
   },
   "build": {
@@ -101,6 +101,6 @@
   },
   "sourceReview": {
     "status": "approved",
-    "evidence": "Exact sb.6 source/JAR delta and packaged-source offline rebuild reviewed; unchanged dependencies retain scoped source/native review. docs/releases/purplewave-sb-6-admission.md"
+    "evidence": "Pinned source/runtime effects and corresponding-source delivery reviewed for scoped experimental local play. Archive-specific checks and historical runtime evidence are recorded in docs/releases/purplewave-sb-6-admission.md."
   }
 }
