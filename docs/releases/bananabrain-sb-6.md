@@ -126,3 +126,11 @@ profile-seeding check, not signed-catalog installation or new gameplay evidence.
 No recorded author confirmation establishes AIIDE 2025 as the recommended build
 for human practice. Author recommendation and initial production-roster priority
 remain open; this experimental integration does not settle either.
+
+## Later installed-runtime validation
+
+[Local verification on 2026-10-28](bananabrain-sb-6-runtime-validation-20261028.md)
+adds two natural passive-control wins, one separately classified human concession,
+real saved-history reload, signed development-catalog installation and actual
+active/idle/offline reset. The exact ZIP remains unchanged. One command rejection
+remains unclassified; source hosting and admission/production decisions remain open.
