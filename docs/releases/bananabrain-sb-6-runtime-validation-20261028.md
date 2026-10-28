@@ -69,6 +69,10 @@ snapshot; no unsupported/malformed encoder message identifies its branch-level
 cause. The report retains the count rather than claiming zero rejections or
 complete command conformance. Runs 2 and 3 had zero recorded rejections.
 
+Follow-up: [local command-rejection investigation](bananabrain-sb-6-rejection-investigation-20261028.md)
+reproduced expired actor/target IDs with debug diagnostics on both game architectures.
+The original packet remains unrecoverable; its historical classification above is unchanged.
+
 ## Actual reset and offline behavior
 
 `botLibraryResetLearning` rejected reset while each game held its bot lease.
